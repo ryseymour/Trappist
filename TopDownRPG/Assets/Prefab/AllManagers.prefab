@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3141671865496648534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3141671865496648532}
+  - component: {fileID: 3141671865496648533}
+  - component: {fileID: 3141671865496648531}
+  - component: {fileID: 3141671865496648530}
+  - component: {fileID: 3141671865496648529}
+  - component: {fileID: 3141671865496648528}
+  - component: {fileID: 3141671865496648527}
+  - component: {fileID: 3141671865496648524}
+  m_Layer: 0
+  m_Name: AllManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3141671865496648532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2135876, y: 0.88439703, z: -157.41052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3141671865496648533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f12632bde7a604988929d4011519fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcDB:
+  - name: Tom
+    villagerID: 1
+    icon: {fileID: 0}
+    spriteInWorld: {fileID: 0}
+    wanderUpDown: 0
+    wanderLeftRight: 0
+    wanderAll: 0
+    speaker: 0
+    sentences:
+    - You say Hello!
+    - I Say
+    - Goodbye.
+    sentences_two: []
+    sentences_three: []
+  - name: Tim
+    villagerID: 0
+    icon: {fileID: 0}
+    spriteInWorld: {fileID: 0}
+    wanderUpDown: 1
+    wanderLeftRight: 0
+    wanderAll: 0
+    speaker: 0
+    sentences: []
+    sentences_two: []
+    sentences_three: []
+  - name: Twaila
+    villagerID: 0
+    icon: {fileID: 0}
+    spriteInWorld: {fileID: 0}
+    wanderUpDown: 0
+    wanderLeftRight: 0
+    wanderAll: 1
+    speaker: 0
+    sentences: []
+    sentences_two: []
+    sentences_three: []
+  - name: Tilly
+    villagerID: 0
+    icon: {fileID: 0}
+    spriteInWorld: {fileID: 0}
+    wanderUpDown: 0
+    wanderLeftRight: 1
+    wanderAll: 0
+    speaker: 0
+    sentences: []
+    sentences_two: []
+    sentences_three: []
+  npcs:
+  - {fileID: 0}
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  animator: {fileID: 0}
+  spker: {fileID: 0}
+--- !u!114 &3141671865496648531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e6766021fe7004a8613528adf49dbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!114 &3141671865496648530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cb6526bf28e03488feb4b642fdfebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  dialogueBox: {fileID: 0}
+  inDialogue: 0
+  dialogueName: {fileID: 0}
+  dialogueText: {fileID: 0}
+  dialoguePortrait: {fileID: 0}
+--- !u!114 &3141671865496648529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14dbfb390c4aaba418f03e7d03348810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: []
+  inventoryUI: {fileID: 0}
+  firstButton: {fileID: 0}
+  itemNameTooltip: {fileID: 0}
+  itemDescriptionTooltip: {fileID: 0}
+  itemPopUp: {fileID: 3141671865496648527}
+  inInventory: 0
+--- !u!114 &3141671865496648528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee00599ebe9ee5a4996424a4fa1471dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3141671865496648527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83c65a4bb4619544baf05f2913809cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  itemDesc: {fileID: 0}
+  itemName: {fileID: 0}
+  myAnim: {fileID: 0}
+--- !u!114 &3141671865496648524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28666da1937a92343aab233cdb1ffabd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Party:
+  - {fileID: 11400000, guid: 66c1f42b1ae126f47afe41a547c00e8b, type: 2}
+  - {fileID: 11400000, guid: 847f479f6f4e4284da246accc21f9464, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
