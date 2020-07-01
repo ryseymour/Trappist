@@ -13,13 +13,14 @@ public class Interactable : MonoBehaviour
     {
         if (Vector2.Distance(gameObject.transform.position, GameManager.instance.player.position) < interactRange)
         {
-            Debug.Log("true");
-            if (Input.GetKeyDown(KeyCode.Space))
+            Debug.Log("proximity");
+            if (Input.GetKeyDown(KeyCode.M))
             {
-
-
-                Interact();
-
+                
+                    Interact();
+             
+               
+              
 
             }
         }

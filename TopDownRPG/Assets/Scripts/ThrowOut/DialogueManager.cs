@@ -22,6 +22,8 @@ public class DialogueManager : MonoBehaviour
         {
             instance = this;
         }
+
+        //dialogueBox.SetActive(false);
     }
 
     public TextMeshProUGUI dialogueName;
@@ -33,6 +35,8 @@ public class DialogueManager : MonoBehaviour
     public void EnqueueDialogue(DialogueBase db)
     {
         if (inDialogue) return;
+
+        dialogueBox.SetActive(true);
         buffer = true;
         inDialogue = true;
         dialogueInfo.Clear();
@@ -51,9 +55,10 @@ public class DialogueManager : MonoBehaviour
 
     public void DequeueDialogue()
     {
-        
+        Debug.Log(dialogueInfo.Count);
         if (dialogueInfo.Count == 0)
         {
+            Debug.Log("close dialogue");
             EndDialogue();
            // sentencePacer = false;
             return;
@@ -89,14 +94,19 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        dialogueBox.SetActive(false);
+        inDialogue = false;
+        Debug.Log("end dialogue");
         animator.SetBool("IsOpen", false);
         inDialogue = false;
+        //return;
         //dialogueBox.SetActive(false);
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        Debug.Log(inDialogue);
+        if(Input.GetKeyDown(KeyCode.M))
         {
             if(inDialogue)
             {

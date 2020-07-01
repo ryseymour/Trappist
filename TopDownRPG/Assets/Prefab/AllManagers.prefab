@@ -16,6 +16,12 @@ GameObject:
   - component: {fileID: 3141671865496648528}
   - component: {fileID: 3141671865496648527}
   - component: {fileID: 3141671865496648524}
+  - component: {fileID: 327821206}
+  - component: {fileID: 327821207}
+  - component: {fileID: 327821208}
+  - component: {fileID: 327821209}
+  - component: {fileID: 327821210}
+  - component: {fileID: 327821211}
   m_Layer: 0
   m_Name: AllManagers
   m_TagString: Untagged
@@ -30,7 +36,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3141671865496648534}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2135876, y: 0.88439703, z: -157.41052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -198,3 +204,97 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 847f479f6f4e4284da246accc21f9464, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &327821206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 040fb937ac00fff42a22154c106dbb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &327821207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b016d9743a1544889f6ea15b9a7870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &327821208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af9d7e3c855ddf4c9479309d63d3b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilitySelected: 0
+  abilityLibrary: []
+--- !u!114 &327821209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe54f4a7ac6ea5742918f9a03d26924d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  en_battlers: []
+  en_battlersDelivery: 0
+  bttlemng: {fileID: 0}
+--- !u!114 &327821210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead542c74cee83f49b3ff2798c4a6671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Btman: {fileID: 0}
+  battlers: []
+  battlerDelivery: 0
+--- !u!114 &327821211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141671865496648534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e5a0bb27f47fc4ba5ab176bbd4481b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleUI: {fileID: 0}
+  firstButton: {fileID: 0}
+  AbilitiesButtons: []
+  myturnState: 0
+  turnChange: 0
+  newTurn: 0
+  turnRecord: 0
+  battlers: []
+  battlerTransforms: []
+  enemybattlers: []
+  enemyTransforms: []
+  everybodysSpeed: []
+  participantTracker: 0
+  participantTrackerTemp: 0

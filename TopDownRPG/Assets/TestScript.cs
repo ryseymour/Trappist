@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
+using UnityEngine.SceneManagement;
 
 public class TestScript : MonoBehaviour
 {
     public DialogueBase dialogue;
     public Item item;
+    public int scene;
+    bool loaded;
+    
 
     public void TriggerDialogue()
     {
@@ -28,6 +32,17 @@ public class TestScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             InventoryManager.instance.RemoveItem(item);
+        }
+
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            if(!loaded)
+            {
+                SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+               
+
+                loaded = true;
+            }
         }
     }
 

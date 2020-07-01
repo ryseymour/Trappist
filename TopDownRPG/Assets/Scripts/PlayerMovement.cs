@@ -12,10 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public bool hztOn;
     public float moveLimiter = .7f;
 
-    public bool CheckFreeze()
+    /*public bool CheckFreeze()
     {
         bool isFrozen;
-        if(DialogueManager.instance.inDialogue)
+        if(DialogueManager_R.instance.inDialogue)
         {
             isFrozen = true;
         }
@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
             isFrozen = false;
         }
         return isFrozen;
-    }
+    }*/
     void Update()
     {
-        if (CheckFreeze()) return;
+        //if (CheckFreeze()) return;
         movement.x = Input.GetAxisRaw("Horizontal");
             
         movement.y = Input.GetAxisRaw("Vertical");

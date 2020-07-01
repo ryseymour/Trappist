@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class AllManager : MonoBehaviour
 {
     public static AllManager allManager;
+    public static bool initalStageBool;
     bool gameStart;
 
     // Start is called before the first frame update
@@ -15,13 +16,14 @@ public class AllManager : MonoBehaviour
         {
             allManager = this;
             SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+            initalStageBool = true;
             gameStart = true;
 
         }
     }
 
     // Update is called once per frame
-    void UnloadScene(int scene)
+    public void UnloadScene(int scene)
     {
         StartCoroutine(Unload(scene));
     }
@@ -29,6 +31,11 @@ public class AllManager : MonoBehaviour
     IEnumerator Unload (int scene)
     {
         yield return null;
-        SceneManager.UnloadScene(scene);
+        SceneManager.UnloadSceneAsync(scene);
+    }
+
+    public void UnloadScenes()
+    {
+
     }
 }

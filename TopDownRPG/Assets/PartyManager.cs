@@ -15,4 +15,10 @@ public class PartyManager : MonoBehaviour
         }
     }
     
+    public void PartyAdder(Battler adder)
+    {
+        Party.Add(adder);
+    }
+
+
 }

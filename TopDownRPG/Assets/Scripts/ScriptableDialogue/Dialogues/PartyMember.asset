@@ -19,3 +19,6 @@ MonoBehaviour:
   - myName: Party Member 2
     portrait: {fileID: 0}
     myText: How about I join you?
+  - myName: Party Member 2
+    portrait: {fileID: 0}
+    myText: Sidekick Added to the team.

@@ -32,8 +32,8 @@ public class NPCManger : MonoBehaviour
             //when activated the npcs will run a function in the game manager passing in the 
             //npcs name...hopefully.
 
-            DialogueTrigger Dt =  n.spriteInWorld.GetComponent<DialogueTrigger>();
-            Dt.dName = n.name;
+            //DialogueTrigger Dt =  n.spriteInWorld.GetComponent<DialogueTrigger>();
+            //Dt.dName = n.name;
 
             if(n.wanderUpDown == true)
             {
@@ -136,8 +136,8 @@ public class NPCManger : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         //n.spriteInWorld.GetComponent<Move_updown>().enabled = true;
-        DialogueTrigger spk = spker.GetComponent<DialogueTrigger>();
-        spk.inital = false;
+       // DialogueTrigger spk = spker.GetComponent<DialogueTrigger>();
+      //  spk.inital = false;
             //spker.GetComponent<DialogueTrigger>();
 
     }
@@ -146,6 +146,7 @@ public class NPCManger : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && sentencePacer == true )
             {
+            Debug.Log("NPCManagerUpdate");
             DisplayNextSentence();
         }
     }
