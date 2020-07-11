@@ -9,6 +9,8 @@ public class AllManager : MonoBehaviour
     public static bool initalStageBool;
     bool gameStart;
 
+    public static bool sceneUnloaded;//This is used in the battlemanager to finsih the unload process before importing characters.
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,10 +34,8 @@ public class AllManager : MonoBehaviour
     {
         yield return null;
         SceneManager.UnloadSceneAsync(scene);
+        //sceneUnloaded = true;
     }
 
-    public void UnloadScenes()
-    {
-
-    }
+    
 }

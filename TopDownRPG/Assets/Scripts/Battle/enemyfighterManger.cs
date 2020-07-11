@@ -27,7 +27,7 @@ public class enemyfighterManger : MonoBehaviour
             if (en_battlersDelivery == false)
             {
                 bttlemng.enemybattlers = en_battlers;
-                BattleManager.instance.SetupBattle();
+                //BattleManager.instance.SetupBattle();
                 //bttlemng.EnemyEnter();
                 en_battlersDelivery = true;
             }

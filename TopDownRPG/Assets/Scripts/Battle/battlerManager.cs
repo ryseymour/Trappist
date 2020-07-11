@@ -7,6 +7,7 @@ public class battlerManager : MonoBehaviour
     public static battlerManager instance;
 
     public BattleManager Btman;
+    public PartyManager Pman;
 
     public List<Battler> battlers;
 
@@ -21,12 +22,14 @@ public class battlerManager : MonoBehaviour
          {
            instance = this;
           }
-       
-        ActiveBattler();
+        Btman = GetComponent<BattleManager>();
+
+        //ActiveBattler();
     }
 
     public void ActiveBattler ()
     {
+        Debug.Log("ActiveBattler()");
         //code to determine next battler
         Battler tempbat = battlers[0];
         //BattleM_UI_Update(tempbat);
@@ -36,11 +39,11 @@ public class battlerManager : MonoBehaviour
     public void BattleM_UI_Update(Battler tempbat)
     {
         //update this!!!
-        
+        Debug.Log("BattleM_UI_UPdate()");
         //Ability tempabil = tempbat.myAbilities[];
-       // Debug.Log(tempabil);
+        // Debug.Log(tempabil);
 
-       Btman.AbilitiesUpdate(tempbat);
+        Btman.AbilitiesUpdate(tempbat);
         //
         //BattleManager.instance.AbilitiesUpdate();
         //BattleManager.instance.AbilitiesUpdate(tempbat.myAbilities[0]);
@@ -48,11 +51,14 @@ public class battlerManager : MonoBehaviour
 
     public void LateUpdate()
     {
-        if (BattleManager.instance.myturnState == BattleManager.turnSystem.battleStart) 
+        if (Btman.myturnState == BattleManager.turnSystem.battleStart) 
         {
             if (battlerDelivery == false)
             {
-                BattleManager.instance.battlers = battlers;
+                battlers = Pman.Party;
+                Btman.battlers = battlers;
+                BattleManager.instance.SetupBattle();
+                // BattleManager.instance.battlers = battlers;
                 //if there is a character uploading problem it will probably be with this line. 
                 //BattleManager.instance.SetupBattle();
                 battlerDelivery = true;

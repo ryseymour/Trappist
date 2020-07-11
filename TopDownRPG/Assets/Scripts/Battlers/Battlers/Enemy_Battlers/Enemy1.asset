@@ -19,8 +19,8 @@ MonoBehaviour:
   myHealth: 5
   mycurrentHealth: 5
   myHealthBar: {fileID: 0}
-  Enemy: 1
-  hasAttacked: 0
+  Enemy: 0
+  hasAttacked: 1
   myBattletranform: {fileID: 0}
   myPhyattacks: []
   myAbilities: []

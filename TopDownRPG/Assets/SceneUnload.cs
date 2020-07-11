@@ -25,8 +25,20 @@ public class SceneUnload : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             AllManager.initalStageBool = false;
+            SceneManger.instance.scenceChecker = false;
         }
-       // sceneArray = new int[sceneNumber];
+        // sceneArray = new int[sceneNumber];
+        if (currentScene == 1)//will need to make this more dynamic
+        {
+            SceneManger.instance.scenceChecker = false;
+            SceneManger.worldScene = true;
+        }
+        else
+        {
+            SceneManger.instance.scenceChecker = false;
+            SceneManger.worldScene = false;
+        }
+        //AllManager.sceneUnloaded = true;
     }
 
 

@@ -79,7 +79,7 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < battlers.Count; i++)
         {
-            
+            Debug.Log("battlers added");
             var spryChange = battlerTransforms[i].GetChild(0);
             var spryChange_two = spryChange.GetComponent<SpriteRenderer>();
             spryChange_two.sprite = battlers[i].mySprite;
@@ -90,6 +90,7 @@ public class BattleManager : MonoBehaviour
         }
         for (int i = 0; i < enemybattlers.Count; i++)
         {
+            
             Debug.Log("enemy zoom");
             var spryChangeM = enemyTransforms[i].GetChild(0);
             var spryChange_twoM = spryChangeM.GetComponent<SpriteRenderer>();
@@ -97,6 +98,7 @@ public class BattleManager : MonoBehaviour
             enemybattlers[i].myBattletranform = enemyTransforms[i];
             everybodysSpeed.Add(enemybattlers[i]);
             //var speeders = everybodysSpeed[i].Speed;
+           
             
         }
         //turnChange = true;
@@ -175,7 +177,7 @@ public class BattleManager : MonoBehaviour
                     
 
                     if (everybodysSpeed[i].hasAttacked == false)
-                    {
+                    {   
                         if (everybodysSpeed[i].Enemy == false)
                         {
                             //everybodysSpeed[i].Speed = -10000;
@@ -222,6 +224,7 @@ public class BattleManager : MonoBehaviour
 
     public void HeroTurn(Battler Hm)
     {
+        firstButton.Select();
         myturnState = turnSystem.heroTurn;
         SpriteRenderer arw = Hm.myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         arw.enabled = true;
@@ -305,7 +308,7 @@ public class BattleManager : MonoBehaviour
     public void AbilitiesUpdate(Battler bt)
     {//
        
-        Debug.Log(bt);
+        Debug.Log("abilities" + bt);
 
          List<Ability> tempabil = bt.myAbilities;
         
