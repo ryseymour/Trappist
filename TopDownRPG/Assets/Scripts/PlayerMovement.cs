@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool hztOn;
     public float moveLimiter = .7f;
 
-    /*public bool CheckFreeze()
+    public bool CheckFreeze()
     {
         bool isFrozen;
         if(DialogueManager_R.instance.inDialogue)
@@ -23,19 +23,19 @@ public class PlayerMovement : MonoBehaviour
         {
             isFrozen = true;
         }
-        //else if(InventoryManager.instance.itemPopUp.InPopUP)
-       //{
-           // isFrozen = true;
-       // }
+        else if(InventoryManager.instance.itemPopUp.InPopUP)
+       {
+            isFrozen = true;
+        }
         else
         {
             isFrozen = false;
         }
         return isFrozen;
-    }*/
+    }
     void Update()
     {
-        //if (CheckFreeze()) return;
+        if (CheckFreeze()) return;
         movement.x = Input.GetAxisRaw("Horizontal");
             
         movement.y = Input.GetAxisRaw("Vertical");

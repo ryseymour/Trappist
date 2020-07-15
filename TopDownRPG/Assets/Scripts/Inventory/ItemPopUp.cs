@@ -30,7 +30,7 @@ public class ItemPopUp : MonoBehaviour
     private void Update()
     {
         if (buffer == false) {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.M))
             {
                 if (itemIcon.gameObject.activeSelf == true)
                 {

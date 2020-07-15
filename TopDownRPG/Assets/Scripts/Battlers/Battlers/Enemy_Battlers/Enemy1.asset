@@ -17,10 +17,10 @@ MonoBehaviour:
   mySprite: {fileID: 21300000, guid: 9645d33c8567a304f8e3817bf9fe039b, type: 3}
   Speed: 1
   myHealth: 5
-  mycurrentHealth: 5
+  mycurrentHealth: -5
   myHealthBar: {fileID: 0}
-  Enemy: 0
-  hasAttacked: 1
+  Enemy: 1
+  hasAttacked: 0
   myBattletranform: {fileID: 0}
   myPhyattacks: []
   myAbilities: []

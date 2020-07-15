@@ -14,7 +14,7 @@ public class TestScript : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        DialogueManager.instance.EnqueueDialogue(dialogue);
+        //DialogueManager.instance.EnqueueDialogue(dialogue);
     }
 
     private void Update()

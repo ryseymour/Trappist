@@ -67,6 +67,11 @@ public class battlerManager : MonoBehaviour
                 return;
             }
         }
+
+        if (Btman.myturnState == BattleManager.turnSystem.battleEnd)
+        {
+            battlerDelivery = false;
+        }
     }
 
 }

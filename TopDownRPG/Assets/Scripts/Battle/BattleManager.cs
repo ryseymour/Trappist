@@ -22,6 +22,7 @@ public class BattleManager : MonoBehaviour
     //Reference to UI
     public GameObject BattleUI;
     public Button firstButton;
+   // public Button inventoryButton;
 
     public Button[] AbilitiesButtons;
 
@@ -47,6 +48,9 @@ public class BattleManager : MonoBehaviour
     public List<Battler> everybodysSpeed = new List<Battler>();
    public int participantTracker;
     public int participantTrackerTemp;
+
+    public Sprite Transparent;//this is to add into transforms after scene ends
+    public GameObject EscapeBtn;//We need to reset the bool check in order to leave each battle
 
     private Move abilityChoosen;
 
@@ -85,6 +89,7 @@ public class BattleManager : MonoBehaviour
             spryChange_two.sprite = battlers[i].mySprite;
             //assigning the transform to the battler so they can have an arrow turn on overhead
             battlers[i].myBattletranform = battlerTransforms[i];
+            battlers[i].hasAttacked = false;
             everybodysSpeed.Add(battlers[i]);
             
         }
@@ -96,6 +101,7 @@ public class BattleManager : MonoBehaviour
             var spryChange_twoM = spryChangeM.GetComponent<SpriteRenderer>();
             spryChange_twoM.sprite = enemybattlers[i].mySprite;
             enemybattlers[i].myBattletranform = enemyTransforms[i];
+            enemybattlers[i].hasAttacked = false;
             everybodysSpeed.Add(enemybattlers[i]);
             //var speeders = everybodysSpeed[i].Speed;
            
@@ -346,5 +352,47 @@ public class BattleManager : MonoBehaviour
 
 
         
+    }
+
+    public void BattleEnd()
+    {
+        for (int i = 0; i < everybodysSpeed.Count; i++)
+        {
+            SpriteRenderer arw = everybodysSpeed[i].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+            arw.enabled = false;
+
+
+            SpriteRenderer spryte = everybodysSpeed[i].myBattletranform.GetChild(0).GetComponent<SpriteRenderer>();
+            spryte.sprite = Transparent;
+            
+
+            //participantTracker -= participantTracker;
+        }
+
+        myturnState = turnSystem.battleEnd;
+        Debug.Log("Battle End");
+//var deliveryReset = GetComponent<battlerManager>().battlerDelivery;
+        //deliveryReset = false;
+       // Debug.Log("delivery reset"+ deliveryReset);
+        newTurn = false;
+        turnRecord = 1;
+        
+       // battlers.Clear();
+       // enemybattlers.Clear();
+        everybodysSpeed.Clear();
+        participantTracker = 0;
+        participantTrackerTemp = 0;
+       
+
+
+    }
+
+    public void BattleReset()
+    {
+        //called by scene manager
+        myturnState = turnSystem.battleStart;
+        var reEscape = EscapeBtn.GetComponent<EscapeBattle>();
+        reEscape.loaded = false;
+
     }
 }

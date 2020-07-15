@@ -36,6 +36,11 @@ public class enemyfighterManger : MonoBehaviour
                 return;
             }
         }
+
+        if(bttlemng.myturnState == BattleManager.turnSystem.battleEnd)
+        {
+            en_battlersDelivery = false;
+        }
     }
 
 }

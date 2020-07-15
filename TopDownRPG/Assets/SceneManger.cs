@@ -26,9 +26,10 @@ public class SceneManger : MonoBehaviour
 
     public void WorldScene()
     {
+        BattleManager.instance.BattleReset();
         this.gameObject.GetComponent<battlerManager>().enabled = false;
         this.gameObject.GetComponent<enemyfighterManger>().enabled = false;
-        this.gameObject.GetComponent<BattleManager>().enabled = false;
+       // this.gameObject.GetComponent<BattleManager>().enabled = false;
         this.gameObject.GetComponent<DialogueManager_R>().enabled = true;
         Camera.gameObject.GetComponent<CameraController>().enabled = true;
         PlayerGO.SetActive(true);
@@ -39,9 +40,11 @@ public class SceneManger : MonoBehaviour
     public void BattleScene()
     {
         this.gameObject.GetComponent<BattleManager>().enabled = true;
+        
         this.gameObject.GetComponent<DialogueManager_R>().enabled = false;
         this.gameObject.GetComponent<enemyfighterManger>().enabled = true;
         this.gameObject.GetComponent<battlerManager>().enabled = true;
+        
         Camera.gameObject.GetComponent<CameraController>().enabled = false;
         //this.gameObject.GetComponent<BattleManager>().enabled = true;
         PlayerGO.SetActive(false);
