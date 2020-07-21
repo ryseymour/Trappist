@@ -20,7 +20,7 @@ MonoBehaviour:
   mycurrentHealth: 50
   myHealthBar: {fileID: 0}
   Enemy: 0
-  hasAttacked: 0
+  hasAttacked: 1
   myBattletranform: {fileID: 0}
   myPhyattacks:
   - {fileID: 11400000, guid: 9b403baa92ef7014293319437dc6d887, type: 2}
@@ -29,3 +29,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 861bc54419eeba34bafe6898b888ac78, type: 2}
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
+  consumables: []

@@ -20,5 +20,7 @@ public class Battler : ScriptableObject
 
     public List<Ability> myAbilities;
 
+    public List<Consumables> consumables;
+
     
 }
