@@ -292,7 +292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use
+  m_text: Equip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf636e8cb97337f4284f99754fd6f158, type: 2}
   m_sharedMaterial: {fileID: -8651175761134980918, guid: bf636e8cb97337f4284f99754fd6f158,
@@ -852,8 +852,12 @@ MonoBehaviour:
   icon: {fileID: 8134047297951392823}
   item: {fileID: 0}
   amount: {fileID: 4051434475755554786}
+  EquipOrStore: {fileID: 8955635579152291180}
   confirmButton: {fileID: 2762387477271415944}
   confirmationWindow: {fileID: 3825872786857846861}
+  HeroReciever: {fileID: 4740732439893392245, guid: f0ecfca0c84fd6e49a8aaa540f7ecf35,
+    type: 3}
+  glow: {fileID: 7660198434397277089}
 --- !u!114 &6845521574477879129
 MonoBehaviour:
   m_ObjectHideFlags: 0
