@@ -1270,6 +1270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &45845150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,6 +1476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &172989557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,7 +2256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 327821211, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
       propertyPath: AbilitiesButtons.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 327821211, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
       propertyPath: BattleUI
@@ -2299,6 +2303,10 @@ PrefabInstance:
       propertyPath: EscapeBtn
       value: 
       objectReference: {fileID: 1001552247}
+    - target: {fileID: 327821211, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
+      propertyPath: AbilitiesButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1237775554}
     m_RemovedComponents:
     - {fileID: 3141671865496648533, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
     - {fileID: 3141671865496648530, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
@@ -2997,6 +3005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &991137296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3170,6 +3180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &1001552251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,6 +3397,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1097148450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3398,6 +3421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &1097148451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3631,6 +3656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &1237775556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4771,6 +4798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &1884670788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5053,6 +5082,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &1957288217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5288,6 +5319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!114 &1970938723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6119,6 +6152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityButton: {fileID: 0}
+  myAbil: {fileID: 0}
+  TestInt: 0
 --- !u!1 &2139603445
 GameObject:
   m_ObjectHideFlags: 0

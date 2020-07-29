@@ -24,9 +24,6 @@ public class AbilityManager : MonoBehaviour
         switch (abilitySelected)
         {
                 //case 2:
-
-
-
                 case 1:
                 BattleManager.instance.AttackSelected(abilityLibrary[1]);
                 Debug.Log("Freeze");

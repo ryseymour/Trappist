@@ -40,4 +40,8 @@ public class Ability : Move
     {
         
     }
+
+    public void Pew(){
+        Debug.Log("pew pew");
+    }
 }

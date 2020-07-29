@@ -19,4 +19,8 @@ MonoBehaviour:
   CritD: 5
   Multiple: 0
   teamBuff: 0
+  itemEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  thisMove: {fileID: 0}
   staminaCost: 3

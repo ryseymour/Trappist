@@ -126,9 +126,7 @@ public class BattleManager : MonoBehaviour
             everybodysSpeed[i].mycurrentHealth = everybodysSpeed[i].myHealth;
             //make sure the transform is after a GetChild component canvas
             everybodysSpeed[i].myHealthBar = everybodysSpeed[i].myBattletranform.GetChild(1).transform.GetChild(0).GetComponent<HealthBar>() ;
-            everybodysSpeed[i].myHealthBar.SetMaxHealth(myHealth);
-            
-            
+            everybodysSpeed[i].myHealthBar.SetMaxHealth(myHealth);                      
 
 
             PreBattle();
@@ -172,23 +170,19 @@ public class BattleManager : MonoBehaviour
         Debug.Log("SpeedTracker");
         if (turnChange == true)
         {
-            
             //This code is incredible!!!! It sorts everyones speed value.
             everybodysSpeed = everybodysSpeed.OrderByDescending(e => e.Speed).ToList();
             Debug.Log(everybodysSpeed);
             for (int i = 0; i < everybodysSpeed.Count; i++)
             {
                 if (participantTracker >= 1)
-                {
-                    
-
+                {                 
                     if (everybodysSpeed[i].hasAttacked == false)
                     {   
                         if (everybodysSpeed[i].Enemy == false)
                         {
                             //everybodysSpeed[i].Speed = -10000;
                             everybodysSpeed[i].hasAttacked = true;
-
                             //TurnCycle();
                             Debug.Log("hero turn");
                             turnChange = false;
@@ -196,7 +190,6 @@ public class BattleManager : MonoBehaviour
                             HeroTurn(heroMove);
                             break;
                         }
-
                         if (everybodysSpeed[i].Enemy == true)
                         {
                             everybodysSpeed[i].hasAttacked = true;
@@ -207,9 +200,7 @@ public class BattleManager : MonoBehaviour
                             //TurnCycle();
                             break;
                         }
-
                     }
-
                 }
                 else
                 {
@@ -217,13 +208,9 @@ public class BattleManager : MonoBehaviour
                     TurnCycle();
                 }
             }
-            }
-
-        
-
+            }        
         else
-        {
-            
+        {            
             return;
         }
     }
@@ -322,8 +309,6 @@ public class BattleManager : MonoBehaviour
        // Debug.Log(temp);
         //List<> tempabil = bt.myAbilities.Count;
 
-        
-
         for (int i = 0; i < AbilitiesButtons.Length; i++)
         {
             var temp = AbilitiesButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -336,13 +321,22 @@ public class BattleManager : MonoBehaviour
             var temp2 = AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent;
             temp2 = abil.itemEvent;
 
+        //cole work 
+            // AbilitiesButtons[i].GetComponent<AbilityButtonSlot>().myAbil = tempabil[i];
+            // Debug.Log(AbilitiesButtons[i].GetComponent<AbilityButtonSlot>().myAbil);
+
+
+
+        //end cole work
+            
+
+
             //Event tester = abil.itemEvent;
             Debug.Log(tempabil[i].itemEvent);
             var eventRy = abil.itemEvent;
             Debug.Log(eventRy);
 
             AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent = abil.itemEvent;
-
 
             //AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent = tempabil[i].itemEvent;
 
