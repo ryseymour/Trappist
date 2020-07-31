@@ -857,6 +857,8 @@ MonoBehaviour:
   confirmationWindow: {fileID: 3825872786857846861}
   HeroReciever: {fileID: 4740732439893392245, guid: f0ecfca0c84fd6e49a8aaa540f7ecf35,
     type: 3}
+  HeroWeaponReciever: {fileID: 1362419189746940746, guid: 1d71b6d3a38717a4b8a9387f049c9434,
+    type: 3}
   glow: {fileID: 7660198434397277089}
 --- !u!114 &6845521574477879129
 MonoBehaviour:

@@ -31,6 +31,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<Battler> PartyUI;
     public List<GameObject> HeroUIPersonalInventory;
+    public List<GameObject> HeroWeaponPersonalEquipped;
     public TextMeshProUGUI heroName;
     public Image heroPortrait;
 
@@ -126,13 +127,14 @@ public class InventoryManager : MonoBehaviour
 
         
 
-    public void HeroUI()
+    public void HeroUI()//This probably needs to be reworked
     {
         PartyUI = PartyManager.instance.Party;
 
         for (int i = 0; i < HeroUIPersonalInventory.Count; i++)
         {
             HeroUIPersonalInventory[i].SetActive(false);
+            HeroWeaponPersonalEquipped[i].SetActive(false);
         }
 
         for (int i = 0; i < PartyUI.Count; i++)
@@ -140,6 +142,7 @@ public class InventoryManager : MonoBehaviour
             if (HeroSelector == i)
             {
                 HeroUIPersonalInventory[i].SetActive(true);//This turns on the container objects. HeroInvtUI populates each hero inventory.
+                HeroWeaponPersonalEquipped[i].SetActive(true);
                 HeroInventoryUIReciever.HeroInventoryswitch = i;
                 heroName.text = PartyUI[i].myName;
                 heroPortrait.sprite = PartyUI[i].mySprite;
