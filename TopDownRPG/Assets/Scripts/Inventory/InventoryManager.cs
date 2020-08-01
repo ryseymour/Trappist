@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityEngine.EventSystems;
+
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
@@ -23,7 +25,17 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI itemDescriptionTooltip;
     public ItemPopUp itemPopUp;
 
+    public bool InitialScreenPopup;
+
     [HideInInspector] public bool inInventory;
+
+    public List<Battler> PartyUI;
+    public List<GameObject> HeroUIPersonalInventory;
+    public List<GameObject> HeroWeaponPersonalEquipped;
+    public TextMeshProUGUI heroName;
+    public Image heroPortrait;
+
+    public int HeroSelector;
 
     private void Awake()
     {
@@ -53,13 +65,89 @@ public class InventoryManager : MonoBehaviour
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             if(inventoryUI.activeSelf == true)
             {
+               
                 firstButton.Select();
+                ForceSelect(firstButton);//this forces a select box
+                HeroSelector = 0;
+                HeroUI();
                 inInventory = true;
+                
             }
             else
             {
                 inInventory = false;
             }
         }
+    }
+
+    public void SceneStart()
+    {
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
+
+        StartCoroutine (InventoryPopUp ());
+
+        
+
+
+
+    }
+
+    public IEnumerator InventoryPopUp ()
+    {
+        yield return new WaitForSeconds(.001f);
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
+    }
+
+    private void ForceSelect (Button btn)
+    {
+        Debug.Log("test button1");
+        if(EventSystem.current.currentSelectedGameObject == btn.gameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            Debug.Log("test button 2");
+        }
+        EventSystem.current.SetSelectedGameObject(btn.gameObject);
+    }
+
+    public void HeroButtonInt(int buttonInt)
+    {
+        PartyUI = PartyManager.instance.Party;
+
+        HeroSelector = HeroSelector + buttonInt;
+        if(HeroSelector< 0)
+        {
+            HeroSelector = PartyUI.Count-1;
+        }
+        if(HeroSelector>PartyUI.Count-1)
+        {
+            HeroSelector = 0;
+        }
+        HeroUI();
+    }
+
+        
+
+    public void HeroUI()//This probably needs to be reworked
+    {
+        PartyUI = PartyManager.instance.Party;
+
+        for (int i = 0; i < HeroUIPersonalInventory.Count; i++)
+        {
+            HeroUIPersonalInventory[i].SetActive(false);
+            HeroWeaponPersonalEquipped[i].SetActive(false);
+        }
+
+        for (int i = 0; i < PartyUI.Count; i++)
+        {
+            if (HeroSelector == i)
+            {
+                HeroUIPersonalInventory[i].SetActive(true);//This turns on the container objects. HeroInvtUI populates each hero inventory.
+                HeroWeaponPersonalEquipped[i].SetActive(true);
+                HeroInventoryUIReciever.HeroInventoryswitch = i;
+                heroName.text = PartyUI[i].myName;
+                heroPortrait.sprite = PartyUI[i].mySprite;
+            }
+        }
+
     }
 }

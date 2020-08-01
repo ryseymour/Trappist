@@ -9,9 +9,12 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     [HideInInspector]public Item item;
     public TextMeshProUGUI amount;
+    public TextMeshProUGUI EquipOrStore;
 
     public Button confirmButton;
     public GameObject confirmationWindow;
+    public GameObject HeroReciever;
+    public GameObject HeroWeaponReciever;
 
     public Image glow;
 
@@ -48,6 +51,19 @@ public class InventorySlot : MonoBehaviour
 
     public void UseItem()
     {
+        if(item is Consumables)
+        {
+            HeroReciever.GetComponent<HeroInventoryUIReciever>().HeroSelectorInt(item);
+            Debug.Log(item);
+            // InventoryManager.instance.HeroUIPersonalInventory[i].GetComponent
+            Debug.Log("useConsumables");
+        }
+        else if (item is Weapons)
+        {
+            Debug.Log(item);
+            HeroWeaponReciever.GetComponent<HeroWeaponUIReciever>().HeroSelectorInt(item);
+            Debug.Log("useWeapon");
+        }
         InventoryManager.instance.RemoveItem(item);
     }
 

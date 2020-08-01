@@ -28,4 +28,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 832a3c1d509ba1546ac165021c5562e1, type: 2}
   - {fileID: 11400000, guid: 861bc54419eeba34bafe6898b888ac78, type: 2}
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
-  - {fileID: 11400000, guid: f49282d4ca2784d449c016009887b787, type: 2}
+  - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
+  consumables: []
+

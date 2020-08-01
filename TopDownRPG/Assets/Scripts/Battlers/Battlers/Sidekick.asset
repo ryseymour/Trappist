@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: Sidekick
   myClass: Helper
-  mySprite: {fileID: 21300000, guid: bb677b0b636c10e4085349726eeac52d, type: 3}
+  mySprite: {fileID: 21300000, guid: e7f04065c790fa243b652ba670359271, type: 3}
   Speed: 30
   myHealth: 60
   mycurrentHealth: 60
   myHealthBar: {fileID: 0}
   Enemy: 0
-  hasAttacked: 0
+  hasAttacked: 1
   myBattletranform: {fileID: 0}
   myPhyattacks: []
   myAbilities:
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
+  consumables: []

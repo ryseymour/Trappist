@@ -10,6 +10,7 @@ public class SceneManger : MonoBehaviour
     public GameObject BattlefieldUI;
     public GameObject PlayerGO;
     public GameObject Camera;
+    public GameObject InventoryUI;
 
 
     public bool scenceChecker;
@@ -29,6 +30,12 @@ public class SceneManger : MonoBehaviour
         BattleManager.instance.BattleReset();
         this.gameObject.GetComponent<battlerManager>().enabled = false;
         this.gameObject.GetComponent<enemyfighterManger>().enabled = false;
+
+         InventoryManager.instance.SceneStart();
+        //InventoryUI.GetComponent<ToggleInventory>().enabled = true;
+        
+
+
        // this.gameObject.GetComponent<BattleManager>().enabled = false;
         this.gameObject.GetComponent<DialogueManager_R>().enabled = true;
         Camera.gameObject.GetComponent<CameraController>().enabled = true;
@@ -51,6 +58,11 @@ public class SceneManger : MonoBehaviour
         Battlefield.SetActive(true);
         BattlefieldUI.SetActive(true);
         Camera.transform.position = new Vector3(0, 0, -10f);
+
+        
+        //InventoryUI.GetComponent<InstantiateToggle>().enabled = true;
+
+
     }
 
 

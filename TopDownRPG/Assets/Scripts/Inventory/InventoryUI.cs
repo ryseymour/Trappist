@@ -77,6 +77,7 @@ public class InventoryUI : MonoBehaviour
             {
                 Consumables consumable = newItem as Consumables;
                 slots[(int)GetSameSlot(newItem)].GetComponent<UnityItemEventHandler>().unityEvent = consumable.itemEvent;
+                slots[(int)GetSameSlot(newItem)].EquipOrStore.text = "Store";
             }
             
         }
