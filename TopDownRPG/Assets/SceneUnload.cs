@@ -28,7 +28,7 @@ public class SceneUnload : MonoBehaviour
             SceneManger.instance.scenceChecker = false;
         }
         // sceneArray = new int[sceneNumber];
-        if (currentScene == 1)//will need to make this more dynamic
+        if (currentScene == 1 || currentScene == 3)//will need to make this more dynamic
         {
             SceneManger.instance.scenceChecker = false;
             SceneManger.worldScene = true;

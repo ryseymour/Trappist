@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c21b7c4685e171449be664aabbb71f34, type: 3}
+  m_Name: Overworld1
+  m_EditorClassIdentifier: 
+  pathPoints:
+  - {fileID: 0}
+  - {fileID: 3938046309863723049, guid: 6c2ca6201f438b641b9bdf96aba0a197, type: 3}
+  - {fileID: 7654020163680880855, guid: 8a580f1483404384b8b36a204b3474bc, type: 3}
+  - {fileID: 1734158770037966643, guid: a31b49739a46fdb4cb639ce819ded53d, type: 3}
+  - {fileID: 7428718561889702650, guid: 81fbf27326ba2b14287681fd2b8d6931, type: 3}
