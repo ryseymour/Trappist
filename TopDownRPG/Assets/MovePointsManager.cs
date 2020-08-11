@@ -20,11 +20,17 @@ public class MovePointsManager : MonoBehaviour
         //target = null;
         targetLocation = new Vector2(0, 0);
 
+        GameManager.instance.PlayerProof.transform.position = targetLocation;
 
         if (instance == null)
         {
             instance = this;
         }
+        var sceneStart = GameManager.instance.playerPin;
+        GameManager.instance.PlayerProof.transform.localScale = new Vector3(.5f, .5f, .5f);
+        GameManager.instance.PlayerProof.transform.GetChild(0).gameObject.SetActive(false);
+
+
     }
 
     public void PlayerTransform()
@@ -80,13 +86,15 @@ public class MovePointsManager : MonoBehaviour
             PlayerTransform();
         }
         //if (Targetpass == true)
-       // {
-             
-            Vector2 dir =(Vector2)targetLocation - (Vector2)playerObj.transform.position;
-            //Vector2 dir = (Vector2)targetLocation - (Vector3)playerObj.transform.position;
-            playerObj.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        // {
 
-        if(Vector2.Distance(playerObj.transform.position, targetLocation) <= 0.2f)
+        // Vector2 dir =(Vector2)targetLocation - (Vector2)playerObj.transform.position;
+        //Vector2 dir = (Vector2)targetLocation - (Vector3)playerObj.transform.position;
+        Vector2 dir = (Vector2)targetLocation - (Vector2)GameManager.instance.PlayerProof.transform.position;
+        // playerObj.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        GameManager.instance.PlayerProof.transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+        if (Vector2.Distance(GameManager.instance.PlayerProof.transform.position, targetLocation) <= 0.2f)
         {
             speed = 0f;
         }

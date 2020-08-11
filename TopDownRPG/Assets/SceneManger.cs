@@ -12,6 +12,12 @@ public class SceneManger : MonoBehaviour
     public GameObject Camera;
     public GameObject InventoryUI;
 
+    public GameObject overworldTobattle;
+    public GameObject townTobattle;
+
+    public int previousScene;
+    public int currentScene;
+
 
     public bool scenceChecker;
 
@@ -44,6 +50,26 @@ public class SceneManger : MonoBehaviour
         BattlefieldUI.SetActive(false);
     }
 
+    public void OverworldScene()
+    {
+        BattleManager.instance.BattleReset();
+        this.gameObject.GetComponent<battlerManager>().enabled = false;
+        this.gameObject.GetComponent<enemyfighterManger>().enabled = false;
+
+        InventoryManager.instance.SceneStart();
+        //InventoryUI.GetComponent<ToggleInventory>().enabled = true;
+
+
+
+        // this.gameObject.GetComponent<BattleManager>().enabled = false;
+        this.gameObject.GetComponent<DialogueManager_R>().enabled = true;
+        Camera.gameObject.GetComponent<CameraController>().enabled = true;
+        PlayerGO.SetActive(true);
+        Battlefield.SetActive(false);
+        BattlefieldUI.SetActive(false);
+
+    }
+
     public void BattleScene()
     {
         this.gameObject.GetComponent<BattleManager>().enabled = true;
@@ -69,6 +95,7 @@ public class SceneManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (scenceChecker == false)
         {
             if (worldScene == false)

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class EscapeBattle : MonoBehaviour
 {
    public bool loaded;
-    public int scene = 1;
+    public int scene;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,6 +27,8 @@ public class EscapeBattle : MonoBehaviour
 
         if (!loaded)
         {
+            Debug.Log("escape button" + scene);
+            scene = SceneManger.instance.currentScene;
             BattleManager.instance.BattleEnd();
             SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
             loaded = true;
