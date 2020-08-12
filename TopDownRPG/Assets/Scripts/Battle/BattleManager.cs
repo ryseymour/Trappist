@@ -14,10 +14,6 @@ public class BattleManager : MonoBehaviour
 
     //public List<Move> battlerMoves = new List<Move>();
     //public List<GameObject> battlers = new List<GameObject>();
-    
-    
-
-
 
     //Reference to UI
     public GameObject BattleUI;
@@ -52,9 +48,13 @@ public class BattleManager : MonoBehaviour
     public Sprite Transparent;//this is to add into transforms after scene ends
     public GameObject EscapeBtn;//We need to reset the bool check in order to leave each battle
 
-    private Move abilityChoosen;
+    public Move abilityChoosen;
 
 
+    public int actor_counter; //keep track of how many have already gone this round
+
+    public bool targetSelect, targetReady; //should you be listening for target selection targetReady is a delay so we don't fire the damage when we select
+    public int targetSelect_int;//placeholder for the selected target
 
     private void Awake()
     {
@@ -80,7 +80,9 @@ public class BattleManager : MonoBehaviour
     public void SetupBattle()
     {
         Debug.Log("Setup Battle");
-
+        actor_counter = 0;
+        targetSelect = false;
+        targetReady = false;
         for (int i = 0; i < battlers.Count; i++)
         {
             Debug.Log("battlers added");
@@ -90,12 +92,11 @@ public class BattleManager : MonoBehaviour
             //assigning the transform to the battler so they can have an arrow turn on overhead
             battlers[i].myBattletranform = battlerTransforms[i];
             battlers[i].hasAttacked = false;
-            everybodysSpeed.Add(battlers[i]);
-            
+            everybodysSpeed.Add(battlers[i]);            
         }
+
         for (int i = 0; i < enemybattlers.Count; i++)
-        {
-            
+       {            
             Debug.Log("enemy zoom");
             var spryChangeM = enemyTransforms[i].GetChild(0);
             var spryChange_twoM = spryChangeM.GetComponent<SpriteRenderer>();
@@ -103,9 +104,7 @@ public class BattleManager : MonoBehaviour
             enemybattlers[i].myBattletranform = enemyTransforms[i];
             enemybattlers[i].hasAttacked = false;
             everybodysSpeed.Add(enemybattlers[i]);
-            //var speeders = everybodysSpeed[i].Speed;
-           
-            
+            //var speeders = everybodysSpeed[i].Speed;      
         }
         //turnChange = true;
         //keeping track of each player taking a turn 
@@ -114,12 +113,14 @@ public class BattleManager : MonoBehaviour
 
         //SpeedTracker();
         //ArrowTurnOff();
+       turnChange = true;
         ApplyHealth();
-
+        
     }
 
     public void ApplyHealth()
     {
+        Debug.Log("apply health");
         for (int i = 0; i < everybodysSpeed.Count; i++)
         {
             int myHealth = everybodysSpeed[i].myHealth;
@@ -135,31 +136,31 @@ public class BattleManager : MonoBehaviour
 
     public void PreBattle()
     {
-        Debug.Log("PreBattle");
-        Debug.Log("Hit Space to Start Battle");
+        // Debug.Log("PreBattle");
 
         if (newTurn == true)
         {
             Debug.Log("restart");
-            myturnState = turnSystem.battleStart;
-         
+            myturnState = turnSystem.battleStart;         
         }
-        //SpeedTracker();
-        //ArrowTurnOff();
+       if(participantTracker == 0){
+           Debug.Log("participant tracker 0");
+       }
+        SpeedTracker();
+        // ArrowTurnOff();
     }
 
     
 
     public void ArrowTurnOff()
     {
-        Debug.Log("ArrowTurnOff");
+        // Debug.Log("ArrowTurnOff");
         for (int i = 0; i < everybodysSpeed.Count; i++)
-        {
+        {       
             SpriteRenderer arw = everybodysSpeed[i].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
             arw.enabled = false;
             //participantTracker -= participantTracker;
-        }
-        
+        }        
         SpeedTracker();
     }
 
@@ -167,70 +168,113 @@ public class BattleManager : MonoBehaviour
 
     public void SpeedTracker()
     {
-        Debug.Log("SpeedTracker");
+
+        if(actor_counter >= (battlers.Count + enemybattlers.Count)){
+            actor_counter = 0;
+        }    
+       
         if (turnChange == true)
         {
             //This code is incredible!!!! It sorts everyones speed value.
             everybodysSpeed = everybodysSpeed.OrderByDescending(e => e.Speed).ToList();
-            Debug.Log(everybodysSpeed);
-            for (int i = 0; i < everybodysSpeed.Count; i++)
-            {
-                if (participantTracker >= 1)
-                {                 
-                    if (everybodysSpeed[i].hasAttacked == false)
-                    {   
-                        if (everybodysSpeed[i].Enemy == false)
-                        {
-                            //everybodysSpeed[i].Speed = -10000;
-                            everybodysSpeed[i].hasAttacked = true;
-                            //TurnCycle();
-                            Debug.Log("hero turn");
-                            turnChange = false;
-                            var heroMove = everybodysSpeed[i];
-                            HeroTurn(heroMove);
-                            break;
-                        }
-                        if (everybodysSpeed[i].Enemy == true)
-                        {
-                            everybodysSpeed[i].hasAttacked = true;
-                            //Debug.Log("enemy turn");
-                            turnChange = false;
-                            var enemyMove = everybodysSpeed[i];
-                            EnemyTurn(enemyMove);
-                            //TurnCycle();
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.Log("potential error");
-                    TurnCycle();
-                }
+
+
+            if(!everybodysSpeed[actor_counter].Enemy){
+                Debug.Log("actor counter found the player " + actor_counter);
+                 for(int i=0; i < AbilitiesButtons.Length; i++){
+                    AbilitiesButtons[i].interactable = true;
+                }        
+                HeroTurn(everybodysSpeed[actor_counter]);
+                turnChange = false;
+            }else{
+                Debug.Log("actor counter did not find player " + actor_counter);
+                DisablePlayerButtons();
+                EnemyTurn(everybodysSpeed[actor_counter]);
+                turnChange = false;
             }
-            }        
+
+            // for (int i = 0; i < everybodysSpeed.Count; i++)
+            // {                
+            //     if (participantTracker >= 1)//cole add 8-10-20 why participant tracker? 
+            //     {                             
+            //         if (everybodysSpeed[i].hasAttacked == false)
+            //         {   
+            //             Debug.Log(everybodysSpeed[i].myName + " has not attacked");
+            //             //Original code
+            //             if (everybodysSpeed[i].Enemy == false)
+            //             {
+            //                 everybodysSpeed[i].hasAttacked = true;                     
+            //                 turnChange = false;                       
+            //                 HeroTurn(everybodysSpeed[i]);                             
+            //             }else{
+            //                 Debug.Log("Enemy turn " + everybodysSpeed[i].myName);
+            //             }  
+            //             // if (everybodysSpeed[i].Enemy == true)//so this happens even after the player turn, here is the problem
+            //             // {
+            //             //      //8-10-20 Something in here is toggling the "has attacked" but only for enemy2, who currently has highest speed
+            //             //     // everybodysSpeed[i].hasAttacked = true;
+            //             //     Debug.Log("Enemy turn " + everybodysSpeed[i].myName);
+            //             //     // turnChange = false;
+            //             //     // var enemyMove = everybodysSpeed[i];
+            //             //     // EnemyTurn(everybodysSpeed[i]);
+            //             //     //TurnCycle();                            
+            //             // }                        
+            //             //end of original                       
+            //         }
+            //     }
+            //     else
+            //     {
+            //         Debug.Log("potential error");
+            //         TurnCycle();
+            //     }
+            // }
+        }        
         else
         {            
             return;
         }
     }
 
+
+    public void DisablePlayerButtons(){
+        Debug.Log("player buttons disabled");
+        for(int i=0; i < AbilitiesButtons.Length; i++){
+            AbilitiesButtons[i].interactable = false;
+        }      
+    }
+
     public void HeroTurn(Battler Hm)
     {
+        Debug.Log("hero turn");
         firstButton.Select();
         myturnState = turnSystem.heroTurn;
         SpriteRenderer arw = Hm.myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         arw.enabled = true;
+        actor_counter++;
         AbilitiesUpdate(Hm);
         participantTracker = participantTracker - 1;
+        // ArrowTurnOff();
     }
 
     public void EnemyTurn(Battler Em)
     {
+        Debug.Log("Enemy Turn method ran: " + Em.myName);
         myturnState = turnSystem.enemyTurn;
         SpriteRenderer arw = Em.myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         arw.enabled = true;
-        participantTracker = participantTracker - 1;
+        participantTracker = participantTracker - 1;        
+        StartCoroutine(enemyDelay(Em));
+        
+    }
+
+
+    IEnumerator enemyDelay(Battler Em){
+        yield return new WaitForSeconds(2);
+        Debug.Log(Em.myName + " casts " + Em.myAbilities[0].myName);
+        Em.hasAttacked = true;
+        turnChange = true;
+        actor_counter++;
+        ArrowTurnOff();
     }
 
     public void AttackSelected(Move mve)
@@ -247,8 +291,7 @@ public class BattleManager : MonoBehaviour
         //this is just a test now
         //if buff companion select
         //if attack enemy select
-        ApplyDamage();
-        
+        ApplyDamage();        
     }
 
     public void ApplyDamage()
@@ -286,13 +329,9 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < everybodysSpeed.Count; i++)
         {
             everybodysSpeed[i].hasAttacked = false;
-            //StartCoroutine(BufferTimer());
-            //break;
+            Debug.Log("attack reset for " + everybodysSpeed[i].myName + " has attacked " + everybodysSpeed[i].hasAttacked);         
         }
-        //yield return new WaitForSeconds(1f);
-        //return;
-        //buffer = true;
-        //
+     
         PreBattle();
     }
 
@@ -301,7 +340,7 @@ public class BattleManager : MonoBehaviour
     public void AbilitiesUpdate(Battler bt)
     {//
        
-        Debug.Log("abilities" + bt);
+     
 
          List<Ability> tempabil = bt.myAbilities;
         
@@ -324,24 +363,13 @@ public class BattleManager : MonoBehaviour
         //cole work 
             // AbilitiesButtons[i].GetComponent<AbilityButtonSlot>().myAbil = tempabil[i];
             // Debug.Log(AbilitiesButtons[i].GetComponent<AbilityButtonSlot>().myAbil);
-
-
-
         //end cole work
             
-
-
-            //Event tester = abil.itemEvent;
-            Debug.Log(tempabil[i].itemEvent);
-            var eventRy = abil.itemEvent;
-            Debug.Log(eventRy);
+            //Event tester = abil.itemEvent;            
+            var eventRy = abil.itemEvent;           
 
             AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent = abil.itemEvent;
 
-            //AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent = tempabil[i].itemEvent;
-
-
-            // Debug.Log(i);
         }
 
 
@@ -355,12 +383,9 @@ public class BattleManager : MonoBehaviour
             SpriteRenderer arw = everybodysSpeed[i].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
             arw.enabled = false;
 
-
             SpriteRenderer spryte = everybodysSpeed[i].myBattletranform.GetChild(0).GetComponent<SpriteRenderer>();
             spryte.sprite = Transparent;
-            
-
-            //participantTracker -= participantTracker;
+     
         }
 
         myturnState = turnSystem.battleEnd;
@@ -389,4 +414,58 @@ public class BattleManager : MonoBehaviour
         reEscape.loaded = false;
 
     }
+
+
+    public void triggerTargetDelay(float _t){
+        StartCoroutine(TargetDelay(_t));
+    }
+    IEnumerator TargetDelay(float _t){
+        yield return new WaitForSeconds(_t);
+        targetReady = true;
+    }
+
+    void Update(){
+        if(targetSelect){
+            if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                Debug.Log("target select true and left arrow");
+                enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                if(targetSelect_int > 0){
+                    targetSelect_int--;
+                    Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                }else{
+                    targetSelect_int = enemybattlers.Count-1;
+                    Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                }
+                enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                // SpriteRenderer arw = everybodysSpeed[i].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+                // arw.enabled = false;
+            }
+
+            if(Input.GetKeyDown(KeyCode.RightArrow)){
+                enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                if(targetSelect_int < enemybattlers.Count-1){
+                    targetSelect_int++;
+                     Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                }else{
+                    targetSelect_int = 0;
+                     Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                }
+                enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            }  
+            if(Input.GetKeyDown(KeyCode.Return)){            
+                if(!targetReady){
+                    Debug.Log("not ready yet");
+                }else{
+                    enemybattlers[targetSelect_int].mycurrentHealth = enemybattlers[targetSelect_int].mycurrentHealth-abilityChoosen.Damage;
+                    enemybattlers[targetSelect_int].myHealthBar.SetHealth(enemybattlers[targetSelect_int].mycurrentHealth);
+                    Debug.Log("should attack with " + abilityChoosen.myName);
+                    // targetSelect = false;
+                    //targetReady = false;
+                    // ApplyHealth();                         
+                }
+                                       
+            }          
+        }
+    }
+
 }

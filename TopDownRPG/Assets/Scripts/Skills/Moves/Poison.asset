@@ -15,7 +15,7 @@ MonoBehaviour:
   myName: Poison
   myDescription: Poison an enemy
   myIcon: {fileID: 0}
-  Damage: 0
+  Damage: 3
   CritD: 0
   Multiple: 0
   teamBuff: 0
