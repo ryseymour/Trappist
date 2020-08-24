@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 140467904}
   - component: {fileID: 140467903}
   m_Layer: 0
-  m_Name: SceneUnload
+  m_Name: SceneUnload1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,6 +342,8 @@ MonoBehaviour:
   everybodysSpeed: []
   participantTracker: 0
   participantTrackerTemp: 0
+  Transparent: {fileID: 0}
+  EscapeBtn: {fileID: 0}
 --- !u!114 &1220321118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Btman: {fileID: 1220321117}
+  Pman: {fileID: 0}
   battlers:
   - {fileID: 11400000, guid: 66c1f42b1ae126f47afe41a547c00e8b, type: 2}
   - {fileID: 11400000, guid: 847f479f6f4e4284da246accc21f9464, type: 2}
@@ -372,6 +375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerPin: {fileID: 0}
+  PlayerProof: {fileID: 0}
 --- !u!114 &1220321120
 MonoBehaviour:
   m_ObjectHideFlags: 0

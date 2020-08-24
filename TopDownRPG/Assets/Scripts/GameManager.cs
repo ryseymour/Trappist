@@ -14,5 +14,8 @@ public class GameManager : MonoBehaviour
     }
 
     public Transform player;
+    public Transform playerPin;
+
+    public GameObject PlayerProof;
 
 }
