@@ -35,7 +35,7 @@ public class Ability : Move
         BattleManager.instance.turnChange = true;
         BattleManager.instance.targetSelect = true;     
         BattleManager.instance.abilityChoosen = this;
-        BattleManager.instance.triggerTargetDelay(3);
+        BattleManager.instance.triggerTargetDelay(0.5f);
         BattleManager.instance.DisablePlayerButtons();
         // BattleManager.instance.ArrowTurnOff();
         

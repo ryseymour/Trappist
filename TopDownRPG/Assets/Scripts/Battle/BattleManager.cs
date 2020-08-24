@@ -338,42 +338,21 @@ public class BattleManager : MonoBehaviour
   
 
     public void AbilitiesUpdate(Battler bt)
-    {//
-       
-     
+    { 
 
-         List<Ability> tempabil = bt.myAbilities;
-        
-       // temp.text = bt.myName;
-       // Debug.Log(temp);
-        //List<> tempabil = bt.myAbilities.Count;
+         List<Ability> tempabil = bt.myAbilities;        
+
 
         for (int i = 0; i < AbilitiesButtons.Length; i++)
         {
-            var temp = AbilitiesButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            
-                //= tempabil[i].itemEvent;
-
+            var temp = AbilitiesButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();         
             Ability abil = tempabil[i];
             temp.text = abil.myName;
-
             var temp2 = AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent;
-            temp2 = abil.itemEvent;
-
-        //cole work 
-            // AbilitiesButtons[i].GetComponent<AbilityButtonSlot>().myAbil = tempabil[i];
-            // Debug.Log(AbilitiesButtons[i].GetComponent<AbilityButtonSlot>().myAbil);
-        //end cole work
-            
-            //Event tester = abil.itemEvent;            
-            var eventRy = abil.itemEvent;           
-
+            temp2 = abil.itemEvent;       
+            var eventRy = abil.itemEvent;
             AbilitiesButtons[i].GetComponent<UnityItemEventHandler>().unityEvent = abil.itemEvent;
-
-        }
-
-
-        
+        }        
     }
 
     public void BattleEnd()
@@ -382,59 +361,46 @@ public class BattleManager : MonoBehaviour
         {
             SpriteRenderer arw = everybodysSpeed[i].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
             arw.enabled = false;
-
             SpriteRenderer spryte = everybodysSpeed[i].myBattletranform.GetChild(0).GetComponent<SpriteRenderer>();
-            spryte.sprite = Transparent;
-     
+            spryte.sprite = Transparent;     
         }
 
         myturnState = turnSystem.battleEnd;
         Debug.Log("Battle End");
-//var deliveryReset = GetComponent<battlerManager>().battlerDelivery;
-        //deliveryReset = false;
-       // Debug.Log("delivery reset"+ deliveryReset);
+
         newTurn = false;
         turnRecord = 1;
-        
-       // battlers.Clear();
-       // enemybattlers.Clear();
+
         everybodysSpeed.Clear();
         participantTracker = 0;
-        participantTrackerTemp = 0;
-       
-
-
+        participantTrackerTemp = 0;   
     }
 
-    public void BattleReset()
-    {
+    public void BattleReset(){
         //called by scene manager
         myturnState = turnSystem.battleStart;
         var reEscape = EscapeBtn.GetComponent<EscapeBattle>();
         reEscape.loaded = false;
-
     }
 
 
     public void triggerTargetDelay(float _t){
-        StartCoroutine(TargetDelay(_t));
+        StartCoroutine(TargetDelay(_t));        
     }
     IEnumerator TargetDelay(float _t){
         yield return new WaitForSeconds(_t);
         targetReady = true;
+        enemybattlers[0].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void Update(){
         if(targetSelect){
-            if(Input.GetKeyDown(KeyCode.LeftArrow)){
-                Debug.Log("target select true and left arrow");
+            if(Input.GetKeyDown(KeyCode.LeftArrow)){                
                 enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
                 if(targetSelect_int > 0){
-                    targetSelect_int--;
-                    Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                    targetSelect_int--;                   
                 }else{
-                    targetSelect_int = enemybattlers.Count-1;
-                    Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                    targetSelect_int = enemybattlers.Count-1;                    
                 }
                 enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
                 // SpriteRenderer arw = everybodysSpeed[i].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
@@ -444,11 +410,9 @@ public class BattleManager : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.RightArrow)){
                 enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
                 if(targetSelect_int < enemybattlers.Count-1){
-                    targetSelect_int++;
-                     Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                    targetSelect_int++;                     
                 }else{
-                    targetSelect_int = 0;
-                     Debug.Log("target select "  + enemybattlers[targetSelect_int].myName);
+                    targetSelect_int = 0;                     
                 }
                 enemybattlers[targetSelect_int].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             }  
@@ -461,7 +425,17 @@ public class BattleManager : MonoBehaviour
                     Debug.Log("should attack with " + abilityChoosen.myName);
                     // targetSelect = false;
                     //targetReady = false;
-                    // ApplyHealth();                         
+                    // ApplyHealth();    
+                    
+                    battlers[0].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                    foreach(var enemy in enemybattlers){
+                        // Debug.Log();                
+                        enemy.myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                    }
+                    SpeedTracker();
+                    targetSelect_int = 0;
+                    targetSelect = false;                     
+                    targetReady = false;
                 }
                                        
             }          
