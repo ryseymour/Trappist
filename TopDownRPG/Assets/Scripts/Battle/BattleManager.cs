@@ -54,7 +54,8 @@ public class BattleManager : MonoBehaviour
 
     private Move abilityChoosen;
 
-
+    public delegate void OnEnemyDeathCallBack(EnemyProfile enemyProfile);
+    public OnEnemyDeathCallBack onEnemyDeathCallBack; //have this run when the enemy dies
 
     private void Awake()
     {
@@ -127,6 +128,10 @@ public class BattleManager : MonoBehaviour
             //make sure the transform is after a GetChild component canvas
             everybodysSpeed[i].myHealthBar = everybodysSpeed[i].myBattletranform.GetChild(1).transform.GetChild(0).GetComponent<HealthBar>() ;
             everybodysSpeed[i].myHealthBar.SetMaxHealth(myHealth);
+
+            Debug.Log(everybodysSpeed[i].myHealth + everybodysSpeed[i].name);
+
+            
             
             
 
@@ -274,6 +279,13 @@ public class BattleManager : MonoBehaviour
             {
                 everybodysSpeed[i].mycurrentHealth = everybodysSpeed[i].mycurrentHealth - dmge;
                 everybodysSpeed[i].myHealthBar.SetHealth(everybodysSpeed[i].mycurrentHealth);
+
+                if (everybodysSpeed[i].mycurrentHealth <= 0 && everybodysSpeed[i].Enemy == true)
+                {
+                    Debug.Log("test death1");
+                    // enemybattlers enemyDied = everybodysSpeed[i];
+                    Death(everybodysSpeed[i]);
+                }
             }
 
         }
@@ -394,5 +406,18 @@ public class BattleManager : MonoBehaviour
         var reEscape = EscapeBtn.GetComponent<EscapeBattle>();
         reEscape.loaded = false;
 
+    }
+
+    public void Death(Battler eD)
+    {
+        Debug.Log("test death");
+        // var enemyDied = eD;
+        if (eD.enemyProfile != null)
+        {
+            Debug.Log("test death 3" + eD);
+            if (onEnemyDeathCallBack != null) onEnemyDeathCallBack.Invoke(eD.enemyProfile); //*fix this
+            return;
+            //eD.SetActive(false);
+        }
     }
 }

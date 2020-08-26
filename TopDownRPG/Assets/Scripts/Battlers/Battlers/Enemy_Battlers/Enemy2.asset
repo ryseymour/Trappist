@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cc1bae6e4268349a07dcf7ab5a02df, type: 3}
   m_Name: Enemy2
   m_EditorClassIdentifier: 
-  myName: Super Bad Guy
+  myName: Super Boss 1 Guy
   myClass: 
-  mySprite: {fileID: 21300000, guid: 9645d33c8567a304f8e3817bf9fe039b, type: 3}
+  mySprite: {fileID: 21300000, guid: ee98be8055dab334c95141eacf5dff9a, type: 3}
   Speed: 5
   myHealth: 10
   mycurrentHealth: 0
@@ -24,3 +24,5 @@ MonoBehaviour:
   myBattletranform: {fileID: 0}
   myPhyattacks: []
   myAbilities: []
+  consumables: []
+  enemyProfile: {fileID: 11400000, guid: 097c7cce4d327354b93f584932702627, type: 2}

@@ -14943,6 +14943,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   item: {fileID: 11400000, guid: 474143dc8a5597b40a6be4d7006ba3dc, type: 2}
   scene: 2
+  quest: {fileID: 11400000, guid: fbb3871047186224088705a968618c5e, type: 2}
 --- !u!4 &789281375
 Transform:
   m_ObjectHideFlags: 0

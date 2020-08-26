@@ -11,11 +11,24 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Initialize");
+            quest.InitializeQuest();
+        }
     }
 
     public Transform player;
     public Transform playerPin;
 
     public GameObject PlayerProof;
+
+    public QuestBase quest;//get rid of this
 
 }

@@ -5,5 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Battler", menuName = "Enemy_Battler")]
 public class Enemy_Battler : Battler
 {
-   
+    
+
+
 }
