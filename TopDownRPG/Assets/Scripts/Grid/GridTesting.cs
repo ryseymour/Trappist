@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
+//using CodeMonkey.Utils;
 
 public class GridTesting : MonoBehaviour
 {
@@ -16,13 +16,13 @@ public class GridTesting : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            grid.SetValue(UtilsClass.GetMouseWorldPosition(), 22);
+          //  grid.SetValue(UtilsClass.GetMouseWorldPosition(), 22);
 
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log(grid.GetValue(UtilsClass.GetMouseWorldPosition()));
+           // Debug.Log(grid.GetValue(UtilsClass.GetMouseWorldPosition()));
 
         }
     }

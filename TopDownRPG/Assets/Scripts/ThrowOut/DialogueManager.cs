@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public bool inDialogue;
     private bool buffer;
+    private bool isDialogueOption;
+    public GameObject dialogueOptionUI;
 
     private void Awake()
     {
@@ -42,6 +44,15 @@ public class DialogueManager : MonoBehaviour
         dialogueInfo.Clear();
         animator.SetBool("IsOpen", true);
         StartCoroutine(BufferTimer());
+
+        if(db is DialogueOptions)
+        {
+            isDialogueOption = true;
+        }
+        else
+        {
+            isDialogueOption = false;
+        }
 
         foreach (DialogueBase.NPCInfo info in db.dialogueInfo)
         {
@@ -99,6 +110,11 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("end dialogue");
         animator.SetBool("IsOpen", false);
         inDialogue = false;
+        if(isDialogueOption == true)
+        {
+            dialogueOptionUI.SetActive(true);
+        }
+
         //return;
         //dialogueBox.SetActive(false);
     }

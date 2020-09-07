@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger_R : Interactable
 {
+    [Header("Basic Dialogues Info")]
     public DialogueBase[] DB;
     [HideInInspector] public int index;
     public bool nextDialogueOnInteract;

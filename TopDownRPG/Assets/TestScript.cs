@@ -28,7 +28,7 @@ public class TestScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            TriggerDialogue();
+           // TriggerDialogue();
         }
 
         if(Input.GetKeyDown(KeyCode.Tab))
