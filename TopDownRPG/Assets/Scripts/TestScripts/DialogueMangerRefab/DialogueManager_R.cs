@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class DialogueManager_R : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class DialogueManager_R : MonoBehaviour
     public Image dialoguePortrait;
     public float delay = .0001f;
     public bool inDialogue;
+
+    private bool isDialogueOption;
+    public GameObject dialogueOptionUI;
+    public GameObject[] optionButtons;
+    private int optionsAmount;
+    public TextMeshProUGUI questionText;
+    private DialogueBase currentDialogue;
 
     public Queue<DialogueBase.NPCInfo> dialogueInfo = new Queue<DialogueBase.NPCInfo>();
     public GameObject dialogueBox;
@@ -46,7 +54,7 @@ public class DialogueManager_R : MonoBehaviour
     public void EnqueueDialogue(DialogueBase db)
     {
 
-        if (inDialogue) return;
+        if (inDialogue || QuestManager.instance.InQuestUI) return;
 
         EndBool = false;
         buffer = true;
@@ -56,7 +64,41 @@ public class DialogueManager_R : MonoBehaviour
         dialogueBox.SetActive(true);
         dialogueInfo.Clear();
 
-        
+        currentDialogue = db;
+
+        if (db is DialogueOptions)
+        {
+            isDialogueOption = true;
+            DialogueOptions dialogueOptions = db as DialogueOptions;
+            optionsAmount = dialogueOptions.optionsInfo.Length;
+            questionText.text = dialogueOptions.questionText;
+            for (int i = 0; i < optionButtons.Length; i++)
+            {
+                optionButtons[i].SetActive(false);
+            }
+
+
+            for (int i = 0; i < optionsAmount; i++)
+            {
+                
+                optionButtons[i].SetActive(true);
+                optionButtons[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = dialogueOptions.optionsInfo[i].buttonName;
+                UnityEventHandler myEventHandler =  optionButtons[i].GetComponent<UnityEventHandler>();
+                myEventHandler.eventHandler = dialogueOptions.optionsInfo[i].myEvent;
+                if (dialogueOptions.optionsInfo[i].nextDialogue != null)
+                {
+                    myEventHandler.myDialogue = dialogueOptions.optionsInfo[i].nextDialogue;
+                }
+                else
+                {
+                    myEventHandler.myDialogue = null;
+                }
+            }
+        }
+        else
+        {
+            isDialogueOption = false;
+        }
 
         foreach (DialogueBase.NPCInfo info in db.dialogueInfo)
         {
@@ -100,9 +142,11 @@ public class DialogueManager_R : MonoBehaviour
         }
         completeText = info.myText;
 
-        dialogueName.text = info.myName;
+        // dialogueName.text = info.myName;
+        dialogueName.text = info.character.myName;
         dialogueText.text = info.myText;
-        dialoguePortrait.sprite = info.portrait;
+       // dialoguePortrait.sprite = info.portrait;
+        dialoguePortrait.sprite = info.character.myPortrait;
 
         //StopAllCoroutines();
         dialogueText.text = "";
@@ -134,7 +178,14 @@ public class DialogueManager_R : MonoBehaviour
         buffer = false;
     }
 
-    
+    private void CheckIfDialogueQuest()
+    {
+        if(currentDialogue is DialogueQuest)
+        {
+            DialogueQuest DQ = currentDialogue as DialogueQuest;
+            QuestManager.instance.SetQuestUI(DQ.Quest);
+        }
+    }
 
    
 
@@ -146,14 +197,31 @@ public class DialogueManager_R : MonoBehaviour
         animator.SetBool("IsOpen", false);
         dialogueBox.SetActive(false);
         EndBool = true;
+
+        OptionsLogic();
+        CheckIfDialogueQuest();
+        //Should do a switch statement here
+        
+    }
+
+    private void OptionsLogic()
+    {
+        if (isDialogueOption == true)
+        {
+            dialogueOptionUI.SetActive(true);
+
+        }
     }
 
     public void CloseOptions()
     {
+        dialogueOptionUI.SetActive(false);
         animator.SetBool("IsOpen", false);
         dialogueBox.SetActive(false);
         inDialogue = false;
     }
+
+    
 
     private void Update()
     {

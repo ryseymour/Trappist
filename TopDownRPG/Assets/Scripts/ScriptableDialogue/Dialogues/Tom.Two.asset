@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Tom.Two
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: tst
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: dafasdfsdafasdfasdfsadfasdf

@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public bool inDialogue;
     private bool buffer;
+    private bool isDialogueOption;
+    public GameObject dialogueOptionUI;
 
     private void Awake()
     {
@@ -43,6 +45,15 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         StartCoroutine(BufferTimer());
 
+        if(db is DialogueOptions)
+        {
+            isDialogueOption = true;
+        }
+        else
+        {
+            isDialogueOption = false;
+        }
+
         foreach (DialogueBase.NPCInfo info in db.dialogueInfo)
         {
             dialogueInfo.Enqueue(info);
@@ -65,9 +76,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueBase.NPCInfo info = dialogueInfo.Dequeue();
-        dialogueName.text = info.myName;
+       // dialogueName.text = info.myName;
         dialogueText.text = info.myText;
-        dialoguePortrait.sprite = info.portrait;
+       // dialoguePortrait.sprite = info.portrait;
         
         StopAllCoroutines();
         StartCoroutine(TypeSentence(info));
@@ -99,6 +110,11 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("end dialogue");
         animator.SetBool("IsOpen", false);
         inDialogue = false;
+        if(isDialogueOption == true)
+        {
+            dialogueOptionUI.SetActive(true);
+        }
+
         //return;
         //dialogueBox.SetActive(false);
     }

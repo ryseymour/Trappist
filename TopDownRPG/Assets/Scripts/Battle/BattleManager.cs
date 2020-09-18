@@ -51,10 +51,14 @@ public class BattleManager : MonoBehaviour
     public Move abilityChoosen;
 
 
+
     public int actor_counter; //keep track of how many have already gone this round
 
     public bool targetSelect, targetReady; //should you be listening for target selection targetReady is a delay so we don't fire the damage when we select
     public int targetSelect_int;//placeholder for the selected target
+    public delegate void OnEnemyDeathCallBack(EnemyProfile enemyProfile);
+    public OnEnemyDeathCallBack onEnemyDeathCallBack; //have this run when the enemy dies
+
 
     private void Awake()
     {
@@ -127,7 +131,15 @@ public class BattleManager : MonoBehaviour
             everybodysSpeed[i].mycurrentHealth = everybodysSpeed[i].myHealth;
             //make sure the transform is after a GetChild component canvas
             everybodysSpeed[i].myHealthBar = everybodysSpeed[i].myBattletranform.GetChild(1).transform.GetChild(0).GetComponent<HealthBar>() ;
-            everybodysSpeed[i].myHealthBar.SetMaxHealth(myHealth);                      
+
+            everybodysSpeed[i].myHealthBar.SetMaxHealth(myHealth);
+
+            Debug.Log(everybodysSpeed[i].myHealth + everybodysSpeed[i].name);
+
+            
+            
+            
+
 
 
             PreBattle();
@@ -304,6 +316,13 @@ public class BattleManager : MonoBehaviour
             {
                 everybodysSpeed[i].mycurrentHealth = everybodysSpeed[i].mycurrentHealth - dmge;
                 everybodysSpeed[i].myHealthBar.SetHealth(everybodysSpeed[i].mycurrentHealth);
+
+                if (everybodysSpeed[i].mycurrentHealth <= 0 && everybodysSpeed[i].Enemy == true)
+                {
+                    Debug.Log("test death1");
+                    // enemybattlers enemyDied = everybodysSpeed[i];
+                    Death(everybodysSpeed[i]);
+                }
             }
 
         }
@@ -393,6 +412,7 @@ public class BattleManager : MonoBehaviour
         enemybattlers[0].myBattletranform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
     }
 
+
     void Update(){
         if(targetSelect){
             if(Input.GetKeyDown(KeyCode.LeftArrow)){                
@@ -439,6 +459,20 @@ public class BattleManager : MonoBehaviour
                 }
                                        
             }          
+        }
+    }
+
+
+    public void Death(Battler eD)
+    {
+        Debug.Log("test death");
+        // var enemyDied = eD;
+        if (eD.enemyProfile != null)
+        {
+            Debug.Log("test death 3" + eD);
+            if (onEnemyDeathCallBack != null) onEnemyDeathCallBack.Invoke(eD.enemyProfile); //*fix this
+            return;
+            //eD.SetActive(false);
         }
     }
 

@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
        {
             isFrozen = true;
         }
+        else if(QuestManager.instance.InQuestUI)
+        {
+            isFrozen = true;
+        }
         else
         {
             isFrozen = false;

@@ -10,7 +10,14 @@ public class TestScript : MonoBehaviour
     public Item item;
     public int scene;
     bool loaded;
-    
+
+   // public QuestBase quest;
+
+    private void Start()
+    {
+        //quest.InitializeQuest();
+    }
+
 
     public void TriggerDialogue()
     {
@@ -21,7 +28,7 @@ public class TestScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            TriggerDialogue();
+           // TriggerDialogue();
         }
 
         if(Input.GetKeyDown(KeyCode.Tab))

@@ -11,6 +11,8 @@ public class enemyfighterManger : MonoBehaviour
     public BattleManager bttlemng;
 
 
+   
+
     private void Awake()
     {
         if (instance == null)
@@ -42,5 +44,6 @@ public class enemyfighterManger : MonoBehaviour
             en_battlersDelivery = false;
         }
     }
+
 
 }

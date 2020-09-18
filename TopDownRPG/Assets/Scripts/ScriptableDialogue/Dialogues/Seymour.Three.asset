@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Seymour.Three
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: Seymour
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: You did it! You opened up the chest! Congratulations!

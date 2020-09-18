@@ -22,5 +22,6 @@ public class Battler : ScriptableObject
 
     public List<Consumables> consumables;
 
-    
+    public EnemyProfile enemyProfile;
+
 }
