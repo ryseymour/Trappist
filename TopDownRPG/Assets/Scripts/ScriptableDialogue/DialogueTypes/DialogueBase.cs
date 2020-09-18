@@ -9,8 +9,9 @@ public class DialogueBase : ScriptableObject
     [System.Serializable]
     public class NPCInfo
     {
-        public string myName;
-        public Sprite portrait;
+        public CharacterProfile character;
+       // public string myName;
+       // public Sprite portrait;
         [TextArea(4, 8)]
         public string myText;
         

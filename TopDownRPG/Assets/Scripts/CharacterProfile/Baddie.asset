@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2d1bdfc26eda14ca70f42716bd826d, type: 3}
-  m_Name: Tom.Two
+  m_Script: {fileID: 11500000, guid: 940dc4e8792bef74196387fe7f0e0399, type: 3}
+  m_Name: Baddie
   m_EditorClassIdentifier: 
-  dialogueInfo:
-  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
-    myText: dafasdfsdafasdfasdfsadfasdf
+  myName: Bad Guy
+  myPortrait: {fileID: 21300000, guid: 9645d33c8567a304f8e3817bf9fe039b, type: 3}

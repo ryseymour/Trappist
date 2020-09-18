@@ -18,6 +18,9 @@ public class SceneManger : MonoBehaviour
     public int previousScene;
     public int currentScene;
 
+    public delegate void OnEnemyDeathCallBack(EnemyProfile enemyProfile);
+    public OnEnemyDeathCallBack onEnemyDeathCallBack; //have this run when the enemy dies
+
 
     public bool scenceChecker;
 
@@ -48,6 +51,8 @@ public class SceneManger : MonoBehaviour
         PlayerGO.SetActive(true);
     Battlefield.SetActive(false);
         BattlefieldUI.SetActive(false);
+
+        //
     }
 
     public void OverworldScene()

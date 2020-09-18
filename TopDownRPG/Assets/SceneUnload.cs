@@ -10,11 +10,11 @@ public class SceneUnload : MonoBehaviour
     public int currentScene;
 
    public bool unloaded;
-
     
 
-   // int sceneNumber = SceneManager.sceneCountInBuildSettings;
-   
+
+    // int sceneNumber = SceneManager.sceneCountInBuildSettings;
+
 
 
 
@@ -22,6 +22,7 @@ public class SceneUnload : MonoBehaviour
     //this variable skips if there was no previous scene
     private void Awake()
     {
+        GameManager.instance.DialogueTriggerV();
         unloadScene = SceneManger.instance.previousScene;
 
         if (AllManager.initalStageBool == true)

@@ -76,9 +76,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueBase.NPCInfo info = dialogueInfo.Dequeue();
-        dialogueName.text = info.myName;
+       // dialogueName.text = info.myName;
         dialogueText.text = info.myText;
-        dialoguePortrait.sprite = info.portrait;
+       // dialoguePortrait.sprite = info.portrait;
         
         StopAllCoroutines();
         StartCoroutine(TypeSentence(info));

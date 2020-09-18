@@ -142,9 +142,11 @@ public class DialogueManager_R : MonoBehaviour
         }
         completeText = info.myText;
 
-        dialogueName.text = info.myName;
+        // dialogueName.text = info.myName;
+        dialogueName.text = info.character.myName;
         dialogueText.text = info.myText;
-        dialoguePortrait.sprite = info.portrait;
+       // dialoguePortrait.sprite = info.portrait;
+        dialoguePortrait.sprite = info.character.myPortrait;
 
         //StopAllCoroutines();
         dialogueText.text = "";

@@ -13,15 +13,11 @@ MonoBehaviour:
   m_Name: Tom.Intro
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: Seymour
-    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: Hello! This is a test scene.
-  - myName: Seymour
-    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: Can you try opening up the chest right here?
-  - myName: Seymour
-    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: You will need to find a switch to remove the rubble.
-  - myName: Seymour
-    portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: Come back to talk to me when you're done.

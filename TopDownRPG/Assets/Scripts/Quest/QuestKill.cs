@@ -26,6 +26,8 @@ public class QuestKill : QuestBase
         }
 
         BattleManager.instance.onEnemyDeathCallBack += EnemyDeath;
+        //SceneManger.instance.onEnemyDeathCallBack += EnemyDeath;
+
         base.InitializeQuest();
     }
 
@@ -42,6 +44,8 @@ public class QuestKill : QuestBase
 
         Evaluate();
     }
+
+    
 
 }
 

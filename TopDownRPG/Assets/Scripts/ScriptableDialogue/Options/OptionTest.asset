@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: OptionTest
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: Options Test
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: Options Test
   questionText: What's your name?
   optionsInfo:

@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: BadGuy1
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: Bad Guy
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: 8d63e96f3d20ce949af5b607b2889dde, type: 2}
     myText: Are you ready to battle?
-  - myName: Bad Guy
-    portrait: {fileID: 0}
-    myText: Battle Start!

@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: PartyMember
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: Party Member 2
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
     myText: It's Dangerous to go alone!
-  - myName: Party Member 2
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
     myText: How about I join you?
-  - myName: Party Member 2
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
     myText: Sidekick Added to the team.

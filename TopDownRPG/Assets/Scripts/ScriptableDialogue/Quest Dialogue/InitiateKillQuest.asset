@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: InitiateKillQuest
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - myName: Chester
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: Hello Can you do something for me?
-  - myName: Chester
-    portrait: {fileID: 0}
+  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
     myText: Can you defeat two bosses?
   Quest: {fileID: 11400000, guid: fbb3871047186224088705a968618c5e, type: 2}
