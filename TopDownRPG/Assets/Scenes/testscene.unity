@@ -16264,9 +16264,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d985de0b5233b50488863d5689b61cae, type: 2}
   index: 0
   nextDialogueOnInteract: 0
-  HasCompletedQuest: 0
-  CompletedQuestDialogue: {fileID: 0}
---- !u!114 &1594883288
+--- !u!114 &1425596315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425596312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54107453aa2c7442af88fc096305bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 3
+--- !u!114 &1425596316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16449,6 +16460,7 @@ GameObject:
   - component: {fileID: 2117169229}
   - component: {fileID: 2117169228}
   - component: {fileID: 2117169227}
+  - component: {fileID: 2117169235}
   - component: {fileID: 2117169226}
   m_Layer: 0
   m_Name: Overworld
@@ -16503,7 +16515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54107453aa2c7442af88fc096305bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 3
+  scene: 4
 --- !u!114 &2117169228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16530,7 +16542,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: grid-live
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2117169229
@@ -16680,8 +16692,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2134359980
-GameObject:
+--- !u!114 &2117169235
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "Assets/AstarPathfindingProject/",
+			"problemMatcher": [],
+			"label": "npm: install - Assets/AstarPathfindingProject",
+			"detail": "install dependencies from package"
+		}
+	]
+}

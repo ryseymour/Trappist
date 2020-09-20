@@ -19,6 +19,10 @@ MonoBehaviour:
   CritD: 10
   Multiple: 0
   teamBuff: 0
+  itemEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  thisMove: {fileID: 0}
   mpCost: 30
   myHealthbuff: 0
   myStatuseffects: 0

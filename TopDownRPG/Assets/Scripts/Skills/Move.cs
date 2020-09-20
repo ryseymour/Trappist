@@ -22,4 +22,10 @@ public class Move : ScriptableObject
     //animation?
     //level?
 
+    //Cole Add
+
+    public void TestMove(){
+        Debug.Log("test function in move");
+    }
+
 }

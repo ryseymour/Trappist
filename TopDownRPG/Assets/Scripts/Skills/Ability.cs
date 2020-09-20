@@ -29,15 +29,15 @@ public class Ability : Move
 
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void Pew(){
+        Debug.Log("pew pew also grab the battle manager, can you do stuff there (participantTracker)? " );
+        BattleManager.instance.turnChange = true;
+        BattleManager.instance.targetSelect = true;     
+        BattleManager.instance.abilityChoosen = this;
+        BattleManager.instance.triggerTargetDelay(0.5f);
+        BattleManager.instance.DisablePlayerButtons();
+        // BattleManager.instance.ArrowTurnOff();
         
     }
 }
