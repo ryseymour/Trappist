@@ -24,20 +24,28 @@ public class GridData : MonoBehaviour
         tiles = new Dictionary<Vector3, GridTile>();
         int count = 0;
 
+    //TESTING THE DATA FILE
         textRW gridFile = new textRW();
-        string [] lines = gridFile.ParseLines("grid");
+        string [] lines = gridFile.SeparateLines("grid");
 
-        print(lines);   
+        //Debug.Log("Number of lines in data file " + lines.Length);
+
+        List<string> locationData = new List<string>();
+
         foreach(string str in lines){
-            print(str);
+             string[] row = gridFile.ParseLine(str);
+            locationData.Add(row[0]); 
         }
-     
+ 
 
+
+    //END TESTING THE DATA FILE
         
-
+        //clear the index file
+         gridFile.ClearFile("index");
         foreach(Vector3Int pos in Tilemap.cellBounds.allPositionsWithin){
             var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-
+           
             if(!Tilemap.HasTile(localPlace)) continue;
 
             var tile = new GridTile{
@@ -50,17 +58,35 @@ public class GridData : MonoBehaviour
                 myTerrain = terrainType.road,                
                 myEncounter = encounterType.empty
             };
-           //testing out writing stuff for the grid document
-            // string coords = "" + pos.x + " " + pos.y;
-            // coords = coords + ", " + tile.myTerrain;
-            // gridFile.WriteLine("grid",  coords);
+     
+            //testing here to see if the grid.txt has the location (parsing the location too) 
 
-            
+            for(int i=0; i<locationData.Count; i++){
+               if(gridFile.CellToVector(locationData[i]) == tile.WorldLocation){
+                    string[] row = gridFile.ParseLine(lines[i]);//the row [] holds the comma separated cells
+                    Debug.Log("matched world location " + row[0]);
+                    //check if the 3rd cell in the row matches a possible type for encounterType
+                    if(System.Enum.TryParse<encounterType>(row[1], out encounterType testEnum)){
+                        Debug.Log("enum check worked " + testEnum);
+                        tile.myEncounter = testEnum;
+                    }else{
+                        Debug.Log("enum match not found");
+                    }
+                }           
+            }
+
+           //testing out writing stuff for the index document           
+            string coords = "" + tile.WorldLocation.x + " " + tile.WorldLocation.y;
+            coords = coords + "," + tile.myTerrain + "," + tile.myEncounter;
+            gridFile.WriteLine("index",  coords);            
 
             count++;
             tiles.Add(tile.WorldLocation, tile); 
             
         }
+
+
+
     }
 
 

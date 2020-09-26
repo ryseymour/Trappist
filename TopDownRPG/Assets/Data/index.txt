@@ -1,21 +1,27 @@
-Test Line0 
-
-Test Line1Login date: 9/17/2020 5:01:37 PM
-Login date: 9/17/2020 5:06:27 PM
-Login date: 9/17/2020 5:14:24 PM
-Login date: 9/17/2020 5:17:08 PM
-Login date: 9/17/2020 5:18:21 PM
-Login date: 9/17/2020 5:18:28 PM
-Login date: 9/17/2020 5:35:10 PM
-Login date: 9/17/2020 5:36:05 PM
-Login date: 9/17/2020 5:36:24 PM
-Login date: 9/17/2020 8:46:28 PM
-Login date: 9/17/2020 8:47:13 PM
-Login date: 9/17/2020 8:48:35 PM
-Login date: 9/17/2020 8:49:00 PM
-Login date: 9/17/2020 8:50:36 PM
-Login date: 9/17/2020 8:58:47 PM
-Login date: 9/17/2020 9:01:19 PM
-Login date: 9/17/2020 9:02:23 PM
-Login date: 9/17/2020 9:02:45 PM
-Login date: 9/17/2020 9:03:04 PM
+4 0,road,empty
+5 0,road,empty
+6 0,road,dialogue
+7 0,road,empty
+8 0,road,combat
+9 0,road,empty
+8 1,road,empty
+8 2,road,combat
+0 3,road,empty
+1 3,road,empty
+2 3,road,empty
+3 3,road,empty
+4 3,road,empty
+5 3,road,empty
+6 3,road,empty
+7 3,road,empty
+8 3,road,empty
+9 3,road,empty
+5 4,road,empty
+5 5,road,empty
+0 6,road,empty
+1 6,road,empty
+2 6,road,empty
+3 6,road,empty
+4 6,road,empty
+5 6,road,empty
+5 7,road,empty

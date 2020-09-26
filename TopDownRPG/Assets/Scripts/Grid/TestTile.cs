@@ -35,7 +35,7 @@ public class TestTile : MonoBehaviour
             cam.SetActive(false);
             Debug.Log("found main camera");
         }else{
-            Debug.Log("no main camera");
+            // Debug.Log("no main camera");
         }
 
     }
@@ -57,18 +57,15 @@ public class TestTile : MonoBehaviour
                     moveComplete=!moveComplete;
                 }                 
             }            
-        }
-      
+        }     
 
-        //Movement
-      
+        //Movement      
         if(Vector3.Distance(player.transform.position, target) > 0.0001f){
             // player.transform.position = Vector3.MoveTowards(player.transform.position, target, (2.25f*Time.deltaTime));
         }else{                          
             checkTerrain(worldPoint);
             moveComplete = true;                        
-        }
-        
+        }        
         
     }
 
@@ -80,13 +77,13 @@ public class TestTile : MonoBehaviour
                 cityText.text = tiles[wp].Name;
             }
         }else{
-            print("world point not found");
+            // print("world point not found " + wp);
         }
     }
 
 
     void SetCities(){
-        Vector3 [] cityLocations = {new Vector3(-1,-4,0), new Vector3(4,-1,0), new Vector3(0,-1,0), new Vector3(0,2,0)};
+        Vector3 [] cityLocations = {new Vector3(4,0,0), new Vector3(9,3,0), new Vector3(5,3,0), new Vector3(5,6,0)};
 
         Dictionary<Vector3, string> cityLabels = new Dictionary<Vector3, string>();
         cityLabels.Add(cityLocations[0], "Startersville");
