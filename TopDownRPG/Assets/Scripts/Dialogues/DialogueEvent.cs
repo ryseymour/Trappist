@@ -20,7 +20,7 @@ public class DialogueEvent : Interactable
     private void Start()
     {
         dialogueTrigger = GetComponent<DialogueTrigger_R>();
-        interactRange = dialogueTrigger.interactRange;
+        //interactRange = dialogueTrigger.interactRange;
     }
 
     public override void Interact()

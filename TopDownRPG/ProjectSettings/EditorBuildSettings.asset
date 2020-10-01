@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Outdated/OverworldSample.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/TownScenes.unity
+    guid: 08689f84ee605b24d8b40e73695c583f
+  - enabled: 1
     path: Assets/Scenes/testscene.unity
     guid: 128c5fff80ececc4b8ef2c3ad831d8f1
   - enabled: 1
