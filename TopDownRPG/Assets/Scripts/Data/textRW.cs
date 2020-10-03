@@ -60,7 +60,7 @@ public class textRW : MonoBehaviour
 
 
 
-    //break the file into separate lins
+    //break the file into separate lines: Rows
     public string[] SeparateLines(string fileName){
         string text = File.ReadAllText(SetPath(fileName));
         string[] strValues = text.Split('\n');
@@ -69,7 +69,7 @@ public class textRW : MonoBehaviour
         return strValues;
     }
 
-    //break the lines up by a comma
+    //break the lines up by a commafeed a row get an array of cells
     public string[] ParseLine(string line){
         char[] separators = {','};        
         string[] strValues = line.Split(separators);

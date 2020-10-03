@@ -30,11 +30,12 @@ public class GridData : MonoBehaviour
 
         //Debug.Log("Number of lines in data file " + lines.Length);
 
-        List<string> locationData = new List<string>();
+        
+        List<string> locationData = new List<string>(); 
 
         foreach(string str in lines){
-             string[] row = gridFile.ParseLine(str);
-            locationData.Add(row[0]); 
+             string[] cell = gridFile.ParseLine(str); //returns an array
+            locationData.Add(cell[0]); 
         }
  
 
@@ -63,30 +64,26 @@ public class GridData : MonoBehaviour
 
             for(int i=0; i<locationData.Count; i++){
                if(gridFile.CellToVector(locationData[i]) == tile.WorldLocation){
-                    string[] row = gridFile.ParseLine(lines[i]);//the row [] holds the comma separated cells
-                    Debug.Log("matched world location " + row[0]);
+                    string[] cell = gridFile.ParseLine(lines[i]);//the cell [] holds the comma separated cells
+                    Debug.Log("matched world location " + cell[0]);
                     //check if the 3rd cell in the row matches a possible type for encounterType
-                    if(System.Enum.TryParse<encounterType>(row[1], out encounterType testEnum)){
-                        Debug.Log("enum check worked " + testEnum);
+                    if(System.Enum.TryParse<encounterType>(cell[1], out encounterType testEnum)){
+                        Debug.Log("encounter check worked " + testEnum);
                         tile.myEncounter = testEnum;
                     }else{
-                        Debug.Log("enum match not found");
+                        Debug.Log("encounter match not found");
                     }
                 }           
             }
 
-           //testing out writing stuff for the index document           
+            //testing out writing stuff for the index document           
             string coords = "" + tile.WorldLocation.x + " " + tile.WorldLocation.y;
             coords = coords + "," + tile.myTerrain + "," + tile.myEncounter;
             gridFile.WriteLine("index",  coords);            
 
             count++;
-            tiles.Add(tile.WorldLocation, tile); 
-            
+            tiles.Add(tile.WorldLocation, tile);             
         }
-
-
-
     }
 
 

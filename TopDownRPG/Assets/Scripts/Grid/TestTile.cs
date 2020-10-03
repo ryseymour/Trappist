@@ -16,7 +16,13 @@ public class TestTile : MonoBehaviour
     public bool moveComplete; 
     Vector3 worldPoint;
 
+    GridTile currentTile;
+
     public Transform playerDestination;
+
+    textRW gridFile;
+    string [] rows;
+    List<string[]> cells = new List<string []>();
     void Awake(){
         // field.onSubmit.AddListener((value) => fieldVal(value)); 
         field.onEndEdit.AddListener((value) => SearchTileName(value));//listens for the
@@ -38,14 +44,19 @@ public class TestTile : MonoBehaviour
             // Debug.Log("no main camera");
         }
 
+        Vector3 wp = new Vector3(Mathf.FloorToInt(player.transform.position.x), Mathf.FloorToInt(player.transform.position.y), 0);
+        currentTile = tiles[wp];
+        
+
+        SetData();
+
     }
     private void Update()
     {
 
         if(Input.GetMouseButtonDown(0)){
             Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            worldPoint = new Vector3(Mathf.FloorToInt(point.x), Mathf.FloorToInt(point.y), 0);    
-    
+            worldPoint = new Vector3(Mathf.FloorToInt(point.x), Mathf.FloorToInt(point.y), 0);        
                   
             if(tiles.TryGetValue(worldPoint, out _tile)){              
                 playerDestination.position = worldPoint + new Vector3(0.5f, 0.5f, 0);
@@ -66,7 +77,44 @@ public class TestTile : MonoBehaviour
             checkTerrain(worldPoint);
             moveComplete = true;                        
         }        
+
+        getTile(player.transform.position);
         
+    }
+
+
+    void getTile(Vector3 wp){        
+        wp = new Vector3(Mathf.FloorToInt(wp.x), Mathf.FloorToInt(wp.y), 0);  
+
+        if(wp != currentTile.WorldLocation){
+            // Debug.Log("change up, check the tile");
+            // currentTile = wp;
+            if(tiles.TryGetValue(wp, out currentTile)){
+                encounterType eType = encounterType.empty;
+                if(currentTile.myEncounter != eType){//only spit out debug if the tile isn't empty
+                    Debug.Log("current tile encounter " + currentTile.myEncounter);
+                }               
+            }   
+        }else{
+            return;
+            // Debug.Log("I'm at Tile " + currentTile);
+        }
+    }
+
+
+    void SetData(){
+        gridFile = new textRW();
+
+        rows = gridFile.SeparateLines("index");
+
+        for(int i=0; i<rows.Length;i++){
+            // Debug.Log("" + rows[i]);
+            cells.Add(gridFile.ParseLine(rows[i]));
+            for(int y=0; y<cells[i].Length; y++){
+                 Debug.Log(cells[y]);
+            }
+           
+        }      
     }
 
 
