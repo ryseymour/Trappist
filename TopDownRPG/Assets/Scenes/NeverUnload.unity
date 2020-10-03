@@ -1002,6 +1002,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2047298850}
+    - target: {fileID: 4741633255555148661, guid: d7bab90f5fce7c64a865ae80064afe2c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1624040773673345494, guid: d7bab90f5fce7c64a865ae80064afe2c,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1072,6 +1077,16 @@ PrefabInstance:
       propertyPath: HeroReciever
       value: 
       objectReference: {fileID: 1426267664}
+    - target: {fileID: 7568923020317384825, guid: d7bab90f5fce7c64a865ae80064afe2c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568923020317384825, guid: d7bab90f5fce7c64a865ae80064afe2c,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7bab90f5fce7c64a865ae80064afe2c, type: 3}
 --- !u!1001 &20267734

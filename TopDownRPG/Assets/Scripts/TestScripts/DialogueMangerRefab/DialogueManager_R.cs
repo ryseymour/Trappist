@@ -225,8 +225,8 @@ public class DialogueManager_R : MonoBehaviour
 
     private void Update()
     {
-        // Debug.Log(inDialogue);
-        if (Input.GetKeyDown(KeyCode.M))
+        Debug.Log(inDialogue);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if(EndBool == true)
             {

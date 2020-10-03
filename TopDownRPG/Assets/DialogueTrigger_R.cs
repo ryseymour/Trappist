@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger_R : Interactable
+public class DialogueTrigger_R : Interactable_R2
 {
     [Header("This NPC")]
     public CharacterProfile targetNPC;

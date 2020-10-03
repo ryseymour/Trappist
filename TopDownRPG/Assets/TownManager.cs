@@ -11,14 +11,22 @@ public class TownManager : MonoBehaviour
     public GameObject TownUI;
     private bool InitialPop;
 
+    public Button[] LocationButtons;
+
+    public Town town;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
+        LoadTown();
         if (instance == null)
         {
             instance = this;
         }
         InitialPop = true;
+
+       // LoadTown();
     }
 
     // Update is called once per frame
@@ -38,5 +46,18 @@ public class TownManager : MonoBehaviour
             InitialPop = true;
         }
 
+    }
+
+
+    public void LoadTown()
+    {
+        Debug.Log("test");
+        for (int i = 0; i < LocationButtons.Length; i++)
+        {
+            var texter = LocationButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+
+            texter.text = town.buildings[i].buildingName;
+            
+        }
     }
 }
