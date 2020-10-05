@@ -21,4 +21,7 @@ MonoBehaviour:
   B4: 0
   B5: 0
   B6: 0
-  buildings: []
+  buildings:
+  - {fileID: 11400000, guid: 749d1bc98bca69e4babe33adfe81c7a9, type: 2}
+  - {fileID: 11400000, guid: d6dadf91aa1c0df4390ba1209e8c4eba, type: 2}
+  - {fileID: 11400000, guid: 670824ed0e48f3a4b81299afbd852ca9, type: 2}
