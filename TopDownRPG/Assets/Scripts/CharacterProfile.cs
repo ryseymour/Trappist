@@ -8,4 +8,19 @@ public class CharacterProfile : ScriptableObject
 {
     public string myName;
     public Sprite myPortrait;
+
+    //public DialogueTrigger_R Dtrigger;
+    [Header("Basic Dialogues Info")]
+    public DialogueBase[] DB;
+    [HideInInspector] public int index;
+    public bool nextDialogueOnInteract;
+
+
+    public bool HasCompletedQuest; // { get; set; }
+    public DialogueBase CompletedQuestDialogue;// { get; set; }
+
 }
+
+
+
+

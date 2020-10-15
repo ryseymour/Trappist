@@ -14,3 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: Bob
   myPortrait: {fileID: 21300000, guid: abc1d0bdd64f2b747bb35f61b66893bd, type: 3}
+  DB:
+  - {fileID: 11400000, guid: 8379b872e360ad5428ecbc67285b84f9, type: 2}
+  - {fileID: 11400000, guid: d985de0b5233b50488863d5689b61cae, type: 2}
+  index: 0
+  nextDialogueOnInteract: 1
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}

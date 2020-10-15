@@ -15,7 +15,12 @@ MonoBehaviour:
   buildingName: House
   buildSprite: {fileID: 0}
   buildingBackground: {fileID: 0}
+  rooms: []
   descriptionText: 
-  inBuildingCharacters:
-  - {fileID: 11400000, guid: 8d63e96f3d20ce949af5b607b2889dde, type: 2}
+  inBuildingCharactersScene1:
   - {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
+  - {fileID: 0}
+  inBuildingCharactersScene2: []
+  inBuildingCharactersScene3: []
+  inBuildingCharactersScene4: []
+  inBuildingCharactersScene5: []

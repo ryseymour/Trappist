@@ -21,6 +21,8 @@ public class DialogueTrigger_R : Interactable_R2
     {
         // DialogueManager_R.instance.CloseOptions();
 
+        
+
         if (!DialogueManager_R.instance.inDialogue)
         {
 

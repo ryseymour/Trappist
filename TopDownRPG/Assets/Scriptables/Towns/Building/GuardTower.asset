@@ -14,4 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: GuardTower
   buildSprite: {fileID: 0}
+  buildingBackground: {fileID: 0}
+  rooms: []
   descriptionText: 
+  inBuildingCharactersScene1:
+  - {fileID: 11400000, guid: 71582e5c06fdae94fb4db0721c05d435, type: 2}
+  - {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
+  - {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
+  inBuildingCharactersScene2: []
+  inBuildingCharactersScene3: []
+  inBuildingCharactersScene4: []
+  inBuildingCharactersScene5: []
