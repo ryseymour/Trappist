@@ -9,6 +9,8 @@ public class GridData : MonoBehaviour
     public Tilemap Tilemap;
 
     public Dictionary<Vector3, GridTile> tiles;
+    public bool firstTime = false;
+
 
     private void Awake(){
         if(instance == null){
@@ -17,7 +19,18 @@ public class GridData : MonoBehaviour
             Destroy(gameObject);
         }
 
-        GetWorldTiles();
+        if(!firstTime){
+            firstTime = true;
+            GetWorldTiles();
+            GridManager.tile_index = tiles;
+            GridManager.test = "fuck";
+        }else{
+            print("probs gotta do something but you're back again");
+        }
+            
+
+        
+        
     }
 
     private void GetWorldTiles(){ //check for all the active tiles in the Tilemap 
@@ -37,9 +50,6 @@ public class GridData : MonoBehaviour
              string[] cell = gridFile.ParseLine(str); //returns an array
             locationData.Add(cell[0]); 
         }
- 
-
-
     //END TESTING THE DATA FILE
         
         //clear the index file
@@ -60,7 +70,7 @@ public class GridData : MonoBehaviour
                 myEncounter = encounterType.empty
             };
      
-            //testing here to see if the grid.txt has the location (parsing the location too) 
+        //testing here to see if the grid.txt has the location (parsing the location too) 
 
             for(int i=0; i<locationData.Count; i++){
                if(gridFile.CellToVector(locationData[i]) == tile.WorldLocation){
@@ -80,6 +90,8 @@ public class GridData : MonoBehaviour
             string coords = "" + tile.WorldLocation.x + " " + tile.WorldLocation.y;
             coords = coords + "," + tile.myTerrain + "," + tile.myEncounter;
             gridFile.WriteLine("index",  coords);            
+        //End of all the writing shenanigans 
+
 
             count++;
             tiles.Add(tile.WorldLocation, tile);             

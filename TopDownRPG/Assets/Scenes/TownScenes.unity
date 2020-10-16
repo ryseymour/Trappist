@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unloadScene: 2
-  currentScene: 1
+  currentScene: 3
   unloaded: 0
 --- !u!4 &1640414501
 Transform:

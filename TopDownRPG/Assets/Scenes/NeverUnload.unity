@@ -9171,6 +9171,18 @@ MonoBehaviour:
   questName: {fileID: 849145627}
   questDescription: {fileID: 281953830}
   questAcceptButton: {fileID: 854359469}
+--- !u!114 &1398466851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398466849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65b87a2e951fbd47a2add45bf76e8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1398466855 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3141671865496648524, guid: 03d447b13cc415f478a9be1485a7354e,
@@ -12580,7 +12592,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047298848}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2047298850
 Camera:
   m_ObjectHideFlags: 0

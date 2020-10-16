@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TestTile : MonoBehaviour
 {
     private GridTile _tile;
     public InputField field;
     public Text cityText;
-    private Dictionary<Vector3, GridTile> tiles;
+    private Dictionary<Vector3, GridTile> tiles;    
     public GameObject player;
     private Vector3 target;
     public bool moveComplete; 
@@ -53,6 +54,10 @@ public class TestTile : MonoBehaviour
     }
     private void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.M)){
+            SceneManager.LoadScene("neverUnload");        
+        }
 
         if(Input.GetMouseButtonDown(0)){
             Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
