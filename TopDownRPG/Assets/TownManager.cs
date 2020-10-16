@@ -14,7 +14,11 @@ public class TownManager : MonoBehaviour
 
     public Button[] LocationButtons;
 
+
+
     public Town town;
+
+    public Building[] BuildingsInside;
 
 
     // Start is called before the first frame update
@@ -66,7 +70,7 @@ public class TownManager : MonoBehaviour
             var texter = LocationButtons[i].GetComponentInChildren<TextMeshProUGUI>();
 
             texter.text = town.buildings[i].buildingName;
-            
+            BuildingsInside[i] = town.buildings[i];
         }
     }
 }

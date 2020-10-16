@@ -10,17 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7ff333aa342c5a41a54112f8f9fd660, type: 3}
-  m_Name: Tavern
+  m_Name: Blank
   m_EditorClassIdentifier: 
-  buildingName: Tavern
+  buildingName: 
   buildSprite: {fileID: 0}
-  buildingBackground: {fileID: 0}
-  rooms: []
   descriptionText: 
-  inBuildingCharactersScene1:
-  - {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
-  - {fileID: 0}
-  inBuildingCharactersScene2: []
-  inBuildingCharactersScene3: []
-  inBuildingCharactersScene4: []
-  inBuildingCharactersScene5: []

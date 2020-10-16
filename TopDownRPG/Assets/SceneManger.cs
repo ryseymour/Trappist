@@ -12,6 +12,8 @@ public class SceneManger : MonoBehaviour
     public GameObject Camera;
     public GameObject InventoryUI;
 
+    public GameObject TownCanvas;
+
     public GameObject overworldTobattle;
     public GameObject townTobattle;
 
@@ -55,6 +57,8 @@ public class SceneManger : MonoBehaviour
     Battlefield.SetActive(false);
         BattlefieldUI.SetActive(false);
 
+        TownCanvas.SetActive(true);
+
         //
     }
 
@@ -80,6 +84,7 @@ public class SceneManger : MonoBehaviour
 
     public void BattleScene()
     {
+        TownCanvas.SetActive(false);
         this.gameObject.GetComponent<BattleManager>().enabled = true;
         
         this.gameObject.GetComponent<DialogueManager_R>().enabled = false;
