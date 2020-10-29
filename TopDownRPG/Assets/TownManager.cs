@@ -13,6 +13,8 @@ public class TownManager : MonoBehaviour
 
     public Button[] LocationButtons;
 
+    public Transform[] BuildingTransforms;
+
 
 
     public Town town;
@@ -56,12 +58,21 @@ public class TownManager : MonoBehaviour
     public void LoadTown()
     {
         Debug.Log("test");
+        /*
         for (int i = 0; i < LocationButtons.Length; i++)
         {
             var texter = LocationButtons[i].GetComponentInChildren<TextMeshProUGUI>();
 
             texter.text = town.buildings[i].buildingName;
             BuildingsInside[i] = town.buildings[i];
+        }
+
+    */
+
+        for (int i = 0; i < BuildingTransforms.Length; i++)
+        {
+            var buildingModel =town.buildings[i].buildingModel;
+            Instantiate(buildingModel, BuildingTransforms[i]);
         }
     }
 }

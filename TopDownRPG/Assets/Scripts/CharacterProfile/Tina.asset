@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: Tina
   myPortrait: {fileID: 21300000, guid: e7f04065c790fa243b652ba670359271, type: 3}
+  myCharacterModel: {fileID: 5276411614636154884, guid: cc1c78e1f9e7c1e41b0eaa7fbf4ec190,
+    type: 3}
   DB:
   - {fileID: 11400000, guid: e3cba5f7ec2ec9f4285b7431d2925548, type: 2}
   index: 0

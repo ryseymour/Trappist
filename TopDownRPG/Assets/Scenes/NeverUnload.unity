@@ -2494,7 +2494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &198077746
 Transform:
   m_ObjectHideFlags: 0
@@ -12281,6 +12281,8 @@ MonoBehaviour:
   buildingInside: {fileID: 0}
   dialoguePortrait: {fileID: 0}
   ZeroDialogue: 0
+  partyTransforms: []
+  npcTransforms: []
 --- !u!1 &1705696387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4741633254104926458, guid: d7bab90f5fce7c64a865ae80064afe2c,

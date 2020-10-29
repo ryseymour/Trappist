@@ -16,6 +16,8 @@ MonoBehaviour:
   buildSprite: {fileID: 0}
   buildingBackground: {fileID: 0}
   rooms: []
+  buildingModel: {fileID: 5143187515026401131, guid: 2ca2a5654ba92be4f8c4a9216dde78e5,
+    type: 3}
   descriptionText: 
   inBuildingCharactersScene1:
   - {fileID: 11400000, guid: 8d63e96f3d20ce949af5b607b2889dde, type: 2}

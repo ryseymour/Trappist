@@ -11,6 +11,9 @@ public class InsideManager : MonoBehaviour
     public Image dialoguePortrait;
     public int ZeroDialogue;
 
+    public Transform[] partyTransforms;
+    public Transform[] npcTransforms;
+
     // Start is called before the first frame update
     void Awake ()
     {
@@ -38,10 +41,14 @@ public class InsideManager : MonoBehaviour
             
        
                 Debug.Log("image person swap");
-            var imageofPerson = buildingInside.inBuildingCharactersScene1[i].myPortrait;
+           // var imageofPerson = buildingInside.inBuildingCharactersScene1[i].myPortrait;
 
-             peopleInside[i].GetComponent<Image>().sprite = imageofPerson;
+            // peopleInside[i].GetComponent<Image>().sprite = imageofPerson;
             peopleInside[i].GetComponent<DialogueTrigger_R>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
+
+
+            var modelof = buildingInside.inBuildingCharactersScene1[i].myCharacterModel;
+            Instantiate(modelof, npcTransforms[i]);
 
             var DialogueChangeArray = buildingInside.inBuildingCharactersScene1[i].DB.Length;
 
@@ -50,14 +57,17 @@ public class InsideManager : MonoBehaviour
             //var peopleDial = peopleInside[i].GetComponent<DialogueTrigger_R>().DB;
 
             peopleInside[i].GetComponent<DialogueTrigger_R>().DB = new DialogueBase[buildingInside.inBuildingCharactersScene1[i].DB.Length];//changes based on number of dialogue options that are in the character profile.
-
+            npcTransforms[i].GetComponent<DialogueTrigger_R>().DB = new DialogueBase[buildingInside.inBuildingCharactersScene1[i].DB.Length];
 
             for (int y = 0; y < buildingInside.inBuildingCharactersScene1[i].DB.Length; y++)
             {
                 peopleInside[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];//update this
+                npcTransforms[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
+
+
 
                 peopleInside[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
-
+                npcTransforms[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
 
             }
             

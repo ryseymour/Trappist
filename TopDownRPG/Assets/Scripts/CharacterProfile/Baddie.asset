@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: Bad Guy
   myPortrait: {fileID: 21300000, guid: 9645d33c8567a304f8e3817bf9fe039b, type: 3}
+  myCharacterModel: {fileID: 5276411614636154884, guid: 67a5cf894f79c3e46a654ad74ff23ec6,
+    type: 3}
   DB:
   - {fileID: 11400000, guid: 57e9400b0b52a9c49a33eead1d4d1070, type: 2}
   index: 0

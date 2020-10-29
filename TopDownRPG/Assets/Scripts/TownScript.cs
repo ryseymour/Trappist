@@ -15,7 +15,8 @@ public class TownScript : MonoBehaviour
 
     public void SelectLocation()
     {
-        Inside.SetActive(true);
+        // Inside.SetActive(true);
+        transform.parent.gameObject.GetComponent<BuildingClear>().BuildingClearz();
     }
 
 

@@ -11,6 +11,7 @@ public class Building : ScriptableObject
     public Sprite buildSprite;//if there are many costumes we could make this into an array
     public Image buildingBackground;
     public Room[] rooms;
+    public GameObject buildingModel;
 
 
 
