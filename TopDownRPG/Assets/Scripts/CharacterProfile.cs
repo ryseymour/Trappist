@@ -21,6 +21,10 @@ public class CharacterProfile : ScriptableObject
     public bool HasCompletedQuest; // { get; set; }
     public DialogueBase CompletedQuestDialogue;// { get; set; }
 
+    [Header("Quest Dialogue Info")]
+    public bool hasActiveQuest;
+    public DialogueQuest[] dialogueQuests;
+    public int QuestIndex { get; set; }
 }
 
 

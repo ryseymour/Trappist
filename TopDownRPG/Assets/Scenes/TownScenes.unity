@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 368026613}
   - component: {fileID: 368026612}
   - component: {fileID: 368026614}
+  - component: {fileID: 368026615}
   m_Layer: 0
   m_Name: Transform2
   m_TagString: Untagged
@@ -636,7 +637,7 @@ MonoBehaviour:
   anEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368026612}
+      - m_Target: {fileID: 368026615}
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -659,6 +660,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3293b6f144ad40a9678862f402f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &368026615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368026609}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39d268879407d14abd268c957de8cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetNPC: {fileID: 0}
+  DB: []
+  index: 0
+  nextDialogueOnInteract: 0
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
 --- !u!1 &420853391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1830,7 @@ GameObject:
   - component: {fileID: 586329834}
   - component: {fileID: 586329832}
   - component: {fileID: 586329835}
+  - component: {fileID: 586329836}
   m_Layer: 0
   m_Name: Transform1
   m_TagString: Untagged
@@ -1876,7 +1898,7 @@ MonoBehaviour:
   anEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 586329832}
+      - m_Target: {fileID: 586329836}
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -1899,6 +1921,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3293b6f144ad40a9678862f402f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &586329836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586329830}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39d268879407d14abd268c957de8cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetNPC: {fileID: 0}
+  DB: []
+  index: 0
+  nextDialogueOnInteract: 0
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
 --- !u!1 &648248021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +2977,7 @@ GameObject:
   - component: {fileID: 1229290582}
   - component: {fileID: 1229290581}
   - component: {fileID: 1229290583}
+  - component: {fileID: 1229290584}
   m_Layer: 0
   m_Name: Transform3
   m_TagString: Untagged
@@ -3002,7 +3045,7 @@ MonoBehaviour:
   anEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1229290581}
+      - m_Target: {fileID: 1229290584}
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -3025,6 +3068,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3293b6f144ad40a9678862f402f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1229290584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229290578}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39d268879407d14abd268c957de8cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetNPC: {fileID: 0}
+  DB: []
+  index: 0
+  nextDialogueOnInteract: 0
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
 --- !u!1 &1263848297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3131,7 @@ GameObject:
   - component: {fileID: 1356605108}
   - component: {fileID: 1356605107}
   - component: {fileID: 1356605109}
+  - component: {fileID: 1356605110}
   m_Layer: 0
   m_Name: Transform4
   m_TagString: Untagged
@@ -3135,7 +3199,7 @@ MonoBehaviour:
   anEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1356605107}
+      - m_Target: {fileID: 1356605110}
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -3158,6 +3222,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3293b6f144ad40a9678862f402f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1356605110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356605104}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39d268879407d14abd268c957de8cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetNPC: {fileID: 0}
+  DB: []
+  index: 0
+  nextDialogueOnInteract: 0
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
 --- !u!4 &1357350395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5315454289390763984, guid: fe5c9c55de0b48c488d31fda99e1adc9,

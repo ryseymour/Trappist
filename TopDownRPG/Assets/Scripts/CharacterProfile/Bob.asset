@@ -18,8 +18,10 @@ MonoBehaviour:
     type: 3}
   DB:
   - {fileID: 11400000, guid: 8379b872e360ad5428ecbc67285b84f9, type: 2}
-  - {fileID: 11400000, guid: d985de0b5233b50488863d5689b61cae, type: 2}
   index: 0
-  nextDialogueOnInteract: 1
+  nextDialogueOnInteract: 0
   HasCompletedQuest: 0
   CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 1
+  dialogueQuests:
+  - {fileID: 11400000, guid: 48ace7788f1431945b31ea169b419bf5, type: 2}
