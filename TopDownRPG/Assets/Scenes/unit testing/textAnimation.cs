@@ -16,8 +16,10 @@ public class textAnimation : MonoBehaviour
 
     void Awake(){        
         Destroy(gameObject, 3.0f);
+        Vector3 randOffset = Offset + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
 
-        transform.localPosition += Offset;
+        transform.localPosition += randOffset;
+        
         
     }
 

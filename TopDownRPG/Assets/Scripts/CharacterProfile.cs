@@ -9,6 +9,8 @@ public class CharacterProfile : ScriptableObject
     public string myName;
     public Sprite myPortrait;
 
+    public GameObject myCharacterModel;
+
     //public DialogueTrigger_R Dtrigger;
     [Header("Basic Dialogues Info")]
     public DialogueBase[] DB;
