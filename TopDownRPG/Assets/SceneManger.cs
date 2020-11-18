@@ -26,6 +26,8 @@ public class SceneManger : MonoBehaviour
 
     public bool scenceChecker;
 
+  
+
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +35,7 @@ public class SceneManger : MonoBehaviour
             instance = this;
         }
 
+        
         
     }
 

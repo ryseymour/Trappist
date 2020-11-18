@@ -16,6 +16,7 @@ public class EventBehaviour : ScriptableObject
 
     public void Frze()
     {
+        Debug.Log("frze");
         AbilityManager.instance.AbilitySwitch(1);
     }
 

@@ -16,51 +16,8 @@ public class BattleTestScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(BattleManager.instance.participantTracker == 0)
-            {
-                BattleManager.instance.TurnCycle();
-                return;
-            }
-
-            if (BattleManager.instance.myturnState == BattleManager.turnSystem.battleStart || BattleManager.instance.myturnState == BattleManager.turnSystem.turnEnd && controlBool == true)
-            {
-                controlBool = false;
-                Debug.Log("State1");
-                BattleManager.instance.turnChange = true;
-                BattleManager.instance.ArrowTurnOff();
-                StartCoroutine(BufferTime());
-                return;
-            }
-            if (BattleManager.instance.myturnState == BattleManager.turnSystem.heroTurn && controlBool == true) 
-            {
-                controlBool = false;
-                Debug.Log("State2");
-                BattleManager.instance.turnChange = true;
-                BattleManager.instance.ArrowTurnOff();
-                StartCoroutine(BufferTime());
-                return;
-            }
-
-            if (BattleManager.instance.myturnState == BattleManager.turnSystem.enemyTurn && controlBool == true)
-            {
-                controlBool = false;
-                Debug.Log("State3");
-                BattleManager.instance.turnChange = true;
-                BattleManager.instance.ArrowTurnOff();//I think the problem with the order system is that this function gets called 
-                StartCoroutine(BufferTime());
-                return;
-            }
-
-            if ( BattleManager.instance.myturnState == BattleManager.turnSystem.turnEnd && controlBool == true)
-            {
-                controlBool = false;
-                Debug.Log("State4");
-                BattleManager.instance.turnChange = true;
-                //BattleManager.instance.PreBattle();
-                StartCoroutine(BufferTime());
-                return;
-            }
-
+            
+            StateCheck();
 
 
         }
@@ -71,11 +28,60 @@ public class BattleTestScript : MonoBehaviour
         }
     }
 
+
+    void StateCheck(){
+        if(BattleManager.instance.participantTracker == 0)
+        {
+            Debug.Log("battle test script participant tracker 0");
+            BattleManager.instance.TurnCycle();
+            return;
+        }
+
+        if (BattleManager.instance.myturnState == BattleManager.turnSystem.battleStart || BattleManager.instance.myturnState == BattleManager.turnSystem.turnEnd && controlBool == true)
+        {
+            controlBool = false;
+            Debug.Log("State1");
+            BattleManager.instance.turnChange = true;
+            BattleManager.instance.ArrowTurnOff();
+            StartCoroutine(BufferTime());
+            return;
+        }
+        if (BattleManager.instance.myturnState == BattleManager.turnSystem.heroTurn && controlBool == true) 
+        {
+            controlBool = false;
+            Debug.Log("State2");
+            BattleManager.instance.turnChange = true;
+            BattleManager.instance.ArrowTurnOff();
+            StartCoroutine(BufferTime());
+            return;
+        }
+
+        if (BattleManager.instance.myturnState == BattleManager.turnSystem.enemyTurn && controlBool == true)
+        {
+            controlBool = false;
+            Debug.Log("State3");
+            BattleManager.instance.turnChange = true;
+            BattleManager.instance.ArrowTurnOff();//I think the problem with the order system is that this function gets called 
+            StartCoroutine(BufferTime());
+            return;
+        }
+
+        if ( BattleManager.instance.myturnState == BattleManager.turnSystem.turnEnd && controlBool == true)
+        {
+            controlBool = false;
+            Debug.Log("State4");
+            BattleManager.instance.turnChange = true;
+            //BattleManager.instance.PreBattle();
+            StartCoroutine(BufferTime());
+            return;
+        }
+    }
+
     IEnumerator BufferTime()
     {
-        Debug.Log(controlBool);
-        yield return new WaitForSeconds(.5f);
+        Debug.Log("control bool " + controlBool);
+        yield return new WaitForSeconds(2.5f);
         controlBool = true;
-        Debug.Log(controlBool);
+        Debug.Log("control bool " + controlBool);
     }
 }

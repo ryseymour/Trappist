@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TownManager : MonoBehaviour
 {
@@ -38,6 +39,14 @@ public class TownManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+      //Cole stuff
+      if(Input.GetKeyDown(KeyCode.Space)){
+          print("spacebar");
+          SceneManager.LoadScene("grid-live", LoadSceneMode.Additive);
+      }
+
         if (TownUI.activeSelf == true)
         {
             if (InitialPop == true)

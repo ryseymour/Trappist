@@ -683,7 +683,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &420853392
+--- !u!114 &1640414499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640414498}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fbb53876673544684cd44e2e962766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialScene: 0
+  Unloader: {fileID: 0}
+  GateCheck: 0
+--- !u!114 &1640414500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640414498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7861f58dd7fd444925df4203023455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unloadScene: 2
+  currentScene: 3
+  unloaded: 0
+--- !u!4 &1640414501
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

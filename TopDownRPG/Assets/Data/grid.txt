@@ -1,0 +1,4 @@
+6 0,  dialogue
+8 0, combat, scene1
+8 2, combat
+9 0, 

@@ -28,3 +28,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
   - {fileID: 11400000, guid: 089bbb2adef3d2f49aaf775c12e8c82d, type: 2}
   consumables: []
+  enemyProfile: {fileID: 0}
