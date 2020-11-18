@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tom.Two
   m_EditorClassIdentifier: 
   dialogueInfo:
-  - character: {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
+  - character: {fileID: 11400000, guid: 8d63e96f3d20ce949af5b607b2889dde, type: 2}
     myText: dafasdfsdafasdfasdfsadfasdf

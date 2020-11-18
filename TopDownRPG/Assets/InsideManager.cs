@@ -45,7 +45,7 @@ public class InsideManager : MonoBehaviour
 
             // peopleInside[i].GetComponent<Image>().sprite = imageofPerson;
             peopleInside[i].GetComponent<DialogueTrigger_R>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
-
+           // peopleInside[i].GetComponent<QuestDialogueTrigger>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
 
             var modelof = buildingInside.inBuildingCharactersScene1[i].myCharacterModel;
             Instantiate(modelof, npcTransforms[i]);
@@ -55,20 +55,46 @@ public class InsideManager : MonoBehaviour
             //var ChangeDialNumber = peopleInside[i].GetComponent<DialogueTrigger_R>().DB.Length;
 
             //var peopleDial = peopleInside[i].GetComponent<DialogueTrigger_R>().DB;
-
+            //*
             peopleInside[i].GetComponent<DialogueTrigger_R>().DB = new DialogueBase[buildingInside.inBuildingCharactersScene1[i].DB.Length];//changes based on number of dialogue options that are in the character profile.
             npcTransforms[i].GetComponent<DialogueTrigger_R>().DB = new DialogueBase[buildingInside.inBuildingCharactersScene1[i].DB.Length];
 
+           // peopleInside[i].GetComponent<QuestDialogueTrigger>().DB = new DialogueBase[buildingInside.inBuildingCharactersScene1[i].DB.Length];//changes based on number of dialogue options that are in the character profile.
+            npcTransforms[i].GetComponent<QuestDialogueTrigger>().DB = new DialogueBase[buildingInside.inBuildingCharactersScene1[i].DB.Length];
+            npcTransforms[i].GetComponent<QuestDialogueTrigger>().dialogueQuests = new DialogueQuest[buildingInside.inBuildingCharactersScene1[i].dialogueQuests.Length];
+
             for (int y = 0; y < buildingInside.inBuildingCharactersScene1[i].DB.Length; y++)
             {
+                //*
                 peopleInside[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];//update this
                 npcTransforms[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
 
+                //peopleInside[i].GetComponent<QuestDialogueTrigger>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
+                npcTransforms[i].GetComponent<QuestDialogueTrigger>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
 
 
                 peopleInside[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
                 npcTransforms[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
 
+                //peopleInside[i].GetComponent<QuestDialogueTrigger>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
+                npcTransforms[i].GetComponent<QuestDialogueTrigger>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
+
+                npcTransforms[i].GetComponent<QuestDialogueTrigger>().hasActiveQuest = buildingInside.inBuildingCharactersScene1[i].hasActiveQuest;
+
+                if (buildingInside.inBuildingCharactersScene1[i].hasActiveQuest == true)
+                {
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().dialogueQuests[y] = buildingInside.inBuildingCharactersScene1[i].dialogueQuests[y];
+                    break;
+                }
+
+                if(buildingInside.inBuildingCharactersScene1[i].hasActiveDialogueEvent == true)
+                {
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().hasActiveDialogueEvent = buildingInside.inBuildingCharactersScene1[i].hasActiveDialogueEvent;
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().unityEvent = buildingInside.inBuildingCharactersScene1[i].unityEvent;
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().targetLine = buildingInside.inBuildingCharactersScene1[i].targetLine;
+                    break;
+                }
+                
             }
             
 

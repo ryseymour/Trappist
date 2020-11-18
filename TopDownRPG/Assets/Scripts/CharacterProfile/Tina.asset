@@ -18,7 +18,28 @@ MonoBehaviour:
     type: 3}
   DB:
   - {fileID: 11400000, guid: e3cba5f7ec2ec9f4285b7431d2925548, type: 2}
+  - {fileID: 11400000, guid: 8379b872e360ad5428ecbc67285b84f9, type: 2}
   index: 0
-  nextDialogueOnInteract: 0
+  nextDialogueOnInteract: 1
   HasCompletedQuest: 0
   CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
+  hasActiveDialogueEvent: 0
+  targetIndex: 0
+  targetLine: 1
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731892307365871564, guid: 693a235182acc9f499227cee36d648ab,
+          type: 3}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
