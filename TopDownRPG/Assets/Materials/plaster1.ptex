@@ -1,0 +1,160 @@
+{
+	"connections": [
+		{
+			"from": "pixelize",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 4
+		},
+		{
+			"from": "pixelize",
+			"from_port": 0,
+			"to": "normal_map",
+			"to_port": 0
+		},
+		{
+			"from": "perlin",
+			"from_port": 0,
+			"to": "blend",
+			"to_port": 0
+		},
+		{
+			"from": "uniform",
+			"from_port": 0,
+			"to": "blend",
+			"to_port": 1
+		},
+		{
+			"from": "blend",
+			"from_port": 0,
+			"to": "pixelize",
+			"to_port": 0
+		},
+		{
+			"from": "normal_map",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 5
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@5946",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 0,
+				"y": 0
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				},
+				"ao": 0.09,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": false,
+				"metallic": 1,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 0
+			},
+			"type": "material"
+		},
+		{
+			"name": "pixelize",
+			"node_position": {
+				"x": -329,
+				"y": 44.5
+			},
+			"parameters": {
+				"c": 8,
+				"d": 0.5,
+				"x": 64,
+				"y": 64
+			},
+			"type": "pixelize"
+		},
+		{
+			"name": "normal_map",
+			"node_position": {
+				"x": -411,
+				"y": 292.5
+			},
+			"parameters": {
+				"param0": 10,
+				"param1": 0.23,
+				"param2": 0,
+				"param4": 1
+			},
+			"type": "normal_map"
+		},
+		{
+			"name": "perlin",
+			"node_position": {
+				"x": -594,
+				"y": -238.5
+			},
+			"parameters": {
+				"iterations": 9,
+				"persistence": 0.5,
+				"scale_x": 2,
+				"scale_y": 10
+			},
+			"type": "perlin"
+		},
+		{
+			"name": "blend",
+			"node_position": {
+				"x": -378,
+				"y": -111.5
+			},
+			"parameters": {
+				"amount": 0.47,
+				"blend_type": 10
+			},
+			"type": "blend"
+		},
+		{
+			"name": "uniform",
+			"node_position": {
+				"x": -531,
+				"y": -41.5
+			},
+			"parameters": {
+				"color": {
+					"a": 1,
+					"b": 1,
+					"g": 1,
+					"r": 1,
+					"type": "Color"
+				}
+			},
+			"type": "uniform"
+		}
+	],
+	"parameters": {
+
+	},
+	"shortdesc": "",
+	"type": "graph"
+}

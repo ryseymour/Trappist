@@ -86,6 +86,14 @@ public class InsideManager : MonoBehaviour
                     npcTransforms[i].GetComponent<QuestDialogueTrigger>().dialogueQuests[y] = buildingInside.inBuildingCharactersScene1[i].dialogueQuests[y];
                     break;
                 }
+
+                if(buildingInside.inBuildingCharactersScene1[i].hasActiveDialogueEvent == true)
+                {
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().hasActiveDialogueEvent = buildingInside.inBuildingCharactersScene1[i].hasActiveDialogueEvent;
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().unityEvent = buildingInside.inBuildingCharactersScene1[i].unityEvent;
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().targetLine = buildingInside.inBuildingCharactersScene1[i].targetLine;
+                    break;
+                }
                 
             }
             

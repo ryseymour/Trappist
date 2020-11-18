@@ -22,6 +22,7 @@ public class BadGuyFight : MonoBehaviour
 
     public void FightStart()
     {
+        Debug.Log("sceneChange");
         {
             if (!loaded)
             {
@@ -33,5 +34,12 @@ public class BadGuyFight : MonoBehaviour
         }
 
 
+    }
+
+
+    public void FightStartTwo()
+    {
+        Debug.Log("sceneChange2");
+        SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
     }
 }

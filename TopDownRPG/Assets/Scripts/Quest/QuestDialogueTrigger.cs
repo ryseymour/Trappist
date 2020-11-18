@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestDialogueTrigger : DialogueTrigger_R
 {
@@ -9,8 +10,23 @@ public class QuestDialogueTrigger : DialogueTrigger_R
     public DialogueQuest[] dialogueQuests;
     public int QuestIndex { get; set; }
 
+    [Header("Target Info")]
+    public bool hasActiveDialogueEvent;
+    public int targetIndex;
+    public int targetLine;
+
+    public UnityEvent unityEvent;
+
     public override void Interact()
     {
+        if (unityEvent != null)
+        {
+            Debug.Log("event test");
+            unityEvent.Invoke();
+            base.Interact();
+            return;
+        }
+
         if(hasActiveQuest)
         {
             DialogueManager_R.instance.EnqueueDialogue(dialogueQuests[QuestIndex]);
@@ -21,4 +37,6 @@ public class QuestDialogueTrigger : DialogueTrigger_R
             base.Interact();
         }
     }
+
+
 }
