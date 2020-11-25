@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManger : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class SceneManger : MonoBehaviour
     public GameObject Camera;
     public GameObject InventoryUI;
 
-    public GameObject TownCanvas;
+   // public GameObject TownCanvas;
 
     public GameObject overworldTobattle;
     public GameObject townTobattle;
@@ -25,6 +26,8 @@ public class SceneManger : MonoBehaviour
 
 
     public bool scenceChecker;
+
+    public Town interactedTown;
 
   
 
@@ -57,7 +60,7 @@ public class SceneManger : MonoBehaviour
     Battlefield.SetActive(false);
         BattlefieldUI.SetActive(false);
 
-        TownCanvas.SetActive(true);
+      //  TownCanvas.SetActive(true);
 
         //
     }
@@ -84,7 +87,7 @@ public class SceneManger : MonoBehaviour
 
     public void BattleScene()
     {
-        TownCanvas.SetActive(false);
+       // TownCanvas.SetActive(false);
         this.gameObject.GetComponent<BattleManager>().enabled = true;
         
         this.gameObject.GetComponent<DialogueManager_R>().enabled = false;
@@ -102,6 +105,11 @@ public class SceneManger : MonoBehaviour
         //InventoryUI.GetComponent<InstantiateToggle>().enabled = true;
 
 
+    }
+
+    public void LoadUpTown()
+    {
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
     }
 
 

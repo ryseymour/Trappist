@@ -16,7 +16,7 @@ public class TownManager : MonoBehaviour
 
     public Transform[] BuildingTransforms;
 
-
+    //public Town overworld;
 
     public Town town;
 
@@ -31,6 +31,8 @@ public class TownManager : MonoBehaviour
         {
             instance = this;
         }
+        town = SceneManger.instance.interactedTown;
+
         InitialPop = true;
 
        // LoadTown();
@@ -77,11 +79,12 @@ public class TownManager : MonoBehaviour
         }
 
     */
-
+        /*11.24 Old style building issues
         for (int i = 0; i < BuildingTransforms.Length; i++)
         {
             var buildingModel =town.buildings[i].buildingModel;
             Instantiate(buildingModel, BuildingTransforms[i]);
         }
+        */
     }
 }

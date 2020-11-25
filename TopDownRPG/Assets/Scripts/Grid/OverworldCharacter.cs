@@ -6,6 +6,7 @@ public class OverworldCharacter : MonoBehaviour
 {
 
     public GameObject destinationMarker;
+    public bool interactingLocation;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +34,25 @@ public class OverworldCharacter : MonoBehaviour
         if(other.tag == "town"){
            if(other.gameObject.GetComponent<OWtown>().myTown != null){
                 Debug.Log("hey hit a town called " + other.gameObject.GetComponent<OWtown>().myTown.myName);
+                interactingLocation = true;
+
+                if(interactingLocation == true)
+                {
+                    SceneManger.instance.interactedTown = other.gameObject.GetComponent<OWtown>().myTown;
+                    SceneManger.instance.LoadUpTown();
+                    interactingLocation = false;
+                }
+                
+             
+
            }else{
                Debug.Log("hit a town object but no town scriptable assigned");
            }
             
         }
     }
+
+    
 
 
 

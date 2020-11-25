@@ -15,12 +15,9 @@ MonoBehaviour:
   myName: Nottingwood
   townDescriptionText: 
   myBackgroundSprite: {fileID: 0}
-  B1: 2
-  B2: 4
-  B3: 3
-  B4: 5
-  B5: 2
-  B6: 2
+  myTownSprite: {fileID: 2800000, guid: 100bbfbd88a3a0f4dbcbca493e25b385, type: 3}
+  myTownRotationSprite: {fileID: 2800000, guid: d1cfdab451bcccb41b3bde2158432137,
+    type: 3}
   buildings:
   - {fileID: 11400000, guid: 3f2f938935e591c4799bc6387b4caeb6, type: 2}
   - {fileID: 11400000, guid: 32e19e5915b6379478b2db89b013e213, type: 2}

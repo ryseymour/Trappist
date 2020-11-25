@@ -15,6 +15,9 @@ MonoBehaviour:
   myName: Outlaw Camp
   townDescriptionText: 
   myBackgroundSprite: {fileID: 0}
+  myTownSprite: {fileID: 2800000, guid: a53647690affcae48ae73be286a5e0ff, type: 3}
+  myTownRotationSprite: {fileID: 2800000, guid: a53647690affcae48ae73be286a5e0ff,
+    type: 3}
   buildings:
   - {fileID: 11400000, guid: 749d1bc98bca69e4babe33adfe81c7a9, type: 2}
   - {fileID: 11400000, guid: d6dadf91aa1c0df4390ba1209e8c4eba, type: 2}

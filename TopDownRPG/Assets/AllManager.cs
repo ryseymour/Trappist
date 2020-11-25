@@ -17,7 +17,7 @@ public class AllManager : MonoBehaviour
        if(!gameStart)
         {
             allManager = this;
-            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(6, LoadSceneMode.Additive);
             initalStageBool = true;
             gameStart = true;
 
@@ -33,7 +33,7 @@ public class AllManager : MonoBehaviour
     IEnumerator Unload (int scene)
     {
         yield return null;
-        SceneManager.UnloadSceneAsync(scene);
+        SceneManager.UnloadSceneAsync(6);
         //sceneUnloaded = true;
     }
 

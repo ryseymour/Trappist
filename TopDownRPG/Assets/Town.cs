@@ -11,6 +11,9 @@ public class Town : ScriptableObject
     public string townDescriptionText;
     public Sprite myBackgroundSprite;
 
+    public Texture2D myTownSprite;
+    public Texture2D myTownRotationSprite;
+
     /*
     public BuildingLocation B1;
     public BuildingLocation B2;
