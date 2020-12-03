@@ -21,7 +21,7 @@ public class OverworldCharacter : MonoBehaviour
             RaycastHit hit;
 
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000)){
-                Debug.Log("ray hit " + hit.collider.gameObject.name);
+                // Debug.Log("ray hit " + hit.collider.gameObject.name);
                 destinationMarker.transform.position = hit.collider.gameObject.transform.position;
             }
 
