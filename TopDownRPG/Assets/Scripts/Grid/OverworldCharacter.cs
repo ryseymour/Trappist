@@ -7,6 +7,7 @@ public class OverworldCharacter : MonoBehaviour
 
     public GameObject destinationMarker;
     public bool interactingLocation;
+    public GameObject CameraParent;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,9 @@ public class OverworldCharacter : MonoBehaviour
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000)){
                 // Debug.Log("ray hit " + hit.collider.gameObject.name);
                 destinationMarker.transform.position = hit.collider.gameObject.transform.position;
-            }
-
-             
+                CameraParent.GetComponent<OWcamera>().PanToTarget(destinationMarker.transform.position);
+                CameraParent.GetComponent<OWcamera>().flag = true;
+            }             
         }
     }
 
@@ -41,9 +42,7 @@ public class OverworldCharacter : MonoBehaviour
                     SceneManger.instance.interactedTown = other.gameObject.GetComponent<OWtown>().myTown;
                     SceneManger.instance.LoadUpTown();
                     interactingLocation = false;
-                }
-                
-             
+                }           
 
            }else{
                Debug.Log("hit a town object but no town scriptable assigned");

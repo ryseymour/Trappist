@@ -16,11 +16,13 @@ public class OWcamera : MonoBehaviour
     Vector3 current_position = Vector3.zero;
     Vector3 camera_position = Vector3.zero;
     float z = 0.0f;
-    [Tooltip("This cannot be all zeroes")]
+    [Tooltip("This cannot be all zeroes. How far does camera favor x/z look ahead.")]
     public Vector3 directionMultiplier;
 
     public bool flag = false;
     Vector3 target_position;
+    [Tooltip("Camera Y position should remain constant.")]
+    public Vector3 rightClickOffset;
 
 
 
@@ -77,20 +79,20 @@ public class OWcamera : MonoBehaviour
      
         // Vector3 directionMultiplier = new Vector3(1.0f, 0.5f, 1.5f);
         direction = Vector3.Scale(direction, directionMultiplier); //multiply the vector
-        target_position = camera_position + direction;
+        target_position = camera_position + direction;       
     }
 
     public void PanToTarget(Vector3 targ){
         Vector3 newTarg = targ;
-        newTarg = new Vector3(targ.x, 3.5f, targ.z);
+        newTarg = new Vector3(targ.x+rightClickOffset.x, rightClickOffset.y, targ.z+rightClickOffset.z);
         Debug.Log("Right target " + newTarg);
-        target_position = newTarg;
-        
+        target_position = newTarg;        
     }
 
     void MiddleScroll(float m){
         // target_position = camera_position + Vector3.up*m;
         Camera.main.fieldOfView += 1*m;
     }
+
 
 }
