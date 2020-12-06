@@ -9,6 +9,13 @@ public class Multi {
     public Town myTown;
 }
 
+[System.Serializable]
+public class Buildings
+{
+    public Vector3 location;
+    public Building mybuilding;
+}
+
 public class ThreeDLevelGenerator : MonoBehaviour
 {
     public Texture2D map;
@@ -22,6 +29,7 @@ public class ThreeDLevelGenerator : MonoBehaviour
     GameObject[] towns;
 
     public Multi[] townLocation;
+    public Buildings[] buildLocation;
     // Start is called before the first frame update
     void Start()
     {
