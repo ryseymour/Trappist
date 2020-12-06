@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationMarker: {fileID: 1555172271}
+  interactingLocation: 0
 --- !u!1001 &1409215313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,6 +976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationMapping.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
+        type: 3}
+      propertyPath: buildLocation.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
         type: 3}
