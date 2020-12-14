@@ -664,6 +664,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1409215313}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1409215315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4889850976558434414, guid: a4f7071e1205213439b30667b892cbab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409215313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1551985042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1014,7 @@ PrefabInstance:
     - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
         type: 3}
       propertyPath: colorMappings.Array.size
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
         type: 3}
@@ -1029,6 +1035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: buildLocation.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
+        type: 3}
+      propertyPath: colorToPrefab.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
         type: 3}
@@ -1109,5 +1120,15 @@ PrefabInstance:
       propertyPath: TempTransform
       value: 
       objectReference: {fileID: 2045972884}
+    - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
+        type: 3}
+      propertyPath: buildingSpecialMap
+      value: 
+      objectReference: {fileID: 2800000, guid: f73a2d23786dbde4fb520fefe5dc16b8, type: 3}
+    - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
+        type: 3}
+      propertyPath: colorToPrefab.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 1409215315}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b81a182beae45ae4990c0f752b4f6b86, type: 3}

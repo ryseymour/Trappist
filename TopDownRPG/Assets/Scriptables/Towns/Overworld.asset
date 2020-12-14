@@ -18,4 +18,30 @@ MonoBehaviour:
   myTownSprite: {fileID: 2800000, guid: f73a2d23786dbde4fb520fefe5dc16b8, type: 3}
   myTownRotationSprite: {fileID: 2800000, guid: f73a2d23786dbde4fb520fefe5dc16b8,
     type: 3}
+  myPrefabSprite: {fileID: 2800000, guid: f73a2d23786dbde4fb520fefe5dc16b8, type: 3}
+  scriptableColormappings:
+  - color: {r: 1, g: 1, b: 0, a: 1}
+    prefab: {fileID: 3179115938488465291, guid: bc2ec8814499bb4409eb846c0ac742d0,
+      type: 3}
+  - color: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+    prefab: {fileID: 7744558380763108326, guid: e46acf644b08d62459248c25912ad16a,
+      type: 3}
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    prefab: {fileID: 2805386574501609401, guid: e8dec5858d0d56b47b9bde9e42a79f8f,
+      type: 3}
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    prefab: {fileID: 2805386574501609401, guid: 7a8ef9d3b0b19bc448c5c35b5ad4c4ee,
+      type: 3}
+  - color: {r: 1, g: 0, b: 1, a: 1}
+    prefab: {fileID: 3179115938488465291, guid: 0590b76955de5f2429f27ad070eee0ec,
+      type: 3}
+  - color: {r: 1, g: 0.5019608, b: 0, a: 1}
+    prefab: {fileID: 7744558380763108326, guid: 523d8b37f59ff924dafb3b8791684ee8,
+      type: 3}
+  - color: {r: 0, g: 0, b: 0.8, a: 1}
+    prefab: {fileID: 2805386574501609401, guid: 6976c6f3d9fae5d45b72220cba1c18f6,
+      type: 3}
+  - color: {r: 0.8867924, g: 0.11294055, b: 0.49468976, a: 1}
+    prefab: {fileID: 7744558380763108326, guid: 991d1e911cafa844088cfff6e9adca94,
+      type: 3}
   buildings: []

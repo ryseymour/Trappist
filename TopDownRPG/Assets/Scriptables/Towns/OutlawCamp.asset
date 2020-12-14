@@ -18,6 +18,17 @@ MonoBehaviour:
   myTownSprite: {fileID: 2800000, guid: a53647690affcae48ae73be286a5e0ff, type: 3}
   myTownRotationSprite: {fileID: 2800000, guid: a53647690affcae48ae73be286a5e0ff,
     type: 3}
+  myPrefabSprite: {fileID: 2800000, guid: a53647690affcae48ae73be286a5e0ff, type: 3}
+  scriptableColormappings:
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    prefab: {fileID: 2805386574501609401, guid: 7a8ef9d3b0b19bc448c5c35b5ad4c4ee,
+      type: 3}
+  - color: {r: 1, g: 0.5019608, b: 0, a: 1}
+    prefab: {fileID: 7744558380763108326, guid: 6072963a3d35347448e3ed25a86139f2,
+      type: 3}
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    prefab: {fileID: 7744558380763108326, guid: 06b5040595fffb6459f469c9672a1da6,
+      type: 3}
   buildings:
   - {fileID: 11400000, guid: 749d1bc98bca69e4babe33adfe81c7a9, type: 2}
   - {fileID: 11400000, guid: d6dadf91aa1c0df4390ba1209e8c4eba, type: 2}
