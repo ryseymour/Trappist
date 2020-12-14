@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTown: {fileID: 11400000, guid: 0160cc9aaec4ab74ead5b60775c17bab, type: 2}
+  myTown: {fileID: 11400000, guid: 0160cc9aaec4ab74ead5b60775c17bab, type: 2}
 --- !u!4 &1244585174
 Transform:
   m_ObjectHideFlags: 0
@@ -361,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAssociatedTown: {fileID: 0}
+  myAssociatedBuilding: {fileID: 0}
 --- !u!1 &1714193457
 GameObject:
   m_ObjectHideFlags: 0

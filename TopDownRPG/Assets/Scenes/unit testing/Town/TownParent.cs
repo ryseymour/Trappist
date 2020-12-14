@@ -9,4 +9,7 @@ public class TownParent : MonoBehaviour
     public Town activeTown;
 
 
+
+    public Town myTown;
+
 }
