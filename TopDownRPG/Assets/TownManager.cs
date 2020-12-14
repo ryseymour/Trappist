@@ -22,6 +22,8 @@ public class TownManager : MonoBehaviour
 
     public Building[] BuildingsInside;
 
+    public Camera roomCamera, townCamera;
+    public GameObject toolTipBox;
 
     // Start is called before the first frame update
     private void Awake()
@@ -65,6 +67,16 @@ public class TownManager : MonoBehaviour
 
     }
 
+
+    public void SwitchCamera(int cam=0){
+        if(cam == 1){
+            roomCamera.enabled = true;
+            townCamera.enabled = false;
+        }else{
+            roomCamera.enabled = false;
+            townCamera.enabled = true;
+        }
+    }
 
     public void LoadTown()
     {
