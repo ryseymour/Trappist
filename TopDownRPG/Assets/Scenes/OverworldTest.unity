@@ -1033,16 +1033,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
         type: 3}
-      propertyPath: buildLocation.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
-        type: 3}
-      propertyPath: colorToPrefab.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762704405405467687, guid: b81a182beae45ae4990c0f752b4f6b86,
-        type: 3}
+
+
       propertyPath: colorMappings.Array.data[3].prefab
       value: 
       objectReference: {fileID: 2805386574501609401, guid: 7a8ef9d3b0b19bc448c5c35b5ad4c4ee,

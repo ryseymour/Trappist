@@ -27,5 +27,6 @@ public class TownBuilding : MonoBehaviour
         if(tParent != null){
            
         }
+
     }
 }
