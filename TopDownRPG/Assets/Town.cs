@@ -13,6 +13,9 @@ public class Town : ScriptableObject
 
     public Texture2D myTownSprite;
     public Texture2D myTownRotationSprite;
+    public Texture2D myPrefabSprite;
+
+    public ColorToPrefab[] scriptableColormappings;
 
     /*
     public BuildingLocation B1;

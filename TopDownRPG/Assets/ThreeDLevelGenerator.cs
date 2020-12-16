@@ -13,9 +13,11 @@ public class ThreeDLevelGenerator : MonoBehaviour
 {
     public Texture2D map;
     public Texture2D rotationMap;
+    public Texture2D buildingSpecialMap;
 
     public ColorToPrefab[] colorMappings;
     public Color[] rotationMapping;
+    public ColorToPrefab[] colorToPrefab;
 
     public GameObject TempTransform;//used for helping with rotation of an object. 
 
@@ -52,6 +54,10 @@ public class ThreeDLevelGenerator : MonoBehaviour
     {
         map = SceneManger.instance.interactedTown.myTownSprite;
         rotationMap = SceneManger.instance.interactedTown.myTownRotationSprite;
+        buildingSpecialMap = SceneManger.instance.interactedTown.myPrefabSprite;
+
+        
+        colorMappings = SceneManger.instance.interactedTown.scriptableColormappings;
 
         for (int x = 0; x < map.width; x++)
         {
@@ -65,6 +71,7 @@ public class ThreeDLevelGenerator : MonoBehaviour
     public void GenerateTile(int x, int y)
     {
        Color pixelColor= map.GetPixel(x, y);
+        Color prefabColor = buildingSpecialMap.GetPixel(x, y);
        Color rotColor = rotationMap.GetPixel(x, y);
 
         if (pixelColor.a == 0)
@@ -82,6 +89,9 @@ public class ThreeDLevelGenerator : MonoBehaviour
                 Vector3 position = new Vector3(x, 0, y);
                 //TempTransform.transform.Translate(position);
                 Instantiate(colorMapping.prefab, position, Quaternion.identity, TempTransform.transform);
+
+
+
                 var rotObj = TempTransform.transform.GetChild(0);
 
                 if (rotColor == Color.white)
@@ -102,6 +112,20 @@ public class ThreeDLevelGenerator : MonoBehaviour
 
                 rotObj.transform.parent = this.transform;
                 //RotationUpdate();
+
+                /*
+                foreach (ColorToPrefab prefabmapping in colorToPrefab)
+                {
+                    if (prefabmapping.color.Equals(pixelColor))
+                    {
+                        Vector3 prefabposition = new Vector3(x, 0, y);
+                        //TempTransform.transform.Translate(position);
+                        Instantiate(prefabmapping.prefab, position, Quaternion.identity, TempTransform.transform);
+                        Debug.Log("Prefab mapping");
+                        return;
+                    }
+                }
+                */
 
                 return;
             }
@@ -139,20 +163,7 @@ public class ThreeDLevelGenerator : MonoBehaviour
 
         GenerateLevel();
         
-        /*
-        foreach (Color rtmapping in rotationMapping)
-        {
-            if (rtmapping.Equals(pixelColor))
-            {
-                Vector3 rotposition = new Vector3(z, 0, t);
-
-                if(pixelColor == Color.blue)
-                {
-                    var rotObj = TempTransform.transform.GetChild(0);
-                    rotObj.transform.Rotate(0, 0, 90);
-                }
-                */
-                //Instantiate(colorMapping.prefab, position, Quaternion.identity, TempTransform.transform);
+     
 
              
                 

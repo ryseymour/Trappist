@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BattleSample.unity
     guid: 4f192c47fe6894146b47685b7d6d2cf1
   - enabled: 1
-    path: Assets/Scenes/OverWorld.unity
+    path: Assets/Scenes/Outdated/OverWorld.unity
     guid: 73e105ba8efcf314293e302a138bc7b4
   - enabled: 1
     path: Assets/Scenes/grid/grid-live.unity
