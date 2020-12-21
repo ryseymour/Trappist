@@ -27,7 +27,7 @@ MonoBehaviour:
   dialogueQuests: []
   hasActiveDialogueEvent: 0
   targetIndex: 0
-  targetLine: 1
+  targetLine: 0
   unityEvent:
     m_PersistentCalls:
       m_Calls:

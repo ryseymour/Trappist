@@ -22,3 +22,11 @@ MonoBehaviour:
   nextDialogueOnInteract: 0
   HasCompletedQuest: 0
   CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
+  hasActiveDialogueEvent: 0
+  targetIndex: 0
+  targetLine: 0
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls: []
