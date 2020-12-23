@@ -20,7 +20,7 @@ MonoBehaviour:
     type: 3}
   descriptionText: 
   inBuildingCharactersScene1:
-  - {fileID: 11400000, guid: 8d63e96f3d20ce949af5b607b2889dde, type: 2}
+  - {fileID: 11400000, guid: 55cae6c08b87524478b06392198f94c9, type: 2}
   - {fileID: 11400000, guid: 71582e5c06fdae94fb4db0721c05d435, type: 2}
   - {fileID: 11400000, guid: f06a78b345ea25e439cc24e790673443, type: 2}
   - {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}

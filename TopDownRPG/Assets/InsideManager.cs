@@ -49,7 +49,7 @@ public class InsideManager : MonoBehaviour
 
             // peopleInside[i].GetComponent<Image>().sprite = imageofPerson;
             peopleInside[i].GetComponent<DialogueTrigger_R>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
-           // peopleInside[i].GetComponent<QuestDialogueTrigger>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
+           //peopleInside[i].GetComponent<QuestDialogueTrigger>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
 
             var modelof = buildingInside.inBuildingCharactersScene1[i].myCharacterModel;
             Instantiate(modelof, npcTransforms[i]);
