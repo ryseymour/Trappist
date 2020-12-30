@@ -46,7 +46,6 @@ public class BuildingInteraction : MonoBehaviour
         }
     }
 
-
     public String LoadBuildingData(Building _building){
         Debug.Log("Loaded: " + _building.buildingName + "\nCharacter 1: " + _building.inBuildingCharactersScene1[0] +
          "\nCharacter 2: " + _building.inBuildingCharactersScene1[1] +
@@ -54,13 +53,13 @@ public class BuildingInteraction : MonoBehaviour
          "\nCharacter 4: " + _building.inBuildingCharactersScene1[3]);
 
         InsideManager.instance.buildingInside = _building;
-        InsideManager.instance.EnterBuilding(0);
+        InsideManager.instance.EnterBuilding();
         String returnText = _building.buildingName + "\n" + _building.inBuildingCharactersScene1[0].myName +
          "\n" + _building.inBuildingCharactersScene1[1].myName +
          "\n" + _building.inBuildingCharactersScene1[2].myName+
          "\n" + _building.inBuildingCharactersScene1[3].myName;
 
-         return returnText;       
+         return returnText;      
 
 
     }
