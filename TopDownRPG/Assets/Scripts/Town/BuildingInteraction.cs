@@ -52,6 +52,7 @@ public class BuildingInteraction : MonoBehaviour
          "\nCharacter 2: " + _building.inBuildingCharactersScene1[1] +
          "\nCharacter 3: " + _building.inBuildingCharactersScene1[2] +
          "\nCharacter 4: " + _building.inBuildingCharactersScene1[3]);
+
         InsideManager.instance.buildingInside = _building;
         InsideManager.instance.EnterBuilding(0);
         String returnText = _building.buildingName + "\n" + _building.inBuildingCharactersScene1[0].myName +
@@ -60,6 +61,7 @@ public class BuildingInteraction : MonoBehaviour
          "\n" + _building.inBuildingCharactersScene1[3].myName;
 
          return returnText;       
+
 
     }
 

@@ -14,6 +14,10 @@ public class InsideManager : MonoBehaviour
     public Transform[] partyTransforms;
     public Transform[] npcTransforms;
 
+    public bool imInside;
+
+
+
     // Start is called before the first frame update
     void Awake ()
     {
@@ -31,9 +35,9 @@ public class InsideManager : MonoBehaviour
         
     }
 
-    public void EnterBuilding (int enter)
+    public void EnterBuilding ()
     {
-        buildingInside = TownManager.instance.town.buildings[enter];
+        //buildingInside = TownManager.instance.town.buildings[enter];
         Debug.Log("test enter");
         for (int i = 0; i < buildingInside.inBuildingCharactersScene1.Length; i++)      //need to update this
             {
@@ -45,7 +49,7 @@ public class InsideManager : MonoBehaviour
 
             // peopleInside[i].GetComponent<Image>().sprite = imageofPerson;
             peopleInside[i].GetComponent<DialogueTrigger_R>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
-           // peopleInside[i].GetComponent<QuestDialogueTrigger>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
+           //peopleInside[i].GetComponent<QuestDialogueTrigger>().targetNPC = buildingInside.inBuildingCharactersScene1[i];
 
             var modelof = buildingInside.inBuildingCharactersScene1[i].myCharacterModel;
             Instantiate(modelof, npcTransforms[i]);

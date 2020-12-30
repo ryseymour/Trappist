@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
-  myBuilding: {fileID: 0}
+  myBuilding: {fileID: 11400000, guid: 3f2f938935e591c4799bc6387b4caeb6, type: 2}
 --- !u!1001 &3072894767399966408
 PrefabInstance:
   m_ObjectHideFlags: 0

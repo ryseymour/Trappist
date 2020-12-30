@@ -4551,6 +4551,7 @@ MonoBehaviour:
   ZeroDialogue: 0
   partyTransforms: []
   npcTransforms: []
+  imInside: 0
 --- !u!1 &1710773693
 GameObject:
   m_ObjectHideFlags: 0
@@ -5088,6 +5089,7 @@ MonoBehaviour:
   ZeroDialogue: 0
   partyTransforms: []
   npcTransforms: []
+  imInside: 0
 --- !u!1 &1882858131
 GameObject:
   m_ObjectHideFlags: 0
