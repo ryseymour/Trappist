@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 
 public enum BuildingType {castle, guardTower, house, huntersLodge, tavern}
@@ -30,7 +32,9 @@ public class BuildingInteraction : MonoBehaviour
             TownManager.instance.toolTipBox.transform.position = Input.mousePosition;
             TownManager.instance.toolTipBox.SetActive(true);
             mouse_Over = true;
-            LoadBuildingData(myBuilding);
+           
+            Debug.Log("tooltip box child 0 : " + TownManager.instance.toolTipBox.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text);
+            TownManager.instance.toolTipBox.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text =  LoadBuildingData(myBuilding);
         }        
     }
 
@@ -43,13 +47,19 @@ public class BuildingInteraction : MonoBehaviour
     }
 
 
-    public void LoadBuildingData(Building _building){
+    public String LoadBuildingData(Building _building){
         Debug.Log("Loaded: " + _building.buildingName + "\nCharacter 1: " + _building.inBuildingCharactersScene1[0] +
          "\nCharacter 2: " + _building.inBuildingCharactersScene1[1] +
          "\nCharacter 3: " + _building.inBuildingCharactersScene1[2] +
          "\nCharacter 4: " + _building.inBuildingCharactersScene1[3]);
         InsideManager.instance.buildingInside = _building;
         InsideManager.instance.EnterBuilding(0);
+        String returnText = _building.buildingName + "\n" + _building.inBuildingCharactersScene1[0].myName +
+         "\n" + _building.inBuildingCharactersScene1[1].myName +
+         "\n" + _building.inBuildingCharactersScene1[2].myName+
+         "\n" + _building.inBuildingCharactersScene1[3].myName;
+
+         return returnText;       
 
     }
 
