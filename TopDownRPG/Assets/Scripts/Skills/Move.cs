@@ -12,8 +12,10 @@ public class Move : ScriptableObject
     public int CritD;
     public bool Multiple;
     public bool teamBuff;
+    public bool targetEnemy;//if false then target is 
 
     public UnityEvent itemEvent;
+    public GameObject animationSprite;
 
     public Move thisMove;
 

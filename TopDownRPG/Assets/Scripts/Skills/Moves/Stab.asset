@@ -19,8 +19,11 @@ MonoBehaviour:
   CritD: 5
   Multiple: 0
   teamBuff: 0
+  targetEnemy: 0
   itemEvent:
     m_PersistentCalls:
       m_Calls: []
+  animationSprite: {fileID: 7728767055197449381, guid: c06d2a81b75c94c43808d9da70958a8b,
+    type: 3}
   thisMove: {fileID: 0}
   staminaCost: 3
