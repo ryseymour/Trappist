@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940dc4e8792bef74196387fe7f0e0399, type: 3}
+  m_Name: CollectionGiver
+  m_EditorClassIdentifier: 
+  myName: CollectionGiver
+  myPortrait: {fileID: 0}
+  myCharacterModel: {fileID: 5276411614636154884, guid: 5cd14485402c6aa4290277511a99c53e,
+    type: 3}
+  DB:
+  - {fileID: 11400000, guid: 57e9400b0b52a9c49a33eead1d4d1070, type: 2}
+  index: 0
+  nextDialogueOnInteract: 0
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 1
+  dialogueQuests:
+  - {fileID: 11400000, guid: ed203525f82a2644b91699e7f30469cb, type: 2}
+  hasActiveDialogueEvent: 0
+  targetIndex: 0
+  targetLine: 0
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls: []

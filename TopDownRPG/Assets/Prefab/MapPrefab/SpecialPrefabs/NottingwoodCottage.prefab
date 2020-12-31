@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2170110770021500375}
   - component: {fileID: 2672350842280417113}
+  - component: {fileID: 6726492310127293597}
   m_Layer: 0
   m_Name: NottingwoodCottage
   m_TagString: Untagged
@@ -138,6 +139,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &6726492310127293597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744558380763108326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf47abb2e78c264d8367ee0334bf236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myType: 3
+  myBuilding: {fileID: 11400000, guid: 670824ed0e48f3a4b81299afbd852ca9, type: 2}
 --- !u!1001 &3818967673420677016
 PrefabInstance:
   m_ObjectHideFlags: 0

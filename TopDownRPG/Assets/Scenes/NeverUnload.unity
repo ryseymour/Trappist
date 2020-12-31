@@ -1952,6 +1952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 95538516}
   - component: {fileID: 95538515}
+  - component: {fileID: 95538517}
   m_Layer: 0
   m_Name: TesterEmpty
   m_TagString: Untagged
@@ -1986,6 +1987,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95538517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95538514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0231517ef4f245f478e7b84605f3182c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 0}
+  item: {fileID: 11400000, guid: d867934cfded8d34aab4616a0e1fb2bb, type: 2}
+  scene: 0
 --- !u!114 &103481105 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7934265950364462911, guid: a417ed48a5d7e7b468b57caf6caf1d93,
@@ -3384,6 +3400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3141671865496648531, guid: 03d447b13cc415f478a9be1485a7354e,
         type: 3}
+      propertyPath: allDialogueTrigger.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3141671865496648531, guid: 03d447b13cc415f478a9be1485a7354e,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1467518610}
@@ -3401,7 +3422,7 @@ PrefabInstance:
         type: 3}
       propertyPath: quest
       value: 
-      objectReference: {fileID: 11400000, guid: fbb3871047186224088705a968618c5e,
+      objectReference: {fileID: 11400000, guid: fc33f39056f28da4fa1d9dd18f201fea,
         type: 2}
     - target: {fileID: 3141671865496648530, guid: 03d447b13cc415f478a9be1485a7354e,
         type: 3}

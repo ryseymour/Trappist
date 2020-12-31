@@ -19,22 +19,26 @@ public class QuestDialogueTrigger : DialogueTrigger_R
 
     public override void Interact()
     {
-        if (unityEvent != null)
-        {
-            Debug.Log("event test");
-            unityEvent.Invoke();
-            base.Interact();
-            return;
-        }
+     
 
         if(hasActiveQuest)
         {
+            Debug.Log("has Active Quest");
             DialogueManager_R.instance.EnqueueDialogue(dialogueQuests[QuestIndex]);
             QuestManager.instance.CurrentQuestDialogueTrigger = this;
         }
         else
         {
             base.Interact();
+        }
+
+
+        if (unityEvent != null)
+        {
+            Debug.Log("event test");
+            unityEvent.Invoke();
+            base.Interact();
+            //return;
         }
     }
 

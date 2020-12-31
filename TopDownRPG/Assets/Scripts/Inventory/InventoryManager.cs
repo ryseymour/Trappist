@@ -37,6 +37,9 @@ public class InventoryManager : MonoBehaviour
 
     public int HeroSelector;
 
+    public delegate void OnItemCollectCallBack(Item itemProfile);
+    public OnItemCollectCallBack onItemCollectCallBack; //have this run when you collect an item
+
     private void Awake()
     {
         if(instance == null)
@@ -149,5 +152,15 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void QuestItem(Item iQ)
+    {
+        Debug.Log("test item");
+        if (iQ.QuestItem == true)
+        {
+            if (onItemAddCallBack != null) onItemAddCallBack.Invoke(iQ);
+            return;
+        }
     }
 }

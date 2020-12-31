@@ -70,24 +70,32 @@ public class InsideManager : MonoBehaviour
             for (int y = 0; y < buildingInside.inBuildingCharactersScene1[i].DB.Length; y++)
             {
                 //*
-                peopleInside[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];//update this
-                npcTransforms[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
+                //peopleInside[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];//update this
+                //npcTransforms[i].GetComponent<DialogueTrigger_R>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
 
                 //peopleInside[i].GetComponent<QuestDialogueTrigger>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
                 npcTransforms[i].GetComponent<QuestDialogueTrigger>().DB[y] = buildingInside.inBuildingCharactersScene1[i].DB[y];
 
 
-                peopleInside[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
-                npcTransforms[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
+                //(doublecheck)peopleInside[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
+                //npcTransforms[i].GetComponent<DialogueTrigger_R>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
 
                 //peopleInside[i].GetComponent<QuestDialogueTrigger>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
                 npcTransforms[i].GetComponent<QuestDialogueTrigger>().nextDialogueOnInteract = buildingInside.inBuildingCharactersScene1[i].nextDialogueOnInteract;
 
                 npcTransforms[i].GetComponent<QuestDialogueTrigger>().hasActiveQuest = buildingInside.inBuildingCharactersScene1[i].hasActiveQuest;
+                npcTransforms[i].GetComponent<QuestDialogueTrigger>().HasCompletedQuest = buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest;
+
+                if(buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest == true)
+                {
+                    npcTransforms[i].GetComponent<QuestDialogueTrigger>().CompletedQuestDialogue = buildingInside.inBuildingCharactersScene1[i].CompletedQuestDialogue;
+                    break;
+                }
 
                 if (buildingInside.inBuildingCharactersScene1[i].hasActiveQuest == true)
                 {
                     npcTransforms[i].GetComponent<QuestDialogueTrigger>().dialogueQuests[y] = buildingInside.inBuildingCharactersScene1[i].dialogueQuests[y];
+                    Debug.Log("test this quest line");
                     break;
                 }
 
