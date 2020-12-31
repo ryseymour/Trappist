@@ -15,8 +15,30 @@ public class BuildingInteraction : MonoBehaviour
     public Building myBuilding;
 
 
-    void Start(){
+    public void FindBuilding(){
         myBuilding = TownManager.instance.town.buildings[0];
+        
+        
+
+        switch (myType)
+
+        {
+            case BuildingType.castle:
+                {
+                    myBuilding = TownManager.instance.town.buildings[0];
+                    Debug.Log(myBuilding);
+                    break;
+                }
+
+            case BuildingType.huntersLodge:
+                {
+                    myBuilding = TownManager.instance.town.buildings[3];
+                    Debug.Log(myBuilding);
+                    break;
+                }
+
+        }
+
     }
 
     void OnMouseDown(){
@@ -30,6 +52,7 @@ public class BuildingInteraction : MonoBehaviour
             TownManager.instance.toolTipBox.transform.position = Input.mousePosition;
             TownManager.instance.toolTipBox.SetActive(true);
             mouse_Over = true;
+            FindBuilding();
             LoadBuildingData(myBuilding);
         }        
     }
@@ -57,6 +80,17 @@ public class BuildingInteraction : MonoBehaviour
         }
 
 
+    }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            TownManager.instance.SwitchCamera(0);
+            InsideManager.instance.imInside = false;
+            //InsideNPCTransforms.instance.ClearthePeople();
+        
+        }
     }
 
 }

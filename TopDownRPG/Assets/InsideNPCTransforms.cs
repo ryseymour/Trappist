@@ -6,10 +6,13 @@ public class InsideNPCTransforms : MonoBehaviour
 {
     public Transform[] insideNPCTransforms;
     public GameObject town;
+    public static InsideNPCTransforms instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+
         InsideManager.instance.npcTransforms = new Transform[insideNPCTransforms.Length];
 
         for (int i = 0; i < InsideManager.instance.npcTransforms.Length; i++)
@@ -20,8 +23,8 @@ public class InsideNPCTransforms : MonoBehaviour
 
     public void ClearthePeople()
     {
-        gameObject.SetActive(false);
-        town.SetActive(true);
+        //gameObject.SetActive(false);
+       // town.SetActive(true);
 
         foreach(Transform child in transform)
         {
@@ -36,6 +39,12 @@ public class InsideNPCTransforms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //this needs to be temp
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            
+            ClearthePeople();
+
+        }
     }
 }

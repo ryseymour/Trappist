@@ -19,6 +19,8 @@ public class Item: ScriptableObject
         legendary
     }
 
+    public bool QuestItem;
+
     public Color GetQualityColor()
     {
         var myColor = new Color();
