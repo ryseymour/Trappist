@@ -19,6 +19,7 @@ MonoBehaviour:
   CritD: 0
   Multiple: 0
   teamBuff: 0
+  targetEnemy: 1
   itemEvent:
     m_PersistentCalls:
       m_Calls:
@@ -33,6 +34,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  animationSprite: {fileID: 0}
   thisMove: {fileID: 0}
   mpCost: 15
   myHealthbuff: 0
