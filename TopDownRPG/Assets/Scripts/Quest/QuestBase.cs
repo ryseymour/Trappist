@@ -32,17 +32,31 @@ public class QuestBase : ScriptableObject
         }
 
         Debug.Log("Quest is Completed");
+        for(int i = 0; i<InsideManager.instance.buildingInside.inBuildingCharactersScene1.Length; i++)
+        {
+            if(InsideManager.instance.buildingInside.inBuildingCharactersScene1[i] == NPCTurnIn)
+            {
+                InsideManager.instance.buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest = true;
+                Debug.Log("We Found" + NPCTurnIn);
+                InsideManager.instance.EnterBuilding();
+                break;
+            }
+        }
+
         
         for (int i = 0; i < GameManager.instance.allDialogueTrigger.Length; i++)
         {
             if(GameManager.instance.allDialogueTrigger[i].targetNPC == NPCTurnIn)
             {
-                GameManager.instance.allDialogueTrigger[i].HasCompletedQuest = true;
-                GameManager.instance.allDialogueTrigger[i].CompletedQuestDialogue = completedQuestDialogue;
+                NPCTurnIn.HasCompletedQuest = true;
+                //InsideManager.instance.buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest = true;
+                //GameManager.instance.allDialogueTrigger[i].HasCompletedQuest = true;
+                //GameManager.instance.allDialogueTrigger[i].CompletedQuestDialogue = completedQuestDialogue;
                 Debug.Log("We Found" + NPCTurnIn);
                 break;
             }
         }
+        
         
     }
 }

@@ -29,7 +29,11 @@ MonoBehaviour:
   - color: {r: 1, g: 1, b: 1, a: 1}
     prefab: {fileID: 7744558380763108326, guid: 06b5040595fffb6459f469c9672a1da6,
       type: 3}
+  - color: {r: 1, g: 0, b: 1, a: 1}
+    prefab: {fileID: 7744558380763108326, guid: ef42ec4807c2b4241bb9d96001b29b7e,
+      type: 3}
   buildings:
   - {fileID: 11400000, guid: 749d1bc98bca69e4babe33adfe81c7a9, type: 2}
   - {fileID: 11400000, guid: d6dadf91aa1c0df4390ba1209e8c4eba, type: 2}
+  - {fileID: 11400000, guid: 670824ed0e48f3a4b81299afbd852ca9, type: 2}
   - {fileID: 11400000, guid: 670824ed0e48f3a4b81299afbd852ca9, type: 2}

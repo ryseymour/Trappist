@@ -3593,6 +3593,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: aae4f8b7e9e0b39448e4d30ba9aa6c56,
         type: 2}
+    - target: {fileID: 327821207, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
+      propertyPath: overworldTown
+      value: 
+      objectReference: {fileID: 11400000, guid: aae4f8b7e9e0b39448e4d30ba9aa6c56,
+        type: 2}
     - target: {fileID: 327821208, guid: 03d447b13cc415f478a9be1485a7354e, type: 3}
       propertyPath: abilityLibrary.Array.size
       value: 10

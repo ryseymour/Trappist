@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum BuildingType {castle, guardTower, house, huntersLodge, tavern}
@@ -13,6 +14,7 @@ public class BuildingInteraction : MonoBehaviour
     public BuildingType myType;
     bool mouse_Over = false;
     public Building myBuilding;
+    public bool leavingTown;
 
 
     public void FindBuilding(){
@@ -84,13 +86,16 @@ public class BuildingInteraction : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.K) && InsideManager.instance.imInside == true)
         {
             TownManager.instance.SwitchCamera(0);
             InsideManager.instance.imInside = false;
             //InsideNPCTransforms.instance.ClearthePeople();
-        
+
+        }
+  
+
         }
     }
 
-}
+

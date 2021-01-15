@@ -35,15 +35,23 @@ public class InsideManager : MonoBehaviour
         
     }
 
+    public void LeavingTown()
+    {
+        SceneManger.instance.interactedTown = SceneManger.instance.overworldTown;
+
+        SceneManger.instance.LoadUpOver(6);
+    }
+
     public void EnterBuilding ()
     {
+
         //buildingInside = TownManager.instance.town.buildings[enter];
         Debug.Log("test enter");
         for (int i = 0; i < buildingInside.inBuildingCharactersScene1.Length; i++)      //need to update this
             {
             Debug.Log(buildingInside.inBuildingCharactersScene1[i]);
-            
-       
+            npcTransforms[i].GetComponent<PersonClear>().DestroyPerson();
+
                 Debug.Log("image person swap");
            // var imageofPerson = buildingInside.inBuildingCharactersScene1[i].myPortrait;
 
@@ -85,8 +93,10 @@ public class InsideManager : MonoBehaviour
 
                 npcTransforms[i].GetComponent<QuestDialogueTrigger>().hasActiveQuest = buildingInside.inBuildingCharactersScene1[i].hasActiveQuest;
                 npcTransforms[i].GetComponent<QuestDialogueTrigger>().HasCompletedQuest = buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest;
+                npcTransforms[i].GetComponent<QuestDialogueTrigger>().CompletedQuestDialogue = buildingInside.inBuildingCharactersScene1[i].CompletedQuestDialogue;
 
-                if(buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest == true)
+
+                if (buildingInside.inBuildingCharactersScene1[i].HasCompletedQuest == true)
                 {
                     npcTransforms[i].GetComponent<QuestDialogueTrigger>().CompletedQuestDialogue = buildingInside.inBuildingCharactersScene1[i].CompletedQuestDialogue;
                     break;

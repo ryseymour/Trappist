@@ -24,6 +24,8 @@ public class AllManager : MonoBehaviour
         }
     }
 
+    
+
     // Update is called once per frame
     public void UnloadScene(int scene)
     {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Get the Sword
   questionDescription: Can you find the sword?
-  NPCTurnIn: {fileID: 11400000, guid: 5e9be7ed6b6fbc942ae35ef8606b4f8d, type: 2}
+  NPCTurnIn: {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
   completedQuestDialogue: {fileID: 11400000, guid: 03e04cdf60109bd4e8e9c9e77db42efd,
     type: 2}
   objectives:

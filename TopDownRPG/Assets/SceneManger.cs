@@ -28,8 +28,11 @@ public class SceneManger : MonoBehaviour
     public bool scenceChecker;
 
     public Town interactedTown;
+    public Town overworldTown;
+    public bool gettingTooverworld;
 
-  
+
+
 
     private void Awake()
     {
@@ -59,7 +62,7 @@ public class SceneManger : MonoBehaviour
         PlayerGO.SetActive(true);
     Battlefield.SetActive(false);
         BattlefieldUI.SetActive(false);
-
+        Debug.Log("WorldScene test ");
       //  TownCanvas.SetActive(true);
 
         //
@@ -110,6 +113,31 @@ public class SceneManger : MonoBehaviour
     public void LoadUpTown()
     {
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+    }
+
+    public void LoadUpOver(int Int)
+    {
+        Debug.Log("Leaving Overworld SceneManger");
+        SceneManager.UnloadSceneAsync(1);
+        SceneManager.LoadSceneAsync(Int, LoadSceneMode.Additive);
+        return;
+    }
+
+    public void LoadUpOverworld()
+    {
+        if(gettingTooverworld == true)
+        {
+            SceneManager.LoadSceneAsync(6, LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync(1, UnloadSceneOptions.None);
+            Debug.Log("left town");
+            gettingTooverworld = false;
+            return;
+        }
+        else
+        {
+            return;
+        }
+
     }
 
 
