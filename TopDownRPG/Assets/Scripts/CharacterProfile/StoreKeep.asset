@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940dc4e8792bef74196387fe7f0e0399, type: 3}
+  m_Name: StoreKeep
+  m_EditorClassIdentifier: 
+  myName: Merchant
+  myPortrait: {fileID: 21300000, guid: a446367a83023484e8d1f912695bf463, type: 3}
+  myCharacterModel: {fileID: 5276411614636154884, guid: 858554b5ac153f84598c5476a56d7fb9,
+    type: 3}
+  DB:
+  - {fileID: 11400000, guid: 678b32cbaaa1d5646bc15823a362db42, type: 2}
+  index: 0
+  nextDialogueOnInteract: 0
+  HasCompletedQuest: 0
+  CompletedQuestDialogue: {fileID: 0}
+  hasActiveQuest: 0
+  dialogueQuests: []
+  hasActiveDialogueEvent: 0
+  targetIndex: 0
+  targetLine: 0
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls: []

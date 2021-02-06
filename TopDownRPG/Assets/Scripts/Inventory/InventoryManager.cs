@@ -95,6 +95,25 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    public void StoreInventory()
+    {
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
+        if (inventoryUI.activeSelf == true)
+        {
+
+            firstButton.Select();
+            ForceSelect(firstButton);//this forces a select box
+            HeroSelector = 0;
+            HeroUI();
+            inInventory = true;
+
+        }
+        else
+        {
+            inInventory = false;
+        }
+    }
+
     public IEnumerator InventoryPopUp ()
     {
         yield return new WaitForSeconds(.001f);

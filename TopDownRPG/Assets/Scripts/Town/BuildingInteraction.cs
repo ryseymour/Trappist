@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public enum BuildingType {castle, guardTower, house, huntersLodge, tavern}
+public enum BuildingType {castle, guardTower, house, huntersLodge, tavern, store}
 
 
 public class BuildingInteraction : MonoBehaviour
@@ -39,6 +39,13 @@ public class BuildingInteraction : MonoBehaviour
                     break;
                 }
 
+            case BuildingType.store:
+                {
+                    myBuilding = TownManager.instance.town.buildings[5];
+                    Debug.Log(myBuilding);
+                    break;
+                }
+
         }
 
     }
@@ -69,10 +76,10 @@ public class BuildingInteraction : MonoBehaviour
 
 
     public void LoadBuildingData(Building _building){
-        Debug.Log("Loaded: " + _building.buildingName + "\nCharacter 1: " + _building.inBuildingCharactersScene1[0] +
+      /*  Debug.Log("Loaded: " + _building.buildingName + "\nCharacter 1: " + _building.inBuildingCharactersScene1[0] +
          "\nCharacter 2: " + _building.inBuildingCharactersScene1[1] +
          "\nCharacter 3: " + _building.inBuildingCharactersScene1[2] +
-         "\nCharacter 4: " + _building.inBuildingCharactersScene1[3]);
+         "\nCharacter 4: " + _building.inBuildingCharactersScene1[3]);*/
 
         if(InsideManager.instance.imInside == false)
         {

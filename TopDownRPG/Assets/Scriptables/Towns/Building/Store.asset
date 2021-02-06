@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7ff333aa342c5a41a54112f8f9fd660, type: 3}
-  m_Name: HuntersLodge
+  m_Name: Store
   m_EditorClassIdentifier: 
-  buildingName: Hunter
+  buildingName: Store
   buildSprite: {fileID: 0}
   buildingBackground: {fileID: 0}
   rooms: []
-  buildingModel: {fileID: 8817765624956164561, guid: 469626d943c902a45beddfbdfbe253fd,
+  buildingModel: {fileID: 7744558380763108326, guid: 2db961480264f554f84395049d701f51,
     type: 3}
   descriptionText: 
   inBuildingCharactersScene1:
-  - {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
-  - {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
-  - {fileID: 11400000, guid: e8e929d690250e3428ce862eab487861, type: 2}
   - {fileID: 11400000, guid: dc803c80568a23c46a0889474ec3e4dd, type: 2}
   inBuildingCharactersScene2: []
   inBuildingCharactersScene3: []
