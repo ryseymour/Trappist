@@ -15,6 +15,8 @@ public class Move : ScriptableObject
     public bool targetEnemy;//if false then target is 
 
     public UnityEvent itemEvent;
+
+    //item to instantiate for animation. 
     public GameObject animationSprite;
 
     public Move thisMove;
@@ -24,10 +26,6 @@ public class Move : ScriptableObject
     //animation?
     //level?
 
-    //Cole Add
-
-    public void TestMove(){
-        Debug.Log("test function in move");
-    }
+  
 
 }

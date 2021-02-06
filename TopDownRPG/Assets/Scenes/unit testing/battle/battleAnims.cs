@@ -9,12 +9,12 @@ public class battleAnims : MonoBehaviour
 {
 
     public Battler myBattler;
-    public List <Battler> party = new List<Battler>();
-    public List <GameObject> partyObj = new List<GameObject>();
+    public List <Battler> party = new List<Battler>();//these need to be loaded in from somewhere
+    public List <GameObject> partyObj = new List<GameObject>(); //just the object in the scene, custom models per character eventually
 
-    public List <Battler> enemies = new List<Battler>();
-    public List <GameObject> enemyObj = new List<GameObject>();
-    // Start is called before the first frame update
+    public List <Battler> enemies = new List<Battler>(); //these need to be loaded in from somewhere
+    public List <GameObject> enemyObj = new List<GameObject>(); //just the object in the scene, custom models per character eventually
+
 
     public GameObject floatText;
 
@@ -25,77 +25,121 @@ public class battleAnims : MonoBehaviour
     public bool b_selectParty, b_selectEnemy, b_selectMove;
 
     //bool to check if using physical attacks or abilities
-    public bool attackReady, abilityReady, itemReady;
+    public bool attackReady, abilityReady, itemReady, battleEnd;
    
     public Button[] moveButtons;
     public GameObject actionPanel;
-    public GameObject battleInfo;
+    public GameObject battleInfo, endPanel;
+    
+    public Item[] loot;
+    public GameObject[] lootUI; //preset UI elements, -text - image
 
     PhyAttack selectedAttack;
     Ability selectedAbility;
 
-    void Start()
+    void Awake()
     {
-        battleInfo.GetComponent<BattleInfo>().SelectParty();
-        b_selectParty = true;
+        BattleInit();     
+    }
+
+    void SetEnemyHealth(){
+        foreach(Battler enemy in enemies){
+            enemy.mycurrentHealth = enemy.myHealth;
+        }
+    }
+
+    void BattleInit(){
+        //need a function to load in rosters
+            //need to create the appropriate number of enemies (maybe just activate them) 
+        //need to load in loot list 
+         b_selectParty = true;// this is what triggers the start of the battle loop
+
         i_partySelect = 0; //the int we use to track our position in the party list
         i_enemySelect = 0;//ditto
-        i_partySelect_2 = 0;
+        i_partySelect_2 = 0;//ditto
+
         SelectArrow(partyObj[0]);
         b_selectEnemy = false;
         b_selectMove = false;
-        DisableMoves();
-        actionPanel.SetActive(false);
-        //moveButtons[0].onClick.AddListener(() => {BasicAttack(party[i_partySelect], enemies[i_enemySelect]); }); //basic attack needs multiple parameters and will 
+
+        DisableMoves();        
+        DisableMoves(true);
+        SetEnemyHealth();
+        
+        //UI
+        actionPanel.SetActive(false); //UI
+        battleInfo.GetComponent<BattleInfo>().SelectParty();
+        battleInfo.GetComponent<BattleInfo>().ClearTargetInfo();
+        battleEnd = false;      
     }
 
     // Update is called once per frame
     void Update()
-    {     
-    
+    {         
         if(b_selectParty){
             SelectParty();
         }else if(b_selectMove){
             if(!attackReady && !abilityReady && !itemReady){
                  actionPanel.SetActive(true);
-            }               
-           // PopulateMoves(party[i_partySelect]);
+            }            
         }else if(b_selectEnemy){         
-                SelectEnemy();             
+            SelectEnemy();             
         }
       }
 
 
-
+//party/target Selection
     void SelectParty(){
-        if(Input.GetKeyDown(KeyCode.LeftArrow)){
-            print("left arrow " + i_partySelect );
+        if(Input.GetKeyDown(KeyCode.LeftArrow)){         
             UnselectArrow(partyObj[i_partySelect]);
-            if(i_partySelect == 0){
-                print("Left arrow detects 0");
-                i_partySelect = partyObj.Count-1;
+            if(i_partySelect == 0){               
+                i_partySelect = partyObj.Count-1;                
             }else{
                 i_partySelect -= 1;
             }
             SelectArrow(partyObj[i_partySelect]);
+            battleInfo.GetComponent<BattleInfo>().DisplayPartyCharacter(party[i_partySelect]);
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow)){
-            print("right arrow");
+        if(Input.GetKeyDown(KeyCode.RightArrow)){           
             UnselectArrow(partyObj[i_partySelect]);
             if(i_partySelect == partyObj.Count-1){
                 i_partySelect = 0;
             }else{
                 i_partySelect += 1;
             }  
-            SelectArrow(partyObj[i_partySelect]);   
+            SelectArrow(partyObj[i_partySelect]);
+            battleInfo.GetComponent<BattleInfo>().DisplayPartyCharacter(party[i_partySelect]);   
+          
         }
-
-        if(Input.GetKeyDown(KeyCode.Return)){
-            b_selectMove = true;
-            b_selectParty = false;
-            print("end party select, begin enemy select");         
+        battleInfo.GetComponent<BattleInfo>().DisplayPartyCharacter(party[i_partySelect]);   
+        if(Input.GetKeyDown(KeyCode.Return)){           
+            print("end party select, begin action select");       
+            SelectPartyPiece(partyObj[i_partySelect]);            
         }
     }
+
+    public void ClickPiece(GameObject obj){
+        if(b_selectParty){
+            print(partyObj.IndexOf(obj));
+        }
+    }
+    //this fires when you click on the player piece
+    public void SelectPartyPiece(GameObject obj){
+       if(b_selectParty){          
+            UnselectArrow(partyObj[i_partySelect]);
+            //setting the integer of the party select is important because the variable runs other stuff, maybe clean that up eventually 
+            i_partySelect = partyObj.IndexOf(obj); //reset the integer holding the selected party member, this is used for later damage calculations
+            SelectArrow(partyObj[i_partySelect]); //move the selected arrow to the object you clicked
+            obj.transform.GetChild(0).gameObject.GetComponent<BattlePiece>().activeSelect = false; ///change the "active" selector for the arrow object
+            battleInfo.GetComponent<BattleInfo>().action.text = "Select action";
+            b_selectMove = true;
+            b_selectParty = false;
+        }else{
+            print("else statement");
+        }        
+    }
+    
+
 
     void SelectPartyTarget(){
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
@@ -116,21 +160,23 @@ public class battleAnims : MonoBehaviour
             }else{
                 i_partySelect_2 += 1;
             }  
-            SelectArrow(partyObj[i_partySelect_2]);   
+            SelectArrow(partyObj[i_partySelect_2]);
         }
 
+        battleInfo.GetComponent<BattleInfo>().DisplayTargetCharacter(party[i_partySelect_2]);
+        
         if(Input.GetKeyDown(KeyCode.Return)){
             UnselectArrow(enemyObj[i_enemySelect]);
             UnselectArrow(partyObj[i_partySelect]);
-             UnselectArrow(partyObj[i_partySelect_2]);
+            UnselectArrow(partyObj[i_partySelect_2]);
             DisableMoves(true);
             StartCoroutine(playerRearm());
+            partyObj[i_partySelect].transform.GetChild(0).gameObject.GetComponent<BattlePiece>().activeSelect = false;
             print("party target selected, applying effect");         
         }
     }
 
-    void SelectEnemy(){        
-
+    void SelectEnemy(){     
         if(selectedAbility != null && !selectedAbility.targetEnemy){           
             SelectPartyTarget();
         }else{
@@ -153,91 +199,45 @@ public class battleAnims : MonoBehaviour
                 }  
                 SelectArrow(enemyObj[i_enemySelect]);   
             }
+            //Show target info
+            battleInfo.GetComponent<BattleInfo>().DisplayTargetCharacter(enemies[i_enemySelect]);
 
             if(Input.GetKeyDown(KeyCode.Return)){
                 b_selectEnemy = false;      
-                
-                if(attackReady)
-                    ExecuteAttack(selectedAttack);
-                if(abilityReady)
-                    ExecuteAbility(selectedAbility);
-                //if(abilityReady)                    
+         
                 print("end enemy select, begin move select");
                 UnselectArrow(enemyObj[i_enemySelect]);
                 UnselectArrow(partyObj[i_partySelect]);
                 DisableMoves(true);
+                if(attackReady)
+                    ExecuteAttack(selectedAttack);
+                if(abilityReady)
+                    ExecuteAbility(selectedAbility);
                 //some kind of delay and then re-enable party select and the select arrow
                 IEnumerator delay = playerRearm(2.0f);
-                StartCoroutine(delay);
-            
+                StartCoroutine(delay);            
             }
         }
-
     }
 
+    public void SelectEnemyPiece(GameObject obj){
+        if(b_selectEnemy){
+            //i_partySelect = partyObj.IndexOf(obj);
+            print("running enemy piece select");
+            i_enemySelect = enemyObj.IndexOf(obj);
 
-
-    void DisableMoves(bool hide = false){
-        foreach(Button btn in moveButtons){
-            btn.interactable = false;
-            if(hide)
-                btn.gameObject.SetActive(false);
-        }
-    
-    }
-
-    void EnableMoves(){
-        foreach(Button btn in moveButtons){
-            btn.interactable = true;
-            btn.gameObject.SetActive(true);
-        }      
-    }
-
-    //basic attack should be locked in
-    void PopulateMoves(Battler battler){   
-        for(int i=1; i < battler.myAbilities.Count; i++){
-            moveButtons[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = battler.myAbilities[i-1].myName;          
-        }
-        EnableMoves();
-    }
-
-
-    //handles the actual moment the button gets clicked
-    public void SelectMove(int val){
-        if(abilityReady){
-            print(party[i_partySelect].myAbilities[val]);
-            selectedAbility = party[i_partySelect].myAbilities[val];
-            if(selectedAbility.targetEnemy)
-                SelectArrow(enemyObj[i_enemySelect]);                
-        }
-
-        if(attackReady){
-            print(party[i_partySelect].myPhyattacks[val]);
-            selectedAttack = party[i_partySelect].myPhyattacks[val];
-            SelectArrow(enemyObj[i_enemySelect]);
-        }
-       
-        DisableMoves();
-        b_selectEnemy = true;
-        b_selectMove = false;        
-    }
-
-
-    public void ExecuteAttack(PhyAttack t){
-        print(t.myName + " attack does " + t.Damage + " damage");
-        t.AttackAnim( enemyObj[i_enemySelect]);
-        AddText(t.Damage.ToString(), enemyObj[i_enemySelect]);
-    }
-
-    public void ExecuteAbility(Ability _a){
-        if(!_a.targetEnemy){
-            print("this should heal");
+            UnselectArrow(enemyObj[i_enemySelect]);
+            UnselectArrow(partyObj[i_partySelect]);
+            DisableMoves(true);
+            if(attackReady)
+                ExecuteAttack(selectedAttack);
+            if(abilityReady)
+                ExecuteAbility(selectedAbility);
+            //some kind of delay and then re-enable party select and the select arrow
+            IEnumerator delay = playerRearm(2.0f);
+            StartCoroutine(delay);         
         }
     }
-
- 
-
-   
 
     void UnselectArrow(GameObject obj){
         obj.transform.GetChild(0).gameObject.SetActive(false);
@@ -247,6 +247,93 @@ public class battleAnims : MonoBehaviour
         obj.transform.GetChild(0).gameObject.SetActive(true);
     }
 
+    void ClearEnemySelector(){
+        for(int i=0; i<enemyObj.Count; i++){
+            UnselectArrow(enemyObj[i]);
+        }
+    }
+//end party/target selection
+
+
+    //hide to disable button object, !hide if just disable
+    void DisableMoves(bool hide = false){
+        foreach(Button btn in moveButtons){
+            btn.interactable = false;
+            if(hide)
+                btn.gameObject.SetActive(false);
+        }
+    
+    }
+
+    //handles the actual moment the button gets clicked, val is assigned on the button
+    public void SelectMove(int val){
+        if(abilityReady){            
+            selectedAbility = party[i_partySelect].myAbilities[val];
+            if(selectedAbility.targetEnemy)
+                SelectArrow(enemyObj[i_enemySelect]);                
+        }
+
+        if(attackReady){            
+            selectedAttack = party[i_partySelect].myPhyattacks[val];
+            SelectArrow(enemyObj[i_enemySelect]);
+        }
+        battleInfo.GetComponent<BattleInfo>().action.text = "select target";
+        DisableMoves(); 
+        b_selectEnemy = true;
+        b_selectMove = false;        
+    }
+
+
+
+//Combat Logic
+    public void ExecuteAttack(PhyAttack t){
+        print(t.myName + " attack does " + t.Damage + " damage");
+        t.AttackAnim( enemyObj[i_enemySelect]);
+        AddText(t.Damage.ToString(), enemyObj[i_enemySelect]);
+        battleInfo.GetComponent<BattleInfo>().action.text = "";
+        //actually do damage to target battler
+        t.Attack(enemies[i_enemySelect]);
+        battleInfo.GetComponent<BattleInfo>().DisplayTargetCharacter(enemies[i_enemySelect]);
+        CheckTargetHealth(enemies[i_enemySelect]);
+    }
+
+    public void ExecuteAbility(Ability _a){
+        if(!_a.targetEnemy){
+            print("this should heal");
+        }
+    }
+
+    void CheckTargetHealth(Battler target){
+        if(target.mycurrentHealth <= 0){
+            print("" + target.myName + " has died");
+            enemies.Remove(target);
+            enemyObj[i_enemySelect].SetActive(false);
+            enemyObj.Remove(enemyObj[i_enemySelect]);
+            i_enemySelect = 0;
+        }
+    }
+
+    void CheckVictory(){
+        if(enemies.Count == 0){
+            print("you win my dude");
+            battleEnd = true;
+            endPanel.SetActive(true);
+            endPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Glorious Victory";
+            PopulateLoot();
+        }
+    }
+
+    void PopulateLoot(){
+        for(int i=0; i<loot.Length; i++){
+                print(loot[i]);
+                lootUI[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = loot[i].myName;
+                lootUI[i].transform.GetChild(1).GetComponent<Image>().sprite = loot[i].myIcon;
+        }
+        //need an exit function
+    }
+
+
+//animation
 
     void AddText(string txt, GameObject obj){
         floatText.GetComponent<TextMesh>().text = "" + txt;
@@ -254,17 +341,26 @@ public class battleAnims : MonoBehaviour
     }
 
 
-    void ClearEnemySelector(){
-        for(int i=0; i<enemyObj.Count; i++){
-            UnselectArrow(enemyObj[i]);
-        }
-    }
 
-    IEnumerator playerRearm(float t=2){
+//Battle UI
+
+
+    
+
+    IEnumerator playerRearm(float t=2){    
+        CheckVictory();
         yield return new WaitForSeconds(t);
-        b_selectParty = true;
-        i_partySelect = 0;
-        SelectArrow(partyObj[i_partySelect]);
+        if(!battleEnd){
+            battleInfo.GetComponent<BattleInfo>().ClearPlayerInfo();
+            battleInfo.GetComponent<BattleInfo>().ClearTargetInfo();
+            battleInfo.GetComponent<BattleInfo>().action.text = "Select party member";
+            b_selectParty = true;
+            i_partySelect = 0;
+            SelectArrow(partyObj[i_partySelect]);
+        }else{
+
+        }
+
         attackReady = false;
         abilityReady = false;
         itemReady = false;
@@ -273,6 +369,7 @@ public class battleAnims : MonoBehaviour
     }
 
     public void PopulatePhysAttacks(){
+        battleInfo.GetComponent<BattleInfo>().action.text = "Select attack";
         attackReady = true;
         abilityReady = false;
         itemReady = false;
@@ -286,6 +383,7 @@ public class battleAnims : MonoBehaviour
     }
 
     public void PopulateAbilities(){
+        battleInfo.GetComponent<BattleInfo>().action.text = "Select ability";
         abilityReady = true;
         attackReady = false;
         itemReady = false;
@@ -295,11 +393,12 @@ public class battleAnims : MonoBehaviour
             moveButtons[i].gameObject.SetActive(true);
             moveButtons[i].interactable = true; 
         }
-    }
+    } 
 
     public void BackButton(){
         if(b_selectMove && !attackReady && !abilityReady){
             b_selectParty = true;
+            battleInfo.GetComponent<BattleInfo>().action.text = "select party member";       
             b_selectMove = false;
         }else if(abilityReady){
             if(selectedAbility != null){
@@ -323,6 +422,7 @@ public class battleAnims : MonoBehaviour
                 selectedAttack = null;
             }else{
                 DisableMoves(true);
+                battleInfo.GetComponent<BattleInfo>().action.text = "Select action";
                 attackReady = false;
             }              
         }else if(itemReady){
@@ -330,8 +430,7 @@ public class battleAnims : MonoBehaviour
             DisableMoves(true);
         }else{
             print("nothing assigned to go back from");
-        }
-            
+        }            
     }
 
 }

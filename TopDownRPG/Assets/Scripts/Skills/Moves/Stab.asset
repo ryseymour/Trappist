@@ -15,7 +15,7 @@ MonoBehaviour:
   myName: Stab
   myDescription: stab, stab, stab
   myIcon: {fileID: 0}
-  Damage: 10
+  Damage: 3
   CritD: 5
   Multiple: 0
   teamBuff: 0

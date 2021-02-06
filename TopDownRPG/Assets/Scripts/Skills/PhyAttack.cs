@@ -9,7 +9,11 @@ public class PhyAttack : Move
 
 
     public void AttackAnim(GameObject target){    
-        Debug.Log(Damage + " to " + target);
+        //Debug.Log(Damage + " damage done to " + target);
         Instantiate(animationSprite, target.transform.position, Quaternion.identity);
+    }
+
+    public void Attack(Battler target){
+        target.mycurrentHealth -= Damage;
     }
 }
