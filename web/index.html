@@ -627,6 +627,15 @@ const SLOT_COLORS={ // FBX material slot -> Unity material colour
   "Material.008":"#3f7d3a","Material.007":"#5a3a22","Material.010":"#e3dfd3","Material.011":"#3a3a3a","Material.012":"#d9a441",
   "Material.003":"#7d4128",
 };
+const SLOT_TEX={ // FBX material slot -> the albedo map it carries (the tavern reuses two slots)
+  "Material.013":"riverstonebrick.lowpoly","Material.016":"glass","Material.020":"glass","Material.021":"glass",
+  "Material.017":"Plaster1","Material.022":"Plaster1","Material.026":"Plaster1","Material.019":"WoodTexture.1","Material.024":"WoodTexture.1",
+  "Material.023":"grassroof","Material.028":"roof.1","Material.029":"WoodFlooring",
+};
+const TEX_TINT={ // Unity material _Color for each albedo map
+  "Plaster1":"#ffffff","WoodFlooring":"#ffffff","WoodTexture.1":"#7b5234","glass":"#ffffff",
+  "grassroof":"#977e5d","riverstonebrick.lowpoly":"#ffffff","roof.1":"#6f6f6f",
+};
 function b64buf(b64){ const bin=atob(b64); const u=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return u.buffer; }
 function flipWinding(geo){
   if(geo.index){ const a=geo.index.array; for(let i=0;i<a.length;i+=3){ const t=a[i+1]; a[i+1]=a[i+2]; a[i+2]=t; } geo.index.needsUpdate=true; return; }
@@ -641,7 +650,7 @@ function bakeModel(root, remap){
     const geo=m.geometry.clone(); geo.applyMatrix4(m.matrixWorld);
     if(m.matrixWorld.determinant()<0) flipWinding(geo);
     const src=Array.isArray(m.material)?m.material:[m.material];
-    const mats=src.map(x=>remap(x.name,m.name));
+    const mats=src.map(x=>remap(x.name,m.name,x));
     parts.push({name:m.name, geo, mat:Array.isArray(m.material)?mats:mats[0]});
   });
   const box=new THREE.Box3(); parts.forEach(p=>{ p.geo.computeBoundingBox(); box.union(p.geo.boundingBox); });
@@ -666,13 +675,19 @@ const mat2Cache={};
 function mat2(color, opts={}){ const k=color+JSON.stringify(opts); return mat2Cache[k] ||= new THREE.MeshLambertMaterial({color, flatShading:true, ...opts}); }
 async function loadModels(){
   const src=window.TRAPPIST_FBX; if(!src) return false;
-  const mgr=new THREE.LoadingManager(); mgr.setURLModifier(()=>'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');
+  // Texture paths inside the FBX files point at the Unity Materials folder; serve the packed copies instead.
+  const TEX=window.TRAPPIST_TEX||{};
+  const mgr=new THREE.LoadingManager(); mgr.setURLModifier(url=>TEX[url.split(/[\\/]/).pop()]||'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==');
   const loader=new FBXLoader(mgr);
   for(const name of Object.keys(src)){
     try{
       const root=loader.parse(b64buf(src[name]), '');
-      MODELS[name==="character.pieces_R"?"char":name==="Room1fbx"?"room":name]=bakeModel(root,(slot,mesh)=>{
+      MODELS[name==="character.pieces_R"?"char":name==="Room1fbx"?"room":name]=bakeModel(root,(slot,mesh,srcMat)=>{
         if(name==="character.pieces_R") return mat2(mesh==="Cube"?"#476edb":"#7d4128");
+        const tex=srcMat&&srcMat.map;
+        const texName=(name==="tavern"&&{"Material.023":"roof.1","Material.026":"riverstonebrick.lowpoly"}[slot])||SLOT_TEX[slot];
+        if(tex&&texName){ tex.colorSpace=THREE.SRGBColorSpace; tex.anisotropy=4;
+          return new THREE.MeshLambertMaterial({map:tex, color:TEX_TINT[texName], side:name==="Room1fbx"?THREE.DoubleSide:THREE.FrontSide}); }
         if(name==="tavern"&&(slot==="Material.027"||slot==="Material.023")) return mat2("#5d6470");
         if(name==="tavern"&&slot==="Material.018") return mat2("#9e968a");
         if(name==="tree_ash"&&slot==="Material.010") return mat2("#e3dfd3");
